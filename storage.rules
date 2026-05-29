@@ -9,5 +9,9 @@ service firebase.storage {
     match /assets/{assetType}/{fileName} {
       allow read, write: if true;
     }
+
+    match /catalogue/{allPaths=**} {
+      allow read, write: if true;
+    }
   }
 }

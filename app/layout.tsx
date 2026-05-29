@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Alternate Enterprises - Premium Luxury Tobacco Exports',
   description:
     'Discover premium luxury tobacco products from Alternate Enterprises. Expert crafted, globally sourced tobacco selections for discerning customers.',
-  keywords: ['tobacco', 'luxury', 'premium', 'exports', 'tobacco products'],
+  keywords: ['tobacco', 'luxury', 'premium', 'exports', 'tobacco products', 'Alternate Enterprises'],
   openGraph: {
     title: 'Alternate Enterprises - Premium Luxury Tobacco Exports',
     description:

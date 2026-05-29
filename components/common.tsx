@@ -8,13 +8,13 @@ interface SkeletonLoaderProps {
 
 export function SkeletonLoader({ count = 3, className = '' }: SkeletonLoaderProps) {
   return (
-    <div className={`space-y-4 ${className}`}>
+    <div className={`${className}`}>
       {Array.from({ length: count }).map((_, i) => (
         <motion.div
           key={i}
-          className="bg-gray-200 rounded-lg h-64"
-          animate={{ opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          className="bg-white/5 backdrop-blur-sm border border-premium-gold/10 rounded-lg h-96 shimmer"
+          animate={{ opacity: [0.4, 0.7, 0.4] }}
+          transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.15 }}
         />
       ))}
     </div>
@@ -31,17 +31,17 @@ export function ErrorDisplay({ error, onDismiss }: ErrorBoundaryProps) {
 
   return (
     <motion.div
-      className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-800"
+      className="bg-red-900/20 border border-red-500/30 rounded-lg p-4 text-red-300 backdrop-blur-sm"
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
     >
-      <p className="font-semibold">Error</p>
-      <p className="text-sm mt-1">{error}</p>
+      <p className="font-semibold text-sm">Error</p>
+      <p className="text-sm mt-1 text-red-400">{error}</p>
       {onDismiss && (
         <button
           onClick={onDismiss}
-          className="text-sm mt-3 text-red-600 hover:text-red-800 font-medium"
+          className="text-sm mt-3 text-red-400 hover:text-red-300 font-medium transition-colors"
         >
           Dismiss
         </button>
@@ -61,12 +61,17 @@ export function SuccessMessage({
 }: SuccessMessageProps) {
   return (
     <motion.div
-      className="fixed top-4 right-4 bg-green-50 border border-green-200 rounded-lg p-4 text-green-800 shadow-lg"
-      initial={{ opacity: 0, y: -20 }}
-      animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+      className="fixed top-20 right-4 bg-green-900/80 backdrop-blur-sm border border-green-500/30 rounded-lg p-4 text-green-300 shadow-xl z-50"
+      initial={{ opacity: 0, y: -20, x: 20 }}
+      animate={show ? { opacity: 1, y: 0, x: 0 } : { opacity: 0, y: -20, x: 20 }}
       transition={{ duration: 0.3 }}
     >
-      <p className="font-semibold">{message}</p>
+      <div className="flex items-center gap-2">
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+        </svg>
+        <p className="font-semibold text-sm">{message}</p>
+      </div>
     </motion.div>
   )
 }

@@ -31,7 +31,7 @@ export function ContactForm() {
   return (
     <motion.form
       onSubmit={handleSubmit}
-      className="space-y-6 max-w-2xl mx-auto"
+      className="space-y-5 max-w-2xl mx-auto"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -42,8 +42,8 @@ export function ContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-            Name
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
+            Name <span className="text-premium-gold">*</span>
           </label>
           <input
             type="text"
@@ -51,14 +51,14 @@ export function ContactForm() {
             name="name"
             required
             disabled={loading}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent disabled:bg-gray-100"
-            placeholder="Your name"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold bg-white disabled:bg-gray-50 text-sm"
+            placeholder="Your full name"
           />
         </div>
 
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-            Company
+          <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1.5">
+            Company <span className="text-premium-gold">*</span>
           </label>
           <input
             type="text"
@@ -66,7 +66,7 @@ export function ContactForm() {
             name="company"
             required
             disabled={loading}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent disabled:bg-gray-100"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold bg-white disabled:bg-gray-50 text-sm"
             placeholder="Company name"
           />
         </div>
@@ -74,8 +74,8 @@ export function ContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-            Email
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
+            Email <span className="text-premium-gold">*</span>
           </label>
           <input
             type="email"
@@ -83,14 +83,14 @@ export function ContactForm() {
             name="email"
             required
             disabled={loading}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent disabled:bg-gray-100"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold bg-white disabled:bg-gray-50 text-sm"
             placeholder="your@email.com"
           />
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-            Phone
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
+            Phone <span className="text-premium-gold">*</span>
           </label>
           <input
             type="tel"
@@ -98,7 +98,7 @@ export function ContactForm() {
             name="phone"
             required
             disabled={loading}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent disabled:bg-gray-100"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold bg-white disabled:bg-gray-50 text-sm"
             placeholder="+1 (555) 000-0000"
           />
         </div>
@@ -106,8 +106,8 @@ export function ContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
-            Country
+          <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1.5">
+            Country <span className="text-premium-gold">*</span>
           </label>
           <input
             type="text"
@@ -115,21 +115,21 @@ export function ContactForm() {
             name="country"
             required
             disabled={loading}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent disabled:bg-gray-100"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold bg-white disabled:bg-gray-50 text-sm"
             placeholder="Country"
           />
         </div>
 
         <div>
-          <label htmlFor="inquiryType" className="block text-sm font-medium text-gray-700 mb-2">
-            Inquiry Type
+          <label htmlFor="inquiryType" className="block text-sm font-medium text-gray-700 mb-1.5">
+            Inquiry Type <span className="text-premium-gold">*</span>
           </label>
           <select
             id="inquiryType"
             name="inquiryType"
             required
             disabled={loading}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent disabled:bg-gray-100"
+            className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold bg-white disabled:bg-gray-50 text-sm"
           >
             <option value="">Select type...</option>
             <option value="bulk_order">Bulk Order</option>
@@ -141,8 +141,8 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-          Message
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
+          Message <span className="text-premium-gold">*</span>
         </label>
         <textarea
           id="message"
@@ -150,7 +150,7 @@ export function ContactForm() {
           required
           disabled={loading}
           rows={5}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent disabled:bg-gray-100"
+          className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold bg-white disabled:bg-gray-50 text-sm resize-none"
           placeholder="Tell us about your inquiry..."
         />
       </div>
@@ -158,12 +158,12 @@ export function ContactForm() {
       <motion.button
         type="submit"
         disabled={loading}
-        className="w-full bg-premium-gold text-premium-dark font-semibold py-3 rounded-lg hover:bg-yellow-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="w-full btn-gold text-sm py-3 disabled:opacity-50 disabled:cursor-not-allowed"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
         {loading ? (
-          <motion.span animate={{ opacity: [0.6, 1, 0.6] }} transition={{ duration: 1.5 }}>
+          <motion.span animate={{ opacity: [0.6, 1, 0.6] }} transition={{ duration: 1.5, repeat: Infinity }}>
             Sending...
           </motion.span>
         ) : (

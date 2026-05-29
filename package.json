@@ -9,11 +9,13 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "seed": "tsx scripts/seed-products.ts"
+    "seed": "tsx scripts/seed-products.ts",
+    "upload-catalogue": "tsx scripts/upload-catalogue.ts"
   },
   "dependencies": {
     "@dataconnect/generated": "file:src/dataconnect-generated",
     "firebase": "^10.7.0",
+    "firebase-admin": "^13.10.0",
     "framer-motion": "^11.0.0",
     "next": "^15.0.0",
     "react": "^19.0.0",
@@ -25,6 +27,7 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "autoprefixer": "^10.4.0",
+    "dotenv": "^17.4.2",
     "eslint": "^8.55.0",
     "eslint-config-next": "^15.0.0",
     "postcss": "^8.4.0",
