@@ -3,20 +3,24 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Catalogue', href: '/catalogue' },
-  { label: 'Collection', href: '/#featured' },
-  { label: 'Contact', href: '/contact' },
-]
+import { useSiteContent } from '@/context/SiteContent'
 
 export function Header() {
+  const { content } = useSiteContent()
+
+  const navLinks = [
+    { label: content.nav_home as string || 'Home', href: '/' },
+    { label: content.nav_offerings as string || 'Our Offerings', href: '/catalogue' },
+    { label: content.nav_contact as string || 'Contact', href: '/contact' },
+  ]
+
   return (
     <>
-      <div className="health-warning">
-        Tobacco products are not a safe alternative to cigarettes. This site is for B2B trade professionals only.
-      </div>
+      {(content.section_header_banner_visible as string) !== 'false' && content.header_health_warning && (
+        <div className="health-warning">
+          {content.header_health_warning as string || 'Tobacco products are not a safe alternative to cigarettes. This site is for B2B trade professionals only.'}
+        </div>
+      )}
       <motion.header
         className="bg-premium-dark/90 backdrop-blur-md text-white border-b border-premium-gold/10 sticky top-0 z-50"
         initial={{ opacity: 0 }}
@@ -33,10 +37,10 @@ export function Header() {
                 className="flex items-center gap-3"
               >
                 <div className="relative w-9 h-9">
-                  <Image src="/logo.png" alt="Alternate Enterprises" fill className="object-contain" />
+                  <Image src="/logo.png" alt={content.header_logo_alt as string || 'Alternate Enterprises'} fill className="object-contain" />
                 </div>
                 <span className="hidden sm:block text-[9px] uppercase tracking-[0.35em] text-premium-gold/50 mt-1">
-                  Premium Tobacco Exports
+                  {content.header_tagline as string || 'Strong Leaf, Strong Relationships'}
                 </span>
               </motion.div>
             </Link>
@@ -51,13 +55,6 @@ export function Header() {
                   {link.label}
                 </a>
               ))}
-              <motion.button
-                className="btn-gold text-xs px-5 py-2 tracking-wider uppercase"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                Get a Quote
-              </motion.button>
             </nav>
           </div>
         </div>
@@ -67,8 +64,27 @@ export function Header() {
 }
 
 export function Footer() {
+  const { content } = useSiteContent()
+
+  const productList = Array.isArray(content.footer_product_list)
+    ? content.footer_product_list
+    : ['FCV Tobacco', 'Burley Tobacco', 'Country Blend', 'Zimbabwe Cured']
+
+  const quickLinkRoutes: Record<string, string> = {
+    'About Us': '/about',
+    'Privacy Policy': '/privacy',
+    'Terms of Service': '/terms',
+    'FAQ': '/faq',
+  }
+
+  const quickLinks = Array.isArray(content.footer_quick_links)
+    ? content.footer_quick_links
+    : ['About Us', 'Privacy Policy', 'Terms of Service', 'FAQ']
+
   return (
-    <motion.footer
+    <>
+      {(content.section_footer_visible as string) !== 'false' && (
+        <motion.footer
       className="bg-premium-dark text-gray-400 border-t border-premium-gold/5"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -78,16 +94,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
           <div className="md:col-span-2">
             <h3 className="text-premium-gold font-bold tracking-[0.15em] mb-4 text-lg">
-              ALTERNATE ENTERPRISES
+              {content.footer_company_name as string || 'ALTERNATE ENTERPRISES'}
             </h3>
             <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
-              Premium luxury tobacco exports showcasing the finest selections from around the world.
+              {content.footer_description as string || 'Premium luxury tobacco exports showcasing the finest selections from around the world.'}
             </p>
           </div>
           <div>
-            <h4 className="text-white/80 text-sm mb-4 font-semibold">Products</h4>
+            <h4 className="text-white/80 text-sm mb-4 font-semibold">{content.footer_products_heading as string || 'Products'}</h4>
             <ul className="space-y-2.5 text-sm">
-              {['FCV Tobacco', 'Burley Tobacco', 'Country Blend', 'Zimbabwe Cured'].map((item) => (
+              {productList.map((item) => (
                 <li key={item}>
                   <span className="text-gray-500 hover:text-gray-300 cursor-pointer transition-colors">{item}</span>
                 </li>
@@ -95,20 +111,22 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white/80 text-sm mb-4 font-semibold">Quick Links</h4>
+            <h4 className="text-white/80 text-sm mb-4 font-semibold">{content.footer_quick_links_heading as string || 'Quick Links'}</h4>
             <ul className="space-y-2.5 text-sm">
-              {['About Us', 'Privacy Policy', 'Terms of Service', 'FAQ'].map((item) => (
+              {quickLinks.map((item) => (
                 <li key={item}>
-                  <span className="text-gray-500 hover:text-gray-300 cursor-pointer transition-colors">{item}</span>
+                  <Link href={quickLinkRoutes[item] || '/'} className="text-gray-500 hover:text-gray-300 transition-colors">
+                    {item}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h4 className="text-white/80 text-sm mb-4 font-semibold">Contact</h4>
+            <h4 className="text-white/80 text-sm mb-4 font-semibold">{content.footer_contact_heading as string || 'Contact'}</h4>
             <ul className="space-y-2.5 text-sm">
-              <li className="text-gray-500">info@alternateenterprises.com</li>
-              <li className="text-gray-500">+1 (555) 000-0000</li>
+              <li className="text-gray-500">{content.footer_email as string || 'info@alternateenterprises.com'}</li>
+              <li className="text-gray-500">{content.footer_phone as string || '+1 (555) 000-0000'}</li>
             </ul>
           </div>
         </div>
@@ -117,15 +135,15 @@ export function Footer() {
 
         <div className="space-y-4">
           <p className="text-[10px] text-gray-600 leading-relaxed text-center max-w-3xl mx-auto">
-            WARNING: These products are intended for use by adults 21 years or older.
-            Tobacco products are not safe and are addictive. This website is intended
-            for B2B trade professionals only. All products are for export purposes only.
+            {content.footer_health_warning as string || 'WARNING: These products are intended for use by adults 21 years or older. Tobacco products are not safe and are addictive. This website is intended for B2B trade professionals only. All products are for export purposes only.'}
           </p>
           <p className="text-xs text-center text-gray-600/80">
-            &copy; {new Date().getFullYear()} Alternate Enterprises. All rights reserved.
+            &copy; {new Date().getFullYear()} {content.footer_copyright as string || 'Alternate Enterprises. All rights reserved.'}
           </p>
         </div>
       </div>
     </motion.footer>
+      )}
+    </>
   )
 }

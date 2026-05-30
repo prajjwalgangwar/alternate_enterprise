@@ -3,14 +3,18 @@
 import { motion } from 'framer-motion'
 import { Header, Footer } from '@/components/Layout'
 import { ContactForm } from '@/components/ContactForm'
+import { useSiteContent } from '@/context/SiteContent'
 
 export default function ContactPage() {
+  const { content } = useSiteContent()
+
   return (
     <div className="min-h-screen flex flex-col bg-cream">
       <Header />
 
       <main className="flex-1">
         {/* Hero */}
+        {(content.section_hero_visible as string) !== 'false' && (content.contact_hero_heading_1 as string) && (
         <section className="relative py-20 sm:py-24 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04]" />
           <div className="absolute inset-0 bg-tobacco-pattern opacity-[0.07]" />
@@ -24,7 +28,7 @@ export default function ContactPage() {
               className="inline-flex items-center gap-2 border border-premium-gold/20 rounded-full px-4 py-1.5 text-premium-gold text-[10px] uppercase tracking-[0.3em] font-semibold mb-6"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-premium-gold shadow-[0_0_6px_rgba(212,175,55,0.6)]" />
-              Connect With Us
+              {content.contact_hero_badge as string || 'Connect With Us'}
             </motion.div>
 
             <motion.h1
@@ -33,8 +37,8 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
             >
-              <span className="text-white/90">Get In</span>{' '}
-              <span className="text-gradient-gold">Touch</span>
+              <span className="text-white/90">{content.contact_hero_heading_1 as string || 'Get In'}</span>{' '}
+              <span className="text-gradient-gold">{content.contact_hero_heading_2 as string || 'Touch'}</span>
             </motion.h1>
 
             <motion.p
@@ -43,11 +47,11 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.3 }}
             >
-              Interested in bulk orders, partnerships, or distribution?
-              Send us your inquiry and our team will respond within 24 hours.
+              {content.contact_hero_description as string || 'Interested in bulk orders, partnerships, or distribution? Send us your inquiry and our team will respond within 24 hours.'}
             </motion.p>
           </div>
         </section>
+        )}
 
         {/* Contact Form */}
         <section className="py-16 sm:py-20">
@@ -59,12 +63,10 @@ export default function ContactPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <h2 className="text-2xl sm:text-3xl font-bold text-premium-dark mb-4">
-                  Let&apos;s Start a Conversation
+                  {content.contact_section_heading as string || 'Let\u2019s Start a Conversation'}
                 </h2>
                 <p className="text-sm text-gray-500 leading-relaxed mb-8">
-                  Whether you&apos;re looking to place a bulk order, explore
-                  partnership opportunities, or discuss distribution rights —
-                  we&apos;re here to help.
+                  {content.contact_section_description as string || 'Whether you\u2019re looking to place a bulk order, explore partnership opportunities, or discuss distribution rights \u2014 we\u2019re here to help.'}
                 </p>
 
                 <div className="space-y-6">
@@ -75,8 +77,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-premium-dark">Email</h3>
-                      <p className="text-sm text-gray-500 mt-0.5">info@alternateenterprises.com</p>
+                      <h3 className="text-sm font-semibold text-premium-dark">{content.contact_email_label as string || 'Email'}</h3>
+                      <p className="text-sm text-gray-500 mt-0.5">{content.contact_email_value as string || 'info@alternateenterprises.com'}</p>
                     </div>
                   </div>
 
@@ -87,8 +89,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-premium-dark">Phone</h3>
-                      <p className="text-sm text-gray-500 mt-0.5">+1 (555) 000-0000</p>
+                      <h3 className="text-sm font-semibold text-premium-dark">{content.contact_phone_label as string || 'Phone'}</h3>
+                      <p className="text-sm text-gray-500 mt-0.5">{content.contact_phone_value as string || '+1 (555) 000-0000'}</p>
                     </div>
                   </div>
 
@@ -100,19 +102,18 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-premium-dark">Location</h3>
-                      <p className="text-sm text-gray-500 mt-0.5">Global Operations — Serving International Markets</p>
+                      <h3 className="text-sm font-semibold text-premium-dark">{content.contact_location_label as string || 'Location'}</h3>
+                      <p className="text-sm text-gray-500 mt-0.5">{content.contact_location_value as string || 'Global Operations \u2014 Serving International Markets'}</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-10 p-5 bg-premium-dark/5 rounded-lg border border-premium-gold/10">
                   <p className="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-semibold mb-2">
-                    B2B Trade Only
+                    {content.contact_info_box_label as string || 'B2B Trade Only'}
                   </p>
                   <p className="text-xs text-gray-500 leading-relaxed">
-                    All inquiries are handled by our trade team. We respond to
-                    bulk order and partnership requests within 24 hours.
+                    {content.contact_info_box_text as string || 'All inquiries are handled by our trade team. We respond to bulk order and partnership requests within 24 hours.'}
                   </p>
                 </div>
               </motion.div>
@@ -129,15 +130,15 @@ export default function ContactPage() {
         </section>
 
         {/* Health Warning */}
+        {(content.section_health_warning_visible as string) !== 'false' && content.contact_health_warning && (
         <section className="bg-premium-dark border-t border-premium-gold/5">
           <div className="max-w-4xl mx-auto px-4 py-8 text-center">
             <p className="text-[9px] text-gray-600 leading-relaxed uppercase tracking-[0.2em]">
-              SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease,
-              emphysema, and complications during pregnancy. This site is for B2B
-              trade professionals only. Must be 21+ to access.
+              {content.contact_health_warning as string || 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.'}
             </p>
           </div>
         </section>
+        )}
       </main>
 
       <Footer />

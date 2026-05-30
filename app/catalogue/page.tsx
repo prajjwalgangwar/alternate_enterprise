@@ -1,19 +1,28 @@
 'use client'
 
-            import { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Header, Footer } from '@/components/Layout'
 import { useProducts } from '@/hooks/useProducts'
 import { SkeletonLoader } from '@/components/common'
 import Image from 'next/image'
-
-const categories = ['All', 'FCV Tobacco', 'Burley Tobacco', 'Country Blend', 'Zimbabwe Cured']
+import { useSiteContent } from '@/context/SiteContent'
 
 export default function CataloguePage() {
   const { products, loading, error } = useProducts()
+  const { content } = useSiteContent()
   const [activeCategory, setActiveCategory] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set())
+
+  const categories = Array.isArray(content.catalogue_categories)
+    ? content.catalogue_categories
+    : ['All', 'FCV Tobacco', 'Burley Tobacco', 'Country Blend', 'Zimbabwe Cured']
+
+  const specNico = content.catalogue_spec_nico as string || 'Nico'
+  const specSugar = content.catalogue_spec_sugar as string || 'Sugar'
+  const specBody = content.catalogue_spec_body as string || 'Body'
+  const specColor = content.catalogue_spec_color as string || 'Color'
 
   const handleImageError = useCallback((productId: string) => {
     setFailedImages((prev) => new Set(prev).add(productId))
@@ -87,7 +96,7 @@ export default function CataloguePage() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search products..."
+                  placeholder={content.catalogue_search_placeholder as string || 'Search products...'}
                   className="w-full pl-8 pr-3 py-1.5 text-xs bg-tobacco-50 border border-tobacco-100 rounded-full focus:outline-none focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold placeholder:text-gray-400"
                 />
               </div>
@@ -102,12 +111,12 @@ export default function CataloguePage() {
               <SkeletonLoader count={6} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" />
             ) : error ? (
               <div className="text-center py-16">
-                <p className="text-gray-500">Unable to load products at this time.</p>
+                <p className="text-gray-500">{content.catalogue_error_message as string || 'Unable to load products at this time.'}</p>
                 <p className="text-xs text-gray-400 mt-1">{error}</p>
               </div>
             ) : filtered.length === 0 ? (
               <div className="text-center py-16">
-                <p className="text-gray-500">No products found for this category.</p>
+                <p className="text-gray-500">{content.catalogue_empty_message as string || 'No products found for this category.'}</p>
               </div>
             ) : (
               Object.entries(groupedCategories).map(([category, categoryProducts]) => (
@@ -140,7 +149,7 @@ export default function CataloguePage() {
                           <div className="relative w-full h-80 bg-gradient-to-br from-tobacco-950 to-premium-dark overflow-hidden">
                             {showPlaceholder ? (
                               <div className="flex items-center justify-center h-full p-8">
-                                <Image src="/logo.png" alt="Alternate Enterprises" width={120} height={60} className="object-contain opacity-40" />
+                                <Image src="/logo.png" alt={content.header_logo_alt as string || 'Alternate Enterprises'} width={120} height={60} className="object-contain opacity-40" />
                               </div>
                             ) : (
                               <Image
@@ -172,19 +181,19 @@ export default function CataloguePage() {
                             <div className="flex items-center justify-between mb-2">
                               <div className="grid grid-cols-4 gap-3 text-[10px] w-full">
                                 <div className="text-center">
-                                  <p className="text-gray-500 uppercase tracking-wider">Nico</p>
+                                  <p className="text-gray-500 uppercase tracking-wider">{specNico}</p>
                                   <p className="text-premium-dark font-semibold">{product.nicotine}</p>
                                 </div>
                                 <div className="text-center">
-                                  <p className="text-gray-500 uppercase tracking-wider">Sugar</p>
+                                  <p className="text-gray-500 uppercase tracking-wider">{specSugar}</p>
                                   <p className="text-premium-dark font-semibold">{product.sugar}</p>
                                 </div>
                                 <div className="text-center">
-                                  <p className="text-gray-500 uppercase tracking-wider">Body</p>
+                                  <p className="text-gray-500 uppercase tracking-wider">{specBody}</p>
                                   <p className="text-premium-dark font-semibold">{product.body}</p>
                                 </div>
                                 <div className="text-center">
-                                  <p className="text-gray-500 uppercase tracking-wider">Color</p>
+                                  <p className="text-gray-500 uppercase tracking-wider">{specColor}</p>
                                   <p className="text-premium-dark font-semibold">{product.color}</p>
                                 </div>
                               </div>
@@ -201,15 +210,15 @@ export default function CataloguePage() {
         </section>
 
         {/* Health Warning */}
+        {(content.section_health_warning_visible as string) !== 'false' && content.catalogue_health_warning && (
         <section className="bg-premium-dark border-t border-premium-gold/5">
           <div className="max-w-4xl mx-auto px-4 py-8 text-center">
             <p className="text-[9px] text-gray-600 leading-relaxed uppercase tracking-[0.2em]">
-              SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease,
-              emphysema, and complications during pregnancy. This site is for B2B
-              trade professionals only. Must be 21+ to access.
+              {content.catalogue_health_warning as string || 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.'}
             </p>
           </div>
         </section>
+        )}
       </main>
 
       <Footer />

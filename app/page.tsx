@@ -5,6 +5,7 @@ import { Header, Footer } from '@/components/Layout'
 import { FeaturedProducts } from '@/components/FeaturedProducts'
 import { ContactForm } from '@/components/ContactForm'
 import Link from 'next/link'
+import { useSiteContent } from '@/context/SiteContent'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -15,20 +16,36 @@ const fadeUp = {
   }),
 }
 
-const stats = [
-  { value: '39+', label: 'Premium Varieties' },
-  { value: '4', label: 'Growing Regions' },
-  { value: '50+', label: 'Export Partners' },
-  { value: '2024', label: 'Established' },
-]
-
 export default function Home() {
+  const { content } = useSiteContent()
+
+  const stats = (Array.isArray(content.home_stats) ? content.home_stats : [
+    '39+|Premium Varieties',
+    '4|Growing Regions',
+    '50+|Export Partners',
+    '2024|Established',
+  ]).map((s: string) => {
+    const [value, label] = s.split('|')
+    return { value, label }
+  })
+
+  const categories = (Array.isArray(content.home_categories_items) ? content.home_categories_items : [
+    'FCV Tobacco|Bright, flue-cured Virginia with golden leaf and balanced sugar content.|Nicotine: 1.5-3.5% | Sugar: 12-20%',
+    'Burley Tobacco|Air-cured with rich, full-bodied character and low sugar profile.|Nicotine: 2.0-4.0% | Sugar: 1-3%',
+    'Country Blend|Artisanal blends combining the finest leaves for a distinctive profile.|Nicotine: 1.8-3.2% | Sugar: 8-15%',
+    'Zimbabwe Cured|Premium African-cured tobacco with exceptional aroma and flavor.|Nicotine: 1.2-2.8% | Sugar: 14-22%',
+  ]).map((s: string) => {
+    const [title, desc, specs] = s.split('|')
+    return { title, desc, specs }
+  })
+
   return (
     <div className="min-h-screen flex flex-col bg-cream">
       <Header />
 
       <main className="flex-1">
         {/* Hero */}
+        {(content.section_hero_visible as string) !== 'false' && content.home_hero_heading_1 && (
         <motion.section
           className="relative py-24 sm:py-28 overflow-hidden"
           initial={{ opacity: 0 }}
@@ -49,7 +66,7 @@ export default function Home() {
                 transition={{ duration: 0.4, delay: 0.1 }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-premium-gold shadow-[0_0_6px_rgba(212,175,55,0.6)]" />
-                Established 2024
+                {content.home_hero_badge as string || 'Established 2024'}
               </motion.div>
 
               <motion.h1
@@ -58,11 +75,11 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 }}
               >
-                <span className="text-white/90">Premium</span>
+                <span className="text-white/90">{content.home_hero_heading_1 as string || 'Premium'}</span>
                 <br />
-                <span className="text-gradient-gold">Tobacco</span>
+                <span className="text-gradient-gold">{content.home_hero_heading_2 as string || 'Tobacco'}</span>
                 <br />
-                <span className="text-white/90">Exports</span>
+                <span className="text-white/90">{content.home_hero_heading_3 as string || 'Exports'}</span>
               </motion.h1>
 
               <motion.p
@@ -71,8 +88,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3 }}
               >
-                Sourcing the world&apos;s finest tobacco leaves since 2024.
-                Expertly curated selections for discerning international trade partners.
+                {content.home_hero_description as string || 'Sourcing the world&apos;s finest tobacco leaves since 2024. Expertly curated selections for discerning international trade partners.'}
               </motion.p>
 
               <motion.div
@@ -85,7 +101,7 @@ export default function Home() {
                   href="/catalogue"
                   className="relative inline-flex items-center gap-2 bg-gradient-to-r from-premium-gold to-amber-500 text-premium-dark font-bold text-sm px-7 py-3.5 rounded-full tracking-[0.15em] uppercase shadow-lg shadow-premium-gold/20 hover:shadow-premium-gold/40 hover:scale-[1.02] transition-all duration-300"
                 >
-                  Explore Collection
+                  {content.home_hero_cta_1 as string || 'Explore Collection'}
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -94,14 +110,16 @@ export default function Home() {
                   href="#contact"
                   className="inline-flex items-center gap-2 border border-premium-gold/30 text-premium-gold text-sm px-7 py-3.5 rounded-full tracking-[0.15em] uppercase font-semibold hover:bg-premium-gold/10 hover:border-premium-gold/60 transition-all duration-300"
                 >
-                  Request a Quote
+                  {content.home_hero_cta_2 as string || 'Request a Quote'}
                 </a>
               </motion.div>
             </div>
           </div>
         </motion.section>
+        )}
 
         {/* Stats */}
+        {(content.section_stats_visible as string) !== 'false' && stats.length > 0 && (
         <section className="bg-premium-dark border-y border-premium-gold/5">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -122,28 +140,27 @@ export default function Home() {
             </div>
           </div>
         </section>
+        )}
 
         {/* Categories */}
+        {(content.section_categories_visible as string) !== 'false' && categories.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
           <div className="mb-12">
             <span className="text-premium-gold text-[10px] uppercase tracking-[0.3em] font-semibold">
-              Our Selection
+              {content.home_categories_section_label as string || 'Our Selection'}
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-premium-dark mt-3 mb-3">
-              Tobacco <span className="text-gradient-gold">Categories</span>
+              {(content.home_categories_heading as string || 'Tobacco Categories').split(' ').map((word, i, arr) =>
+                i === arr.length - 1 ? <span key={i} className="text-gradient-gold">{word} </span> : <span key={i} className="text-premium-dark">{word} </span>
+              )}
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
-              From bright Virginia to rich Burley, each variety is selected for its exceptional quality
+              {content.home_categories_description as string || 'From bright Virginia to rich Burley, each variety is selected for its exceptional quality'}
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { title: 'FCV Tobacco', desc: 'Bright, flue-cured Virginia with golden leaf and balanced sugar content.', specs: 'Nicotine: 1.5-3.5% | Sugar: 12-20%' },
-              { title: 'Burley Tobacco', desc: 'Air-cured with rich, full-bodied character and low sugar profile.', specs: 'Nicotine: 2.0-4.0% | Sugar: 1-3%' },
-              { title: 'Country Blend', desc: 'Artisanal blends combining the finest leaves for a distinctive profile.', specs: 'Nicotine: 1.8-3.2% | Sugar: 8-15%' },
-              { title: 'Zimbabwe Cured', desc: 'Premium African-cured tobacco with exceptional aroma and flavor.', specs: 'Nicotine: 1.2-2.8% | Sugar: 14-22%' },
-            ].map((cat, index) => (
+            {categories.map((cat, index) => (
               <motion.div
                 key={cat.title}
                 className="bg-white rounded-xl p-6 border border-tobacco-100 hover:border-premium-gold/30 transition-all duration-300 shadow-sm hover:shadow-md"
@@ -162,8 +179,10 @@ export default function Home() {
             ))}
           </div>
         </section>
+        )}
 
         {/* Featured Products */}
+        {(content.section_featured_visible as string) !== 'false' && content.home_featured_heading && (
         <section id="featured" className="bg-premium-dark text-white py-20 sm:py-28 relative overflow-hidden">
           <div className="absolute inset-0 bg-tobacco-pattern opacity-5" />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -175,47 +194,54 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <span className="text-premium-gold text-[10px] uppercase tracking-[0.3em] font-semibold">
-                Featured Selection
+                {content.home_featured_section_label as string || 'Featured Selection'}
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-3">
-                Premium <span className="text-gradient-gold">Collection</span>
+                {(content.home_featured_heading as string || 'Premium Collection').split(' ').map((word, i, arr) =>
+                  i === arr.length - 1 ? <span key={i} className="text-gradient-gold">{word} </span> : <span key={i} className="text-white">{word} </span>
+                )}
               </h2>
               <p className="text-gray-400 text-sm leading-relaxed max-w-xl">
-                Our curated selection of the finest tobacco products available for export.
+                {content.home_featured_description as string || 'Our curated selection of the finest tobacco products available for export.'}
               </p>
             </motion.div>
             <FeaturedProducts />
           </div>
         </section>
+        )}
 
         {/* Contact */}
+        {(content.section_contact_visible as string) !== 'false' && content.home_contact_heading && (
         <section id="contact" className="bg-gradient-to-b from-tobacco-50 to-cream py-20 sm:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-12 text-center">
               <span className="text-premium-gold text-[10px] uppercase tracking-[0.3em] font-semibold">
-                Connect
+                {content.home_contact_section_label as string || 'Connect'}
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-premium-dark mt-3 mb-3">
-                Get In <span className="text-gradient-gold">Touch</span>
+                {(content.home_contact_heading as string || 'Get In Touch').split(' ').map((word, i, arr) =>
+                  i === arr.length - 1 ? <span key={i} className="text-gradient-gold">{word}</span> : <span key={i}>{word} </span>
+                )}
               </h2>
               <p className="text-gray-500 text-sm leading-relaxed max-w-xl mx-auto">
-                Interested in bulk orders, partnerships, or distribution? Contact us with your inquiry.
+                {content.home_contact_description as string || 'Interested in bulk orders, partnerships, or distribution? Contact us with your inquiry.'}
               </p>
             </div>
             <ContactForm />
           </div>
         </section>
+        )}
 
         {/* Health Warning */}
+        {(content.section_health_warning_visible as string) !== 'false' && content.home_health_warning && (
         <section className="bg-premium-dark border-t border-premium-gold/5">
           <div className="max-w-4xl mx-auto px-4 py-8 text-center">
             <p className="text-[9px] text-gray-600 leading-relaxed uppercase tracking-[0.2em]">
-              SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease,
-              emphysema, and complications during pregnancy. This site is for B2B
-              trade professionals only. Must be 21+ to access.
+              {content.home_health_warning as string || 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.'}
             </p>
           </div>
         </section>
+        )}
       </main>
 
       <Footer />

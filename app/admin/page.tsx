@@ -20,8 +20,9 @@ import {
   deleteProductImage,
   uploadCatalogueImage,
 } from '@/services/firestore/productImages'
+import ContentEditor from '@/components/ContentEditor'
 
-type Tab = 'products' | 'media'
+type Tab = 'products' | 'media' | 'content'
 
 type ProductForm = {
   name: string
@@ -296,6 +297,16 @@ export default function AdminPage() {
               }`}
             >
               Media Library
+            </button>
+            <button
+              onClick={() => setActiveTab('content')}
+              className={`pb-3 text-sm font-semibold border-b-2 transition-colors ${
+                activeTab === 'content'
+                  ? 'border-premium-gold text-premium-dark'
+                  : 'border-transparent text-tobacco-500 hover:text-tobacco-700'
+              }`}
+            >
+              Content
             </button>
           </nav>
         </div>
@@ -584,6 +595,22 @@ export default function AdminPage() {
                 </div>
               )}
             </section>
+          </div>
+        )}
+
+        {/* === CONTENT TAB === */}
+        {activeTab === 'content' && (
+          <div>
+            <div className="mb-6">
+              <h2 className="text-xl font-bold text-premium-dark flex items-center gap-2">
+                <span className="w-1.5 h-5 bg-premium-gold rounded-full inline-block" />
+                Site Content
+              </h2>
+              <p className="text-sm text-tobacco-600 mt-1">
+                Edit any text across the website. Changes are saved to Firestore and reflected immediately.
+              </p>
+            </div>
+            <ContentEditor />
           </div>
         )}
 

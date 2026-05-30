@@ -16,5 +16,10 @@ service cloud.firestore {
       allow create: if true;
       allow read, update, delete: if false;
     }
+
+    match /siteContent/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
   }
 }
