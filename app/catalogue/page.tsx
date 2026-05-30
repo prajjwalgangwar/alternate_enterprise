@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+            import { useState, useMemo, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Header, Footer } from '@/components/Layout'
 import { useProducts } from '@/hooks/useProducts'
@@ -14,6 +14,11 @@ export default function CataloguePage() {
   const { products, loading, error } = useProducts()
   const [activeCategory, setActiveCategory] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
+  const [failedImages, setFailedImages] = useState<Set<string>>(new Set())
+
+  const handleImageError = useCallback((productId: string) => {
+    setFailedImages((prev) => new Set(prev).add(productId))
+  }, [])
 
   const filtered = useMemo(() => {
     let result = products
@@ -47,33 +52,6 @@ export default function CataloguePage() {
       <Header />
 
       <main className="flex-1">
-        {/* Page Header */}
-        <section className="gradient-warm text-white py-16 sm:py-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-tobacco-pattern opacity-20" />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-            >
-              <Link
-                href="/"
-                className="inline-flex items-center gap-1 text-premium-gold/60 hover:text-premium-gold text-[10px] uppercase tracking-[0.3em] mb-4 transition-colors"
-              >
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                Back to Home
-              </Link>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
-                Tobacco <span className="text-gradient-gold">Catalogue</span>
-              </h1>
-              <p className="text-gray-400 text-sm max-w-xl">
-                Browse our complete selection of premium tobacco products available for export.
-              </p>
-            </motion.div>
-          </div>
-        </section>
 
         {/* Filters */}
         <section className="bg-white border-b border-tobacco-100 sticky top-[73px] z-20">
@@ -149,6 +127,7 @@ export default function CataloguePage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     {categoryProducts.map((product, index) => {
                       const primaryImage = product.imageUrls?.[0] ?? product.imageUrl
+                      const showPlaceholder = !primaryImage || failedImages.has(product.productId)
                       return (
                         <motion.div
                           key={product.productId}
@@ -159,24 +138,22 @@ export default function CataloguePage() {
                           transition={{ duration: 0.35, delay: index * 0.04 }}
                           whileHover={{ y: -2 }}
                         >
-                          <div className="relative w-full h-44 bg-gradient-to-br from-tobacco-950 to-premium-dark overflow-hidden">
-                            {primaryImage ? (
+                          <div className="relative w-full h-80 bg-gradient-to-br from-tobacco-950 to-premium-dark overflow-hidden">
+                            {showPlaceholder ? (
+                              <div className="flex items-center justify-center h-full p-8">
+                                <Image src="/logo.png" alt="Alternate Enterprises" width={120} height={60} className="object-contain opacity-40" />
+                              </div>
+                            ) : (
                               <Image
                                 src={primaryImage}
                                 alt={product.name}
                                 fill
                                 className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                onError={() => handleImageError(product.productId)}
                               />
-                            ) : (
-                              <div className="flex items-center justify-center h-full">
-                                <span className="text-4xl font-bold text-premium-gold/10 tracking-widest">AE</span>
-                              </div>
                             )}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />
-                            <div className="absolute top-3 left-3 right-3 flex items-start justify-between">
-                              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/70 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded-full">
-                                {product.category}
-                              </span>
+                            <div className="absolute top-3 right-3">
                               <span className="tobacco-badge bg-premium-gold/20 text-premium-gold border border-premium-gold/30 backdrop-blur-sm">
                                 {product.grade}
                               </span>

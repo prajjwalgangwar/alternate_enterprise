@@ -30,40 +30,43 @@ export default function Home() {
       <main className="flex-1">
         {/* Hero */}
         <motion.section
-          className="gradient-warm text-white py-28 sm:py-36 relative overflow-hidden"
+          className="relative py-24 sm:py-28 overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="absolute inset-0 bg-tobacco-pattern opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.08),transparent_60%)]" />
+          <div className="absolute inset-0 bg-tobacco-pattern opacity-[0.07]" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-premium-gold/40 to-transparent" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-3xl">
               <motion.div
-                className="inline-flex items-center gap-2 border border-premium-gold/30 rounded-full px-4 py-1.5 text-premium-gold text-[10px] uppercase tracking-[0.3em] mb-8"
+                className="inline-flex items-center gap-2 border border-premium-gold/20 rounded-full px-4 py-1.5 text-premium-gold text-[10px] uppercase tracking-[0.3em] font-semibold mb-6"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 }}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-premium-gold/80" />
+                <span className="w-1.5 h-1.5 rounded-full bg-premium-gold shadow-[0_0_6px_rgba(212,175,55,0.6)]" />
                 Established 2024
               </motion.div>
 
               <motion.h1
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 leading-[1.1] tracking-tight"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 }}
               >
-                Premium
+                <span className="text-white/90">Premium</span>
                 <br />
                 <span className="text-gradient-gold">Tobacco</span>
                 <br />
-                Exports
+                <span className="text-white/90">Exports</span>
               </motion.h1>
 
               <motion.p
-                className="text-base sm:text-lg text-gray-300/90 mb-10 max-w-xl leading-relaxed"
+                className="text-sm sm:text-base text-gray-400/80 mb-8 max-w-xl leading-relaxed font-light tracking-wide"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3 }}
@@ -80,13 +83,16 @@ export default function Home() {
               >
                 <Link
                   href="/catalogue"
-                  className="btn-gold text-sm px-8 py-3.5 tracking-wider uppercase"
+                  className="relative inline-flex items-center gap-2 bg-gradient-to-r from-premium-gold to-amber-500 text-premium-dark font-bold text-sm px-7 py-3.5 rounded-full tracking-[0.15em] uppercase shadow-lg shadow-premium-gold/20 hover:shadow-premium-gold/40 hover:scale-[1.02] transition-all duration-300"
                 >
                   Explore Collection
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </Link>
                 <a
                   href="#contact"
-                  className="btn-outline-gold text-sm px-8 py-3.5 tracking-wider uppercase"
+                  className="inline-flex items-center gap-2 border border-premium-gold/30 text-premium-gold text-sm px-7 py-3.5 rounded-full tracking-[0.15em] uppercase font-semibold hover:bg-premium-gold/10 hover:border-premium-gold/60 transition-all duration-300"
                 >
                   Request a Quote
                 </a>
@@ -114,31 +120,6 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Featured Products */}
-        <section id="featured" className="bg-premium-dark text-white py-20 sm:py-28 relative overflow-hidden">
-          <div className="absolute inset-0 bg-tobacco-pattern opacity-5" />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div
-              className="mb-12"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-premium-gold text-[10px] uppercase tracking-[0.3em] font-semibold">
-                Featured Selection
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-3">
-                Premium <span className="text-gradient-gold">Collection</span>
-              </h2>
-              <p className="text-gray-400 text-sm leading-relaxed max-w-xl">
-                Our curated selection of the finest tobacco products available for export.
-              </p>
-            </motion.div>
-            <FeaturedProducts />
           </div>
         </section>
 
@@ -179,6 +160,31 @@ export default function Home() {
                 <p className="text-[10px] text-premium-gold font-medium tracking-wider uppercase">{cat.specs}</p>
               </motion.div>
             ))}
+          </div>
+        </section>
+
+        {/* Featured Products */}
+        <section id="featured" className="bg-premium-dark text-white py-20 sm:py-28 relative overflow-hidden">
+          <div className="absolute inset-0 bg-tobacco-pattern opacity-5" />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <motion.div
+              className="mb-12"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-premium-gold text-[10px] uppercase tracking-[0.3em] font-semibold">
+                Featured Selection
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-3">
+                Premium <span className="text-gradient-gold">Collection</span>
+              </h2>
+              <p className="text-gray-400 text-sm leading-relaxed max-w-xl">
+                Our curated selection of the finest tobacco products available for export.
+              </p>
+            </motion.div>
+            <FeaturedProducts />
           </div>
         </section>
 

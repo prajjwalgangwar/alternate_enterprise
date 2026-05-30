@@ -344,12 +344,17 @@ export default function AdminPage() {
 
                 <label className="block">
                   <span className="text-sm font-semibold text-tobacco-800">Category</span>
-                  <input
+                  <select
                     value={form.category}
                     onChange={(event) => updateField('category', event.target.value)}
                     className="mt-1 w-full rounded-lg border border-tobacco-200 px-3.5 py-2.5 text-sm outline-none focus:border-premium-gold focus:ring-2 focus:ring-premium-gold/20 transition-all"
-                    placeholder="e.g. FCV, Burley, Blend"
-                  />
+                  >
+                    <option value="">Select category</option>
+                    <option value="FCV Tobacco">FCV Tobacco</option>
+                    <option value="Burley Tobacco">Burley Tobacco</option>
+                    <option value="Country Blend">Country Blend</option>
+                    <option value="Zimbabwe Cured">Zimbabwe Cured</option>
+                  </select>
                 </label>
 
                 <label className="block">

@@ -488,10 +488,10 @@ const productCatalog: RawProduct[] = [
 
 function categorizeProduct(name: string): string {
   if (name.includes('FCV') && !name.includes('ZIMBABWE')) {
-    return 'Flue-Cured Virginia'
+    return 'FCV Tobacco'
   }
   if (name.includes('BURLEY')) {
-    return 'Burley'
+    return 'Burley Tobacco'
   }
   if (name.includes('ZIMBABWE')) {
     return 'Zimbabwe Cured'

@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useCallback } from 'react'
 import { useFeaturedProducts } from '@/hooks/useProducts'
 import { SkeletonLoader, ErrorDisplay } from './common'
 import { motion } from 'framer-motion'
@@ -8,6 +9,10 @@ import Link from 'next/link'
 
 export function FeaturedProducts() {
   const { products, loading, error } = useFeaturedProducts(6)
+  const [failedImages, setFailedImages] = useState<Set<string>>(new Set())
+  const handleImageError = useCallback((id: string) => {
+    setFailedImages((prev) => new Set(prev).add(id))
+  }, [])
 
   if (loading) {
     return <SkeletonLoader count={3} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" />
@@ -26,6 +31,7 @@ export function FeaturedProducts() {
     >
       {products.map((product, index) => {
         const primaryImage = product.imageUrls?.[0] ?? product.imageUrl
+        const showPlaceholder = !primaryImage || failedImages.has(product.productId)
 
         return (
           <motion.div
@@ -37,18 +43,19 @@ export function FeaturedProducts() {
             whileHover={{ y: -3 }}
           >
             <div className="relative w-full h-52 bg-gradient-to-br from-tobacco-950 to-premium-dark overflow-hidden">
-              {primaryImage ? (
+              {showPlaceholder ? (
+                <div className="flex items-center justify-center h-full p-8">
+                  <Image src="/logo.png" alt="Alternate Enterprises" width={140} height={70} className="object-contain opacity-40" />
+                </div>
+              ) : (
                 <Image
                   src={primaryImage}
                   alt={product.name}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   priority={index < 3}
+                  onError={() => handleImageError(product.productId)}
                 />
-              ) : (
-                <div className="flex items-center justify-center h-full">
-                  <span className="text-5xl font-bold text-premium-gold/10 tracking-widest">AE</span>
-                </div>
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
