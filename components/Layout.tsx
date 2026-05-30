@@ -1,6 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -23,20 +25,21 @@ export function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-3.5">
-            <motion.div
-              initial={{ y: -10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.15 }}
-              className="flex items-baseline gap-3"
-            >
-              <h1 className="text-2xl font-bold tracking-[0.15em]">
-                <span className="text-premium-gold">ALTERNATE</span>
-                <span className="text-white/90 font-light ml-1.5">ENTERPRISES</span>
-              </h1>
-              <span className="hidden sm:block text-[9px] uppercase tracking-[0.35em] text-premium-gold/50 mt-1">
-                Premium Tobacco Exports
-              </span>
-            </motion.div>
+            <Link href="/">
+              <motion.div
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.15 }}
+                className="flex items-center gap-3"
+              >
+                <div className="relative w-9 h-9">
+                  <Image src="/logo.png" alt="Alternate Enterprises" fill className="object-contain" />
+                </div>
+                <span className="hidden sm:block text-[9px] uppercase tracking-[0.35em] text-premium-gold/50 mt-1">
+                  Premium Tobacco Exports
+                </span>
+              </motion.div>
+            </Link>
 
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (

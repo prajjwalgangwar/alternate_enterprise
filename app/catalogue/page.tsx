@@ -6,7 +6,6 @@ import { Header, Footer } from '@/components/Layout'
 import { useProducts } from '@/hooks/useProducts'
 import { SkeletonLoader } from '@/components/common'
 import Image from 'next/image'
-import Link from 'next/link'
 
 const categories = ['All', 'FCV Tobacco', 'Burley Tobacco', 'Country Blend', 'Zimbabwe Cured']
 
