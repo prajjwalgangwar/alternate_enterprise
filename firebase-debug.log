@@ -1,0 +1,511 @@
+[debug] [2026-05-26T20:17:37.082Z] ----------------------------------------------------------------------
+[debug] [2026-05-26T20:17:37.084Z] Command:       /opt/homebrew/Cellar/node/24.5.0/bin/node /Users/prajjwalsinghgangwar/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase apps:sdkconfig WEB 1:763488571651:web:ed6a5c90a3c364be5f1936
+[debug] [2026-05-26T20:17:37.084Z] CLI Version:   15.18.0
+[debug] [2026-05-26T20:17:37.084Z] Platform:      darwin
+[debug] [2026-05-26T20:17:37.084Z] Node Version:  v24.5.0
+[debug] [2026-05-26T20:17:37.084Z] Time:          Wed May 27 2026 01:47:37 GMT+0530 (India Standard Time)
+[debug] [2026-05-26T20:17:37.085Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-26T20:17:37.103Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-26T20:17:37.104Z] > authorizing via signed-in user (prajjwalsingh.singh@gmail.com)
+[debug] [2026-05-26T20:17:37.106Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:17:37.106Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:17:37.106Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:763488571651:web:ed6a5c90a3c364be5f1936/config [none]
+[debug] [2026-05-26T20:17:38.593Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:763488571651:web:ed6a5c90a3c364be5f1936/config 200
+[debug] [2026-05-26T20:17:38.593Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:763488571651:web:ed6a5c90a3c364be5f1936/config {"projectId":"alt-enterprise-26","appId":"1:763488571651:web:ed6a5c90a3c364be5f1936","storageBucket":"alt-enterprise-26.firebasestorage.app","apiKey":"AIzaSyA9bLISFCrLUwAJ8RlQYhnfpw8GSFl9wf4","authDomain":"alt-enterprise-26.firebaseapp.com","messagingSenderId":"763488571651","projectNumber":"763488571651","version":"2"}
+[info] {
+  "projectId": "alt-enterprise-26",
+  "appId": "1:763488571651:web:ed6a5c90a3c364be5f1936",
+  "storageBucket": "alt-enterprise-26.firebasestorage.app",
+  "apiKey": "AIzaSyA9bLISFCrLUwAJ8RlQYhnfpw8GSFl9wf4",
+  "authDomain": "alt-enterprise-26.firebaseapp.com",
+  "messagingSenderId": "763488571651",
+  "projectNumber": "763488571651",
+  "version": "2"
+}
+[debug] [2026-05-26T20:19:13.622Z] ----------------------------------------------------------------------
+[debug] [2026-05-26T20:19:13.624Z] Command:       /opt/homebrew/Cellar/node/24.5.0/bin/node /Users/prajjwalsinghgangwar/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase firestore:databases:list --project alt-enterprise-26
+[debug] [2026-05-26T20:19:13.624Z] CLI Version:   15.18.0
+[debug] [2026-05-26T20:19:13.624Z] Platform:      darwin
+[debug] [2026-05-26T20:19:13.624Z] Node Version:  v24.5.0
+[debug] [2026-05-26T20:19:13.624Z] Time:          Wed May 27 2026 01:49:13 GMT+0530 (India Standard Time)
+[debug] [2026-05-26T20:19:13.624Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-26T20:19:14.185Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-26T20:19:14.185Z] > authorizing via signed-in user (prajjwalsingh.singh@gmail.com)
+[debug] [2026-05-26T20:19:14.185Z] [iam] checking project alt-enterprise-26 for permissions ["datastore.databases.list","firebase.projects.get"]
+[debug] [2026-05-26T20:19:14.186Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:19:14.186Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:19:14.187Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions [none]
+[debug] [2026-05-26T20:19:14.187Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions  x-goog-user-project=alt-enterprise-26
+[debug] [2026-05-26T20:19:14.187Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.databases.list","firebase.projects.get"]}
+[debug] [2026-05-26T20:19:15.655Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions 200
+[debug] [2026-05-26T20:19:15.656Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.databases.list","firebase.projects.get"]}
+[debug] [2026-05-26T20:19:15.656Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:19:15.656Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:19:15.656Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases [none]
+[debug] [2026-05-26T20:19:16.318Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases 200
+[debug] [2026-05-26T20:19:16.318Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases {}
+[info] No databases found.
+[debug] [2026-05-26T20:25:01.301Z] ----------------------------------------------------------------------
+[debug] [2026-05-26T20:25:01.303Z] Command:       /opt/homebrew/Cellar/node/24.5.0/bin/node /Users/prajjwalsinghgangwar/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase firestore:databases:create (default) --location asia-south1 --project alt-enterprise-26
+[debug] [2026-05-26T20:25:01.303Z] CLI Version:   15.18.0
+[debug] [2026-05-26T20:25:01.303Z] Platform:      darwin
+[debug] [2026-05-26T20:25:01.303Z] Node Version:  v24.5.0
+[debug] [2026-05-26T20:25:01.303Z] Time:          Wed May 27 2026 01:55:01 GMT+0530 (India Standard Time)
+[debug] [2026-05-26T20:25:01.303Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-26T20:25:01.831Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-26T20:25:01.832Z] > authorizing via signed-in user (prajjwalsingh.singh@gmail.com)
+[debug] [2026-05-26T20:25:01.832Z] [iam] checking project alt-enterprise-26 for permissions ["datastore.databases.create","firebase.projects.get"]
+[debug] [2026-05-26T20:25:01.832Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:25:01.832Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:25:01.833Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions [none]
+[debug] [2026-05-26T20:25:01.833Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions  x-goog-user-project=alt-enterprise-26
+[debug] [2026-05-26T20:25:01.833Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.databases.create","firebase.projects.get"]}
+[debug] [2026-05-26T20:25:03.295Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions 200
+[debug] [2026-05-26T20:25:03.295Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.databases.create","firebase.projects.get"]}
+[debug] [2026-05-26T20:25:03.296Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:25:03.296Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:25:03.296Z] >>> [apiv2][query] POST https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases databaseId=%28default%29
+[debug] [2026-05-26T20:25:03.296Z] >>> [apiv2][body] POST https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases {"locationId":"asia-south1","type":"FIRESTORE_NATIVE","databaseEdition":"STANDARD","deleteProtectionState":"DELETE_PROTECTION_DISABLED","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","firestoreDataAccessMode":"DATA_ACCESS_MODE_UNSPECIFIED","mongodbCompatibleDataAccessMode":"DATA_ACCESS_MODE_UNSPECIFIED"}
+[debug] [2026-05-26T20:25:11.729Z] <<< [apiv2][status] POST https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases 200
+[debug] [2026-05-26T20:25:11.729Z] <<< [apiv2][body] POST https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases {"name":"projects/alt-enterprise-26/databases/(default)/operations/lg330t2b-ZhCRygRSV_wmRAqMWh0dW9zLWFpc2ELIgUQA4b_zeAQBtDYg6cIDAovGg","metadata":{"@type":"type.googleapis.com/google.firestore.admin.v1.CreateDatabaseMetadata"},"done":true,"response":{"@type":"type.googleapis.com/google.firestore.admin.v1.Database","name":"projects/alt-enterprise-26/databases/(default)","uid":"99f05f49-1128-4742-98f9-9bddd2f70d96","createTime":"2026-05-26T20:25:11.819980Z","updateTime":"2026-05-26T20:25:11.819980Z","locationId":"asia-south1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-05-26T20:25:11.819980Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"j","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IPqmjNbk15QDMMz1i9bk15QD"}}
+[debug] [2026-05-26T20:25:11.733Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:25:11.733Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:25:11.733Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/operations/lg330t2b-ZhCRygRSV_wmRAqMWh0dW9zLWFpc2ELIgUQA4b_zeAQBtDYg6cIDAovGg [none]
+[debug] [2026-05-26T20:25:12.478Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/operations/lg330t2b-ZhCRygRSV_wmRAqMWh0dW9zLWFpc2ELIgUQA4b_zeAQBtDYg6cIDAovGg 200
+[debug] [2026-05-26T20:25:12.479Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/operations/lg330t2b-ZhCRygRSV_wmRAqMWh0dW9zLWFpc2ELIgUQA4b_zeAQBtDYg6cIDAovGg {"name":"projects/alt-enterprise-26/databases/(default)/operations/lg330t2b-ZhCRygRSV_wmRAqMWh0dW9zLWFpc2ELIgUQA4b_zeAQBtDYg6cIDAovGg","metadata":{"@type":"type.googleapis.com/google.firestore.admin.v1.CreateDatabaseMetadata"},"done":true,"response":{"@type":"type.googleapis.com/google.firestore.admin.v1.Database","name":"projects/alt-enterprise-26/databases/(default)","uid":"99f05f49-1128-4742-98f9-9bddd2f70d96","createTime":"2026-05-26T20:25:11.819980Z","updateTime":"2026-05-26T20:25:11.819980Z","locationId":"asia-south1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-05-26T20:25:11.819980Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"j","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"II69s9bk15QDMMz1i9bk15QD"}}
+[info] Successfully created projects/alt-enterprise-26/databases/(default)
+[info] Please be sure to configure Firebase rules in your Firebase config file for
+the new database. By default, created databases will have closed rules that
+block any incoming third-party traffic.
+[info] Your database may be viewed at https://console.firebase.google.com/project/alt-enterprise-26/firestore/databases/-default-/data
+[debug] [2026-05-26T20:27:02.293Z] ----------------------------------------------------------------------
+[debug] [2026-05-26T20:27:02.295Z] Command:       /opt/homebrew/Cellar/node/24.5.0/bin/node /Users/prajjwalsinghgangwar/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase deploy --only firestore:rules --project alt-enterprise-26
+[debug] [2026-05-26T20:27:02.295Z] CLI Version:   15.18.0
+[debug] [2026-05-26T20:27:02.295Z] Platform:      darwin
+[debug] [2026-05-26T20:27:02.295Z] Node Version:  v24.5.0
+[debug] [2026-05-26T20:27:02.295Z] Time:          Wed May 27 2026 01:57:02 GMT+0530 (India Standard Time)
+[debug] [2026-05-26T20:27:02.295Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-26T20:27:03.043Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-26T20:27:03.043Z] > authorizing via signed-in user (prajjwalsingh.singh@gmail.com)
+[debug] [2026-05-26T20:27:03.043Z] [iam] checking project alt-enterprise-26 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2026-05-26T20:27:03.044Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:03.044Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:03.045Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions [none]
+[debug] [2026-05-26T20:27:03.045Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions  x-goog-user-project=alt-enterprise-26
+[debug] [2026-05-26T20:27:03.045Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2026-05-26T20:27:04.528Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions 200
+[debug] [2026-05-26T20:27:04.528Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'alt-enterprise-26'...
+[info] 
+[info] i  deploying firestore 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2026-05-26T20:27:04.533Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:04.534Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:04.534Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) [none]
+[debug] [2026-05-26T20:27:04.916Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) 200
+[debug] [2026-05-26T20:27:04.917Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) {"name":"projects/alt-enterprise-26/databases/(default)","uid":"99f05f49-1128-4742-98f9-9bddd2f70d96","createTime":"2026-05-26T20:25:11.819980Z","updateTime":"2026-05-26T20:25:11.819980Z","locationId":"asia-south1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-05-26T20:25:11.819980Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"j","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IOOvhYzl15QDMNXUx9jk15QD"}
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2026-05-26T20:27:04.919Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:04.919Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:04.919Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test [none]
+[debug] [2026-05-26T20:27:04.920Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test [omitted]
+[debug] [2026-05-26T20:27:06.351Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test 200
+[debug] [2026-05-26T20:27:06.351Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test {}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2026-05-26T20:27:06.355Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:06.355Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:06.356Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases pageSize=10&pageToken=
+[debug] [2026-05-26T20:27:07.783Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases 200
+[debug] [2026-05-26T20:27:07.784Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases {}
+[info] i  firestore: uploading rules firestore.rules... 
+[debug] [2026-05-26T20:27:07.785Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:07.785Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:07.785Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets [none]
+[debug] [2026-05-26T20:27:07.785Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets [omitted]
+[debug] [2026-05-26T20:27:09.216Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets 200
+[debug] [2026-05-26T20:27:09.216Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets {"name":"projects/alt-enterprise-26/rulesets/fc98f044-8202-447a-af40-1d4a49fa488d","source":{"files":[{"content":"rules_version = '2';\n\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /products/{productId} {\n      allow read, write: if true;\n    }\n\n    match /contact_inquiries/{inquiryId} {\n      allow create: if true;\n      allow read, update, delete: if false;\n    }\n  }\n}\n","name":"firestore.rules"}]},"createTime":"2026-05-26T20:27:09.172668Z","metadata":{"services":["cloud.firestore"]}}
+[debug] [2026-05-26T20:27:09.216Z] [rules] created ruleset projects/alt-enterprise-26/rulesets/fc98f044-8202-447a-af40-1d4a49fa488d
+[debug] [2026-05-26T20:27:09.217Z] [rules] releasing cloud.firestore with ruleset projects/alt-enterprise-26/rulesets/fc98f044-8202-447a-af40-1d4a49fa488d
+[debug] [2026-05-26T20:27:09.217Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:09.218Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:09.218Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases/cloud.firestore [none]
+[debug] [2026-05-26T20:27:09.218Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases/cloud.firestore {"release":{"name":"projects/alt-enterprise-26/releases/cloud.firestore","rulesetName":"projects/alt-enterprise-26/rulesets/fc98f044-8202-447a-af40-1d4a49fa488d"}}
+[debug] [2026-05-26T20:27:10.528Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases/cloud.firestore 404
+[debug] [2026-05-26T20:27:10.528Z] <<< [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases/cloud.firestore {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2026-05-26T20:27:10.529Z] [rules] ruleset update failed, attempting to create instead
+[debug] [2026-05-26T20:27:10.530Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:10.530Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:27:10.530Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases [none]
+[debug] [2026-05-26T20:27:10.530Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases {"name":"projects/alt-enterprise-26/releases/cloud.firestore","rulesetName":"projects/alt-enterprise-26/rulesets/fc98f044-8202-447a-af40-1d4a49fa488d"}
+[debug] [2026-05-26T20:27:11.981Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases 200
+[debug] [2026-05-26T20:27:11.981Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases {"name":"projects/alt-enterprise-26/releases/cloud.firestore","rulesetName":"projects/alt-enterprise-26/rulesets/fc98f044-8202-447a-af40-1d4a49fa488d","createTime":"2026-05-26T20:27:11.919683Z","updateTime":"2026-05-26T20:27:11.919683Z"}
+[debug] [2026-05-26T20:27:11.981Z] [rules] created release projects/alt-enterprise-26/releases/cloud.firestore
+[info] ✔  firestore: released rules firestore.rules to cloud.firestore 
+[info] 
+[info] ✔  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/alt-enterprise-26/overview
+[debug] [2026-05-26T20:28:35.042Z] ----------------------------------------------------------------------
+[debug] [2026-05-26T20:28:35.043Z] Command:       /opt/homebrew/Cellar/node/24.5.0/bin/node /Users/prajjwalsinghgangwar/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase deploy --only firestore:rules --project alt-enterprise-26
+[debug] [2026-05-26T20:28:35.043Z] CLI Version:   15.18.0
+[debug] [2026-05-26T20:28:35.043Z] Platform:      darwin
+[debug] [2026-05-26T20:28:35.044Z] Node Version:  v24.5.0
+[debug] [2026-05-26T20:28:35.044Z] Time:          Wed May 27 2026 01:58:35 GMT+0530 (India Standard Time)
+[debug] [2026-05-26T20:28:35.044Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-26T20:28:35.844Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-26T20:28:35.844Z] > authorizing via signed-in user (prajjwalsingh.singh@gmail.com)
+[debug] [2026-05-26T20:28:35.844Z] [iam] checking project alt-enterprise-26 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2026-05-26T20:28:35.845Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:35.845Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:35.846Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions [none]
+[debug] [2026-05-26T20:28:35.846Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions  x-goog-user-project=alt-enterprise-26
+[debug] [2026-05-26T20:28:35.846Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2026-05-26T20:28:37.495Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions 200
+[debug] [2026-05-26T20:28:37.495Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'alt-enterprise-26'...
+[info] 
+[info] i  deploying firestore 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2026-05-26T20:28:37.500Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:37.500Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:37.500Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) [none]
+[debug] [2026-05-26T20:28:37.791Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) 200
+[debug] [2026-05-26T20:28:37.792Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) {"name":"projects/alt-enterprise-26/databases/(default)","uid":"99f05f49-1128-4742-98f9-9bddd2f70d96","createTime":"2026-05-26T20:25:11.819980Z","updateTime":"2026-05-26T20:25:11.819980Z","locationId":"asia-south1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-05-26T20:25:11.819980Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"j","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IOfXrbjl15QDMJ31lajl15QD"}
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2026-05-26T20:28:37.793Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:37.794Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:37.794Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test [none]
+[debug] [2026-05-26T20:28:37.794Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test [omitted]
+[debug] [2026-05-26T20:28:39.187Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test 200
+[debug] [2026-05-26T20:28:39.187Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test {}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2026-05-26T20:28:39.190Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:39.190Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:39.191Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases pageSize=10&pageToken=
+[debug] [2026-05-26T20:28:39.727Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases 200
+[debug] [2026-05-26T20:28:39.727Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases {"releases":[{"name":"projects/alt-enterprise-26/releases/cloud.firestore","rulesetName":"projects/alt-enterprise-26/rulesets/fc98f044-8202-447a-af40-1d4a49fa488d","createTime":"2026-05-26T20:27:11.919683Z","updateTime":"2026-05-26T20:27:11.919683Z"}]}
+[debug] [2026-05-26T20:28:39.728Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:39.728Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:39.728Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets/fc98f044-8202-447a-af40-1d4a49fa488d [none]
+[debug] [2026-05-26T20:28:40.260Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets/fc98f044-8202-447a-af40-1d4a49fa488d 200
+[debug] [2026-05-26T20:28:40.260Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets/fc98f044-8202-447a-af40-1d4a49fa488d [omitted]
+[info] i  firestore: uploading rules firestore.rules... 
+[debug] [2026-05-26T20:28:40.262Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:40.262Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:40.263Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets [none]
+[debug] [2026-05-26T20:28:40.263Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets [omitted]
+[debug] [2026-05-26T20:28:40.673Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets 200
+[debug] [2026-05-26T20:28:40.673Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets {"name":"projects/alt-enterprise-26/rulesets/06f0f4d9-b120-4250-9a2d-47694cfa801f","source":{"files":[{"content":"rules_version = '2';\n\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /products/{productId} {\n      allow read: if true;\n      allow write: if false;\n    }\n\n    match /contact_inquiries/{inquiryId} {\n      allow create: if true;\n      allow read, update, delete: if false;\n    }\n  }\n}\n","name":"firestore.rules"}]},"createTime":"2026-05-26T20:28:40.646591Z","metadata":{"services":["cloud.firestore"]}}
+[debug] [2026-05-26T20:28:40.674Z] [rules] created ruleset projects/alt-enterprise-26/rulesets/06f0f4d9-b120-4250-9a2d-47694cfa801f
+[debug] [2026-05-26T20:28:40.675Z] [rules] releasing cloud.firestore with ruleset projects/alt-enterprise-26/rulesets/06f0f4d9-b120-4250-9a2d-47694cfa801f
+[debug] [2026-05-26T20:28:40.676Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:40.676Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:28:40.677Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases/cloud.firestore [none]
+[debug] [2026-05-26T20:28:40.677Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases/cloud.firestore {"release":{"name":"projects/alt-enterprise-26/releases/cloud.firestore","rulesetName":"projects/alt-enterprise-26/rulesets/06f0f4d9-b120-4250-9a2d-47694cfa801f"}}
+[debug] [2026-05-26T20:28:42.054Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases/cloud.firestore 200
+[debug] [2026-05-26T20:28:42.055Z] <<< [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases/cloud.firestore {"name":"projects/alt-enterprise-26/releases/cloud.firestore","rulesetName":"projects/alt-enterprise-26/rulesets/06f0f4d9-b120-4250-9a2d-47694cfa801f","createTime":"2026-05-26T20:27:11.919683Z","updateTime":"2026-05-26T20:28:42.028484Z"}
+[debug] [2026-05-26T20:28:42.055Z] [rules] updated release projects/alt-enterprise-26/releases/cloud.firestore
+[info] ✔  firestore: released rules firestore.rules to cloud.firestore 
+[info] 
+[info] ✔  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/alt-enterprise-26/overview
+[debug] [2026-05-26T20:32:21.789Z] ----------------------------------------------------------------------
+[debug] [2026-05-26T20:32:21.791Z] Command:       /opt/homebrew/Cellar/node/24.5.0/bin/node /Users/prajjwalsinghgangwar/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase deploy --only firestore:indexes --project alt-enterprise-26
+[debug] [2026-05-26T20:32:21.791Z] CLI Version:   15.18.0
+[debug] [2026-05-26T20:32:21.791Z] Platform:      darwin
+[debug] [2026-05-26T20:32:21.791Z] Node Version:  v24.5.0
+[debug] [2026-05-26T20:32:21.791Z] Time:          Wed May 27 2026 02:02:21 GMT+0530 (India Standard Time)
+[debug] [2026-05-26T20:32:21.791Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-26T20:32:22.555Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-26T20:32:22.556Z] > authorizing via signed-in user (prajjwalsingh.singh@gmail.com)
+[debug] [2026-05-26T20:32:22.556Z] [iam] checking project alt-enterprise-26 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2026-05-26T20:32:22.556Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:22.557Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:22.557Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions [none]
+[debug] [2026-05-26T20:32:22.557Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions  x-goog-user-project=alt-enterprise-26
+[debug] [2026-05-26T20:32:22.557Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2026-05-26T20:32:24.061Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions 200
+[debug] [2026-05-26T20:32:24.061Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'alt-enterprise-26'...
+[info] 
+[info] i  deploying firestore 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2026-05-26T20:32:24.066Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:24.066Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:24.066Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) [none]
+[debug] [2026-05-26T20:32:24.403Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) 200
+[debug] [2026-05-26T20:32:24.404Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) {"name":"projects/alt-enterprise-26/databases/(default)","uid":"99f05f49-1128-4742-98f9-9bddd2f70d96","createTime":"2026-05-26T20:25:11.819980Z","updateTime":"2026-05-26T20:25:11.819980Z","locationId":"asia-south1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-05-26T20:25:11.819980Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"j","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IOz+s6Tm15QDMJ31lajl15QD"}
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2026-05-26T20:32:24.408Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:24.408Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:24.408Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test [none]
+[debug] [2026-05-26T20:32:24.409Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test [omitted]
+[debug] [2026-05-26T20:32:25.941Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test 200
+[debug] [2026-05-26T20:32:25.941Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test {}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[info] i  firestore: deploying indexes... 
+[debug] [2026-05-26T20:32:25.945Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:25.945Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:25.945Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2026-05-26T20:32:26.084Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2026-05-26T20:32:26.084Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/indexes {}
+[debug] [2026-05-26T20:32:26.085Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:26.085Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:26.085Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2026-05-26T20:32:26.161Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2026-05-26T20:32:26.161Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/alt-enterprise-26/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[debug] [2026-05-26T20:32:26.162Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:26.162Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:26.162Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) [none]
+[debug] [2026-05-26T20:32:26.220Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) 200
+[debug] [2026-05-26T20:32:26.220Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) {"name":"projects/alt-enterprise-26/databases/(default)","uid":"99f05f49-1128-4742-98f9-9bddd2f70d96","createTime":"2026-05-26T20:25:11.819980Z","updateTime":"2026-05-26T20:25:11.819980Z","locationId":"asia-south1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-05-26T20:25:11.819980Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"j","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IP/eo6Xm15QDMJ31lajl15QD"}
+[debug] [2026-05-26T20:32:26.221Z] Creating new index: {"collectionGroup":"products","queryScope":"COLLECTION","fields":[{"fieldPath":"featured","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"}]}
+[debug] [2026-05-26T20:32:26.221Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:26.221Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:32:26.221Z] >>> [apiv2][query] POST https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/products/indexes [none]
+[debug] [2026-05-26T20:32:26.221Z] >>> [apiv2][body] POST https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/products/indexes {"fields":[{"fieldPath":"featured","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"}],"queryScope":"COLLECTION"}
+[debug] [2026-05-26T20:32:26.371Z] <<< [apiv2][status] POST https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/products/indexes 200
+[debug] [2026-05-26T20:32:26.372Z] <<< [apiv2][body] POST https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/products/indexes {"name":"projects/alt-enterprise-26/databases/(default)/operations/S0U0aFhqT2dBQ0lDDCoDIDQ4ODZmMmI4YjU1NC1iNWRhLTAwMTQtYjM3NS01MTA2MzNlYyQac2VuaWxlcGlwCQpBEg","metadata":{"@type":"type.googleapis.com/google.firestore.admin.v1.IndexOperationMetadata","startTime":"2026-05-26T20:32:26.459917Z","index":"projects/alt-enterprise-26/databases/(default)/collectionGroups/products/indexes/CICAgOjXh4EK","state":"INITIALIZING"}}
+[info] ✔  firestore: deployed indexes in firestore.indexes.json successfully for (default) database 
+[info] 
+[info] ✔  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/alt-enterprise-26/overview
+[debug] [2026-05-26T20:33:56.345Z] ----------------------------------------------------------------------
+[debug] [2026-05-26T20:33:56.346Z] Command:       /opt/homebrew/Cellar/node/24.5.0/bin/node /Users/prajjwalsinghgangwar/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase firestore:indexes --project alt-enterprise-26
+[debug] [2026-05-26T20:33:56.347Z] CLI Version:   15.18.0
+[debug] [2026-05-26T20:33:56.347Z] Platform:      darwin
+[debug] [2026-05-26T20:33:56.347Z] Node Version:  v24.5.0
+[debug] [2026-05-26T20:33:56.347Z] Time:          Wed May 27 2026 02:03:56 GMT+0530 (India Standard Time)
+[debug] [2026-05-26T20:33:56.347Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-26T20:33:56.969Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-26T20:33:56.969Z] > authorizing via signed-in user (prajjwalsingh.singh@gmail.com)
+[debug] [2026-05-26T20:33:56.970Z] [iam] checking project alt-enterprise-26 for permissions ["datastore.indexes.list","firebase.projects.get"]
+[debug] [2026-05-26T20:33:56.970Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:33:56.970Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:33:56.971Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions [none]
+[debug] [2026-05-26T20:33:56.971Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions  x-goog-user-project=alt-enterprise-26
+[debug] [2026-05-26T20:33:56.971Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.list","firebase.projects.get"]}
+[debug] [2026-05-26T20:33:58.521Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions 200
+[debug] [2026-05-26T20:33:58.522Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.list","firebase.projects.get"]}
+[debug] [2026-05-26T20:33:58.523Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:33:58.523Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:33:58.523Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2026-05-26T20:33:58.924Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2026-05-26T20:33:58.924Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/indexes {"indexes":[{"name":"projects/alt-enterprise-26/databases/(default)/collectionGroups/products/indexes/CICAgOjXh4EK","queryScope":"COLLECTION","fields":[{"fieldPath":"featured","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}],"state":"CREATING","density":"SPARSE_ALL"}]}
+[debug] [2026-05-26T20:33:58.925Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:33:58.925Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:33:58.925Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2026-05-26T20:33:59.051Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2026-05-26T20:33:59.051Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/alt-enterprise-26/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] {
+  "indexes": [
+    {
+      "collectionGroup": "products",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "featured",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "__name__",
+          "order": "DESCENDING"
+        }
+      ],
+      "density": "SPARSE_ALL"
+    }
+  ],
+  "fieldOverrides": []
+}
+[debug] [2026-05-26T20:34:13.776Z] ----------------------------------------------------------------------
+[debug] [2026-05-26T20:34:13.778Z] Command:       /opt/homebrew/Cellar/node/24.5.0/bin/node /Users/prajjwalsinghgangwar/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase firestore:indexes --project alt-enterprise-26
+[debug] [2026-05-26T20:34:13.778Z] CLI Version:   15.18.0
+[debug] [2026-05-26T20:34:13.778Z] Platform:      darwin
+[debug] [2026-05-26T20:34:13.778Z] Node Version:  v24.5.0
+[debug] [2026-05-26T20:34:13.778Z] Time:          Wed May 27 2026 02:04:13 GMT+0530 (India Standard Time)
+[debug] [2026-05-26T20:34:13.778Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-26T20:34:14.370Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-26T20:34:14.371Z] > authorizing via signed-in user (prajjwalsingh.singh@gmail.com)
+[debug] [2026-05-26T20:34:14.371Z] [iam] checking project alt-enterprise-26 for permissions ["datastore.indexes.list","firebase.projects.get"]
+[debug] [2026-05-26T20:34:14.371Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:34:14.371Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:34:14.372Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions [none]
+[debug] [2026-05-26T20:34:14.372Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions  x-goog-user-project=alt-enterprise-26
+[debug] [2026-05-26T20:34:14.372Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.list","firebase.projects.get"]}
+[debug] [2026-05-26T20:34:15.860Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions 200
+[debug] [2026-05-26T20:34:15.860Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.list","firebase.projects.get"]}
+[debug] [2026-05-26T20:34:15.861Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:34:15.861Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:34:15.861Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2026-05-26T20:34:16.127Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2026-05-26T20:34:16.127Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/indexes {"indexes":[{"name":"projects/alt-enterprise-26/databases/(default)/collectionGroups/products/indexes/CICAgOjXh4EK","queryScope":"COLLECTION","fields":[{"fieldPath":"featured","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"},{"fieldPath":"__name__","order":"DESCENDING"}],"state":"CREATING","density":"SPARSE_ALL"}]}
+[debug] [2026-05-26T20:34:16.128Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:34:16.128Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:34:16.128Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2026-05-26T20:34:16.199Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2026-05-26T20:34:16.199Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/alt-enterprise-26/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] {
+  "indexes": [
+    {
+      "collectionGroup": "products",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "featured",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "__name__",
+          "order": "DESCENDING"
+        }
+      ],
+      "density": "SPARSE_ALL"
+    }
+  ],
+  "fieldOverrides": []
+}
+[debug] [2026-05-26T20:44:52.548Z] ----------------------------------------------------------------------
+[debug] [2026-05-26T20:44:52.549Z] Command:       /opt/homebrew/Cellar/node/24.5.0/bin/node /Users/prajjwalsinghgangwar/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase deploy --only firestore:rules,storage --project alt-enterprise-26
+[debug] [2026-05-26T20:44:52.550Z] CLI Version:   15.18.0
+[debug] [2026-05-26T20:44:52.550Z] Platform:      darwin
+[debug] [2026-05-26T20:44:52.550Z] Node Version:  v24.5.0
+[debug] [2026-05-26T20:44:52.550Z] Time:          Wed May 27 2026 02:14:52 GMT+0530 (India Standard Time)
+[debug] [2026-05-26T20:44:52.550Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-26T20:44:53.371Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-26T20:44:53.371Z] > authorizing via signed-in user (prajjwalsingh.singh@gmail.com)
+[debug] [2026-05-26T20:44:53.371Z] [iam] checking project alt-enterprise-26 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2026-05-26T20:44:53.372Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:44:53.372Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:44:53.373Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions [none]
+[debug] [2026-05-26T20:44:53.373Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions  x-goog-user-project=alt-enterprise-26
+[debug] [2026-05-26T20:44:53.373Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2026-05-26T20:44:54.935Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions 200
+[debug] [2026-05-26T20:44:54.937Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[info] 
+[info] === Deploying to 'alt-enterprise-26'...
+[info] 
+[info] i  deploying storage, firestore 
+[info] i  storage: ensuring required API firebasestorage.googleapis.com is enabled... 
+[debug] [2026-05-26T20:44:54.943Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:44:54.944Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:44:54.944Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/alt-enterprise-26/services/firebasestorage.googleapis.com [none]
+[debug] [2026-05-26T20:44:54.944Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/alt-enterprise-26/services/firebasestorage.googleapis.com  x-goog-user-project=alt-enterprise-26
+[debug] [2026-05-26T20:44:57.308Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/alt-enterprise-26/services/firebasestorage.googleapis.com 200
+[debug] [2026-05-26T20:44:57.309Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/alt-enterprise-26/services/firebasestorage.googleapis.com [omitted]
+[warn] ⚠  storage: missing required API firebasestorage.googleapis.com. Enabling now... 
+[debug] [2026-05-26T20:44:57.312Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:44:57.312Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:44:57.312Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/alt-enterprise-26/services/firebasestorage.googleapis.com:enable [none]
+[debug] [2026-05-26T20:44:57.313Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/alt-enterprise-26/services/firebasestorage.googleapis.com:enable  x-goog-user-project=alt-enterprise-26
+[debug] [2026-05-26T20:44:57.850Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/alt-enterprise-26/services/firebasestorage.googleapis.com:enable 200
+[debug] [2026-05-26T20:44:57.851Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/alt-enterprise-26/services/firebasestorage.googleapis.com:enable [omitted]
+[debug] [2026-05-26T20:45:24.830Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:45:24.830Z] Checked if tokens are valid: true, expires at: 1779829231193
+[debug] [2026-05-26T20:45:24.830Z] >>> [apiv2][query] GET https://firebasestorage.googleapis.com/v1alpha/projects/alt-enterprise-26/defaultBucket [none]
+[debug] [2026-05-26T20:45:26.086Z] <<< [apiv2][status] GET https://firebasestorage.googleapis.com/v1alpha/projects/alt-enterprise-26/defaultBucket 404
+[debug] [2026-05-26T20:45:26.087Z] <<< [apiv2][body] GET https://firebasestorage.googleapis.com/v1alpha/projects/alt-enterprise-26/defaultBucket {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[error] 
+[error] Error: Firebase Storage has not been set up on project 'alt-enterprise-26'. Go to https://console.firebase.google.com/project/alt-enterprise-26/storage and click 'Get Started' to set up Firebase Storage.
+[debug] [2026-05-29T10:16:12.047Z] ----------------------------------------------------------------------
+[debug] [2026-05-29T10:16:12.049Z] Command:       /opt/homebrew/Cellar/node/24.5.0/bin/node /Users/prajjwalsinghgangwar/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase deploy --only firestore:rules --project alt-enterprise-26
+[debug] [2026-05-29T10:16:12.049Z] CLI Version:   15.19.0
+[debug] [2026-05-29T10:16:12.049Z] Platform:      darwin
+[debug] [2026-05-29T10:16:12.049Z] Node Version:  v24.5.0
+[debug] [2026-05-29T10:16:12.049Z] Time:          Fri May 29 2026 15:46:12 GMT+0530 (India Standard Time)
+[debug] [2026-05-29T10:16:12.049Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-29T10:16:12.050Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-05-29T10:16:13.006Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-29T10:16:13.006Z] > authorizing via signed-in user (prajjwalsingh.singh@gmail.com)
+[debug] [2026-05-29T10:16:13.006Z] [iam] checking project alt-enterprise-26 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2026-05-29T10:16:13.006Z] Checked if tokens are valid: false, expires at: 1779829231193
+[debug] [2026-05-29T10:16:13.006Z] Checked if tokens are valid: false, expires at: 1779829231193
+[debug] [2026-05-29T10:16:13.006Z] > refreshing access token with scopes: []
+[debug] [2026-05-29T10:16:13.007Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-05-29T10:16:13.007Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-05-29T10:16:13.268Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-05-29T10:16:13.268Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-05-29T10:16:13.281Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions [none]
+[debug] [2026-05-29T10:16:13.281Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions  x-goog-user-project=alt-enterprise-26
+[debug] [2026-05-29T10:16:13.281Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2026-05-29T10:16:13.637Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-05-29T10:16:13.638Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2026-05-29T10:16:14.768Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions 200
+[debug] [2026-05-29T10:16:14.768Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alt-enterprise-26:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'alt-enterprise-26'...
+[info] 
+[info] i  deploying firestore 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2026-05-29T10:16:14.773Z] Checked if tokens are valid: true, expires at: 1780053372268
+[debug] [2026-05-29T10:16:14.773Z] Checked if tokens are valid: true, expires at: 1780053372268
+[debug] [2026-05-29T10:16:14.773Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) [none]
+[debug] [2026-05-29T10:16:15.145Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) 200
+[debug] [2026-05-29T10:16:15.145Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/alt-enterprise-26/databases/(default) {"name":"projects/alt-enterprise-26/databases/(default)","uid":"99f05f49-1128-4742-98f9-9bddd2f70d96","createTime":"2026-05-26T20:25:11.819980Z","updateTime":"2026-05-26T20:25:11.819980Z","locationId":"asia-south1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-05-29T09:16:15.256937Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"j","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IK7GpZSi3pQDMJ31lajl15QD"}
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2026-05-29T10:16:15.147Z] Checked if tokens are valid: true, expires at: 1780053372268
+[debug] [2026-05-29T10:16:15.147Z] Checked if tokens are valid: true, expires at: 1780053372268
+[debug] [2026-05-29T10:16:15.148Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test [none]
+[debug] [2026-05-29T10:16:15.148Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test [omitted]
+[debug] [2026-05-29T10:16:16.597Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test 200
+[debug] [2026-05-29T10:16:16.597Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26:test {}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2026-05-29T10:16:16.598Z] Checked if tokens are valid: true, expires at: 1780053372268
+[debug] [2026-05-29T10:16:16.598Z] Checked if tokens are valid: true, expires at: 1780053372268
+[debug] [2026-05-29T10:16:16.598Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases pageSize=10&pageToken=
+[debug] [2026-05-29T10:16:17.995Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases 200
+[debug] [2026-05-29T10:16:17.995Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases {"releases":[{"name":"projects/alt-enterprise-26/releases/cloud.firestore","rulesetName":"projects/alt-enterprise-26/rulesets/06f0f4d9-b120-4250-9a2d-47694cfa801f","createTime":"2026-05-26T20:27:11.919683Z","updateTime":"2026-05-26T20:28:42.028484Z"}]}
+[debug] [2026-05-29T10:16:17.996Z] Checked if tokens are valid: true, expires at: 1780053372268
+[debug] [2026-05-29T10:16:17.996Z] Checked if tokens are valid: true, expires at: 1780053372268
+[debug] [2026-05-29T10:16:17.996Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets/06f0f4d9-b120-4250-9a2d-47694cfa801f [none]
+[debug] [2026-05-29T10:16:19.351Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets/06f0f4d9-b120-4250-9a2d-47694cfa801f 200
+[debug] [2026-05-29T10:16:19.352Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets/06f0f4d9-b120-4250-9a2d-47694cfa801f [omitted]
+[info] i  firestore: uploading rules firestore.rules... 
+[debug] [2026-05-29T10:16:19.354Z] Checked if tokens are valid: true, expires at: 1780053372268
+[debug] [2026-05-29T10:16:19.354Z] Checked if tokens are valid: true, expires at: 1780053372268
+[debug] [2026-05-29T10:16:19.354Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets [none]
+[debug] [2026-05-29T10:16:19.354Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets [omitted]
+[debug] [2026-05-29T10:16:20.769Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets 200
+[debug] [2026-05-29T10:16:20.770Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/rulesets {"name":"projects/alt-enterprise-26/rulesets/0b073563-66f4-4118-8aef-2ab996a99922","source":{"files":[{"content":"rules_version = '2';\n\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /products/{productId} {\n      allow read: if true;\n      allow write: if true;\n    }\n\n    match /contact_inquiries/{inquiryId} {\n      allow create: if true;\n      allow read, update, delete: if false;\n    }\n  }\n}\n","name":"firestore.rules"}]},"createTime":"2026-05-29T10:16:20.750511Z","metadata":{"services":["cloud.firestore"]}}
+[debug] [2026-05-29T10:16:20.770Z] [rules] created ruleset projects/alt-enterprise-26/rulesets/0b073563-66f4-4118-8aef-2ab996a99922
+[debug] [2026-05-29T10:16:20.773Z] [rules] releasing cloud.firestore with ruleset projects/alt-enterprise-26/rulesets/0b073563-66f4-4118-8aef-2ab996a99922
+[debug] [2026-05-29T10:16:20.774Z] Checked if tokens are valid: true, expires at: 1780053372268
+[debug] [2026-05-29T10:16:20.775Z] Checked if tokens are valid: true, expires at: 1780053372268
+[debug] [2026-05-29T10:16:20.775Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases/cloud.firestore [none]
+[debug] [2026-05-29T10:16:20.775Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases/cloud.firestore {"release":{"name":"projects/alt-enterprise-26/releases/cloud.firestore","rulesetName":"projects/alt-enterprise-26/rulesets/0b073563-66f4-4118-8aef-2ab996a99922"}}
+[debug] [2026-05-29T10:16:22.178Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases/cloud.firestore 200
+[debug] [2026-05-29T10:16:22.178Z] <<< [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/alt-enterprise-26/releases/cloud.firestore {"name":"projects/alt-enterprise-26/releases/cloud.firestore","rulesetName":"projects/alt-enterprise-26/rulesets/0b073563-66f4-4118-8aef-2ab996a99922","createTime":"2026-05-26T20:27:11.919683Z","updateTime":"2026-05-29T10:16:22.149275Z"}
+[debug] [2026-05-29T10:16:22.178Z] [rules] updated release projects/alt-enterprise-26/releases/cloud.firestore
+[info] ✔  firestore: released rules firestore.rules to cloud.firestore 
+[info] 
+[info] ✔  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/alt-enterprise-26/overview

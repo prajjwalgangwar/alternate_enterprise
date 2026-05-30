@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "typescript",
+    "prettier",
+    "tailwindcss",
+    "es7-get-set",
+    "firebase"
+  ]
+}
