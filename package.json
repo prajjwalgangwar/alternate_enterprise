@@ -14,7 +14,6 @@
     "assign-images": "tsx scripts/assign-product-images.ts"
   },
   "dependencies": {
-    "@dataconnect/generated": "file:src/dataconnect-generated",
     "firebase": "^10.7.0",
     "firebase-admin": "^13.10.0",
     "framer-motion": "^11.0.0",
