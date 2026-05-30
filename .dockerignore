@@ -1,8 +1,8 @@
-.next
 node_modules
+.next
+.git
 *.tsbuildinfo
 .DS_Store
-CATALOGUE
-ALTERNATE CATALOGUE.pdf
-firebase-debug.log
 *.pdf
+CATALOGUE
+firebase-debug.log
