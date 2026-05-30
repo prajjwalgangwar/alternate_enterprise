@@ -10,7 +10,8 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "seed": "tsx scripts/seed-products.ts",
-    "upload-catalogue": "tsx scripts/upload-catalogue.ts"
+    "upload-catalogue": "tsx scripts/upload-catalogue.ts",
+    "assign-images": "tsx scripts/assign-product-images.ts"
   },
   "dependencies": {
     "@dataconnect/generated": "file:src/dataconnect-generated",
