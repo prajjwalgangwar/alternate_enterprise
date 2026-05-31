@@ -15,7 +15,6 @@ const SECTIONS = [
   { id: 'categories', label: 'Categories', visibilityKey: 'section_categories_visible', primaryKey: 'home_categories_items' },
   { id: 'featured', label: 'Featured', visibilityKey: 'section_featured_visible', primaryKey: 'home_featured_heading' },
   { id: 'contact', label: 'Contact', visibilityKey: 'section_contact_visible', primaryKey: 'home_contact_heading' },
-  { id: 'about', label: 'About', visibilityKey: 'section_about_visible', primaryKey: 'about_hero_heading_1' },
   { id: 'privacy', label: 'Privacy', visibilityKey: 'section_privacy_visible', primaryKey: 'privacy_hero_heading_1' },
   { id: 'terms', label: 'Terms', visibilityKey: 'section_terms_visible', primaryKey: 'terms_hero_heading_1' },
   { id: 'faq', label: 'FAQ', visibilityKey: 'section_faq_visible', primaryKey: 'faq_hero_heading_1' },
@@ -372,34 +371,6 @@ export default function ContentEditor() {
                 <EditableText value={v('footer_health_warning')} onChange={(val) => setValue('footer_health_warning', val)} type="textarea" rows={2} className="text-[10px] text-gray-600 leading-relaxed text-center" />
                 <EditableText value={v('footer_copyright')} onChange={(val) => setValue('footer_copyright', val)} className="text-xs text-center text-gray-600/80 block" />
               </div>
-            </div>
-          </div>
-        )}
-
-        {/* === ABOUT === */}
-        {activeSection === 'about' && (
-          <div className="relative">
-            {!sectionVisible && <HiddenOverlay />}
-            <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04]">
-              <h3 className="text-sm font-bold text-premium-gold/60 uppercase tracking-wider">About Page</h3>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] text-gray-400 uppercase tracking-wider">Visible</span>
-                <SectionToggle visible={sectionVisible} onChange={() => toggleVisibility(section!.visibilityKey)} />
-              </div>
-            </div>
-            <div className="bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04] p-8 sm:p-12 pt-2">
-              <div className="max-w-3xl space-y-5">
-                <EditableText value={v('about_hero_badge')} onChange={(val) => setValue('about_hero_badge', val)} className="inline-block text-[10px] uppercase tracking-widest text-premium-gold font-semibold border border-premium-gold/20 rounded-full px-4 py-1.5" />
-                <div className="text-4xl sm:text-5xl font-bold leading-[1.1] space-y-1">
-                  <EditableText value={v('about_hero_heading_1')} onChange={(val) => setValue('about_hero_heading_1', val)} as="div" className="text-white/90" />
-                  <EditableText value={v('about_hero_heading_2')} onChange={(val) => setValue('about_hero_heading_2', val)} as="div" className="text-gradient-gold" />
-                </div>
-                <EditableText value={v('about_hero_description')} onChange={(val) => setValue('about_hero_description', val)} type="textarea" rows={2} as="p" className="text-sm sm:text-base text-gray-400/80 max-w-xl leading-relaxed" />
-              </div>
-            </div>
-            <div className="px-6 pb-6 space-y-4 pt-4">
-              <EditableText value={v('about_content')} onChange={(val) => setValue('about_content', val)} type="textarea" rows={8} className="text-sm text-gray-600 leading-relaxed whitespace-pre-line border border-tobacco-200 rounded-lg p-4" />
-              <EditableText value={v('about_health_warning')} onChange={(val) => setValue('about_health_warning', val)} type="textarea" rows={3} className="text-[10px] text-gray-600 uppercase tracking-wider leading-relaxed text-center" />
             </div>
           </div>
         )}

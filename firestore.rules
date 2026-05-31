@@ -14,7 +14,8 @@ service cloud.firestore {
 
     match /contact_inquiries/{inquiryId} {
       allow create: if true;
-      allow read, update, delete: if false;
+      allow read, update: if true;
+      allow delete: if false;
     }
 
     match /siteContent/{docId} {

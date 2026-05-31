@@ -11,6 +11,11 @@ import {
   updateProduct,
 } from '@/services/firestore/products'
 import {
+  ContactInquiry,
+  getContactInquiries,
+  updateContactInquiry,
+} from '@/services/firestore/products'
+import {
   deleteFileByUrl,
   uploadProductImages,
 } from '@/services/storage/storage'
@@ -22,7 +27,7 @@ import {
 } from '@/services/firestore/productImages'
 import ContentEditor from '@/components/ContentEditor'
 
-type Tab = 'products' | 'media' | 'content'
+type Tab = 'products' | 'media' | 'content' | 'enquiries'
 
 type ProductForm = {
   name: string
@@ -76,6 +81,8 @@ export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<Tab>('products')
   const [products, setProducts] = useState<Product[]>([])
   const [mediaImages, setMediaImages] = useState<ProductImage[]>([])
+  const [enquiries, setEnquiries] = useState<ContactInquiry[]>([])
+  const [enquiriesLoading, setEnquiriesLoading] = useState(true)
   const [form, setForm] = useState<ProductForm>(emptyForm)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
@@ -107,6 +114,18 @@ export default function AdminPage() {
     }
   }
 
+  async function loadEnquiries() {
+    setEnquiriesLoading(true)
+    try {
+      const data = await getContactInquiries()
+      setEnquiries(data)
+    } catch (e) {
+      console.error('Failed to load enquiries:', e)
+    } finally {
+      setEnquiriesLoading(false)
+    }
+  }
+
   async function loadMediaImages() {
     setMediaLoading(true)
     try {
@@ -122,6 +141,7 @@ export default function AdminPage() {
   useEffect(() => {
     loadProducts()
     loadMediaImages()
+    loadEnquiries()
   }, [])
 
   function updateField<K extends keyof ProductForm>(key: K, value: ProductForm[K]) {
@@ -307,6 +327,16 @@ export default function AdminPage() {
               }`}
             >
               Content
+            </button>
+            <button
+              onClick={() => setActiveTab('enquiries')}
+              className={`pb-3 text-sm font-semibold border-b-2 transition-colors ${
+                activeTab === 'enquiries'
+                  ? 'border-premium-gold text-premium-dark'
+                  : 'border-transparent text-tobacco-500 hover:text-tobacco-700'
+              }`}
+            >
+              Enquiries
             </button>
           </nav>
         </div>
@@ -611,6 +641,108 @@ export default function AdminPage() {
               </p>
             </div>
             <ContentEditor />
+          </div>
+        )}
+
+        {/* === ENQUIRIES TAB === */}
+        {activeTab === 'enquiries' && (
+          <div>
+            <div className="mb-6">
+              <h2 className="text-xl font-bold text-premium-dark flex items-center gap-2">
+                <span className="w-1.5 h-5 bg-premium-gold rounded-full inline-block" />
+                Enquiries
+              </h2>
+              <p className="text-sm text-tobacco-600 mt-1">
+                Manage contact form submissions and update their status.
+              </p>
+            </div>
+            {enquiriesLoading ? (
+              <div className="flex items-center justify-center py-20">
+                <div className="w-8 h-8 border-2 border-tobacco-300 border-t-premium-gold rounded-full animate-spin" />
+              </div>
+            ) : enquiries.length === 0 ? (
+              <div className="rounded-xl border border-tobacco-200 bg-white p-12 text-center">
+                <p className="text-tobacco-500">No enquiries yet.</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {enquiries.map((enquiry) => (
+                  <div
+                    key={enquiry.id}
+                    className="rounded-xl border border-tobacco-200 bg-white p-6 shadow-sm"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-3 mb-2">
+                          <h3 className="font-semibold text-premium-dark truncate">
+                            {enquiry.firstName} {enquiry.lastName}
+                          </h3>
+                          <span
+                            className={`shrink-0 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                              enquiry.status === 'new'
+                                ? 'bg-blue-100 text-blue-800'
+                                : enquiry.status === 'contacted'
+                                ? 'bg-yellow-100 text-yellow-800'
+                                : enquiry.status === 'qualified'
+                                ? 'bg-purple-100 text-purple-800'
+                                : enquiry.status === 'converted'
+                                ? 'bg-green-100 text-green-800'
+                                : 'bg-gray-100 text-gray-800'
+                            }`}
+                          >
+                            {enquiry.status}
+                          </span>
+                        </div>
+                        <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-tobacco-600">
+                          <span>{enquiry.email}</span>
+                          <span>{enquiry.phone}</span>
+                          <span>{enquiry.companyName}</span>
+                          <span>{enquiry.country}</span>
+                        </div>
+                        {enquiry.products && enquiry.products.length > 0 && (
+                          <div className="flex flex-wrap gap-1.5 mt-2">
+                            {enquiry.products.map((p) => (
+                              <span
+                                key={p}
+                                className="inline-flex items-center rounded-md bg-tobacco-100 px-2 py-0.5 text-xs font-medium text-tobacco-700"
+                              >
+                                {p}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        <p className="text-xs text-tobacco-400 mt-2">
+                          {enquiry.createdAt?.toDate?.().toLocaleString() ?? enquiry.createdAt}
+                        </p>
+                      </div>
+                      <select
+                        value={enquiry.status}
+                        onChange={async (e) => {
+                          const newStatus = e.target.value as ContactInquiry['status']
+                          try {
+                            await updateContactInquiry(enquiry.id!, { status: newStatus })
+                            setEnquiries((prev) =>
+                              prev.map((eq) =>
+                                eq.id === enquiry.id ? { ...eq, status: newStatus } : eq
+                              )
+                            )
+                          } catch (err) {
+                            console.error('Failed to update status:', err)
+                          }
+                        }}
+                        className="shrink-0 rounded-lg border border-tobacco-200 px-3 py-1.5 text-xs font-medium outline-none focus:border-premium-gold focus:ring-2 focus:ring-premium-gold/20 transition-all"
+                      >
+                        <option value="new">New</option>
+                        <option value="contacted">Contacted</option>
+                        <option value="qualified">Qualified</option>
+                        <option value="converted">Converted</option>
+                        <option value="closed">Closed</option>
+                      </select>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
 

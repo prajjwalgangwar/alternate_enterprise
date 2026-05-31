@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Header, Footer } from '@/components/Layout'
 import { FeaturedProducts } from '@/components/FeaturedProducts'
-import { ContactForm } from '@/components/ContactForm'
+import { EnquiryForm } from '@/components/EnquiryForm'
 import Link from 'next/link'
 import { useSiteContent } from '@/context/SiteContent'
 
@@ -257,7 +257,7 @@ export default function Home() {
               </p>
               )}
             </div>
-            <ContactForm />
+            <EnquiryForm />
           </div>
         </section>
         )}

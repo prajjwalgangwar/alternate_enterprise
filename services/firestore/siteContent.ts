@@ -92,13 +92,6 @@ const defaults: SiteContent = {
   contact_info_box_text: 'All inquiries are handled by our trade team. We respond to bulk order and partnership requests within 24 hours.',
   contact_health_warning: 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.',
 
-  about_hero_badge: 'Our Story',
-  about_hero_heading_1: 'About',
-  about_hero_heading_2: 'Us',
-  about_hero_description: 'Premium luxury tobacco exports with decades of industry expertise and global reach.',
-  about_content: 'Alternate Enterprises is a premier exporter of luxury tobacco products, sourcing the finest leaves from the world\u2019s most renowned growing regions. With a commitment to quality, integrity, and sustainable practices, we serve discerning B2B partners across the globe.\n\nOur team brings decades of combined experience in tobacco cultivation, curing, and international trade. We work directly with trusted growers to ensure every shipment meets the highest standards of excellence.\n\nFrom bright Virginia to rich Burley, our curated selection represents the best of what the tobacco world has to offer. We take pride in building long-term relationships with our partners, delivering consistency and reliability in every transaction.',
-  about_health_warning: 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.',
-
   privacy_hero_badge: 'Privacy',
   privacy_hero_heading_1: 'Privacy',
   privacy_hero_heading_2: 'Policy',
@@ -127,7 +120,6 @@ const defaults: SiteContent = {
   ],
   faq_health_warning: 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.',
 
-  section_about_visible: 'true',
   section_privacy_visible: 'true',
   section_terms_visible: 'true',
   section_faq_visible: 'true',

@@ -1,6 +1,7 @@
 import {
   collection,
   addDoc,
+  setDoc,
   query,
   where,
   orderBy,
@@ -34,14 +35,17 @@ export type ProductInput = Omit<Product, 'productId' | 'createdAt'>
 
 export interface ContactInquiry {
   id?: string
-  name: string
-  company: string
-  email: string
+  firstName: string
+  lastName: string
   phone: string
+  email: string
+  companyName: string
   country: string
-  inquiryType: string
-  message: string
+  products: string[]
+  status: 'new' | 'contacted' | 'qualified' | 'converted' | 'closed'
   createdAt: Timestamp
+  updatedAt: Timestamp
+  notes?: string
 }
 
 // Products Collection
@@ -190,11 +194,13 @@ export async function searchProducts(searchTerm: string): Promise<Product[]> {
 // Contact Inquiries Collection
 export const contactInquiriesCollection = collection(db, 'contact_inquiries')
 
-export async function addContactInquiry(inquiry: Omit<ContactInquiry, 'id'>): Promise<string> {
+export async function addContactInquiry(inquiry: Omit<ContactInquiry, 'id' | 'createdAt' | 'updatedAt'>): Promise<string> {
   try {
     const docRef = await addDoc(contactInquiriesCollection, {
       ...inquiry,
+      status: 'new',
       createdAt: Timestamp.now(),
+      updatedAt: Timestamp.now(),
     })
     return docRef.id
   } catch (error) {
@@ -213,6 +219,16 @@ export async function getContactInquiries(): Promise<ContactInquiry[]> {
     }))
   } catch (error) {
     console.error('Error fetching contact inquiries:', error)
+    throw error
+  }
+}
+
+export async function updateContactInquiry(id: string, updates: Partial<ContactInquiry>): Promise<void> {
+  try {
+    const ref = doc(db, 'contact_inquiries', id)
+    await setDoc(ref, { ...updates, updatedAt: Timestamp.now() }, { merge: true })
+  } catch (error) {
+    console.error('Error updating contact inquiry:', error)
     throw error
   }
 }

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Header, Footer } from '@/components/Layout'
-import { ContactForm } from '@/components/ContactForm'
+import { EnquiryForm } from '@/components/EnquiryForm'
 import { useSiteContent } from '@/context/SiteContent'
 
 export default function ContactPage() {
@@ -123,7 +123,7 @@ export default function ContactPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <ContactForm />
+                <EnquiryForm />
               </motion.div>
             </div>
           </div>

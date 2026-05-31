@@ -14,14 +14,13 @@ export function useContactForm() {
     success: false,
   })
 
-  const submitForm = useCallback(async (data: Omit<ContactInquiry, 'id'>) => {
+  const submitForm = useCallback(async (data: Omit<ContactInquiry, 'id' | 'createdAt' | 'updatedAt' | 'status'>) => {
     setState({ loading: true, error: null, success: false })
 
     try {
-      await addContactInquiry(data)
+      await addContactInquiry({ ...data, status: 'new' })
       setState({ loading: false, error: null, success: true })
 
-      // Reset success state after 5 seconds
       setTimeout(() => {
         setState((prev) => ({ ...prev, success: false }))
       }, 5000)
