@@ -258,13 +258,15 @@ export default function Home() {
                               />
                             </div>
                           )}
-                          <div className="flex flex-col justify-center flex-1 px-5 py-4">
+                          <div className="flex flex-col flex-1 px-5 py-4">
                             <p className="text-sm font-bold text-charcoal group-hover:text-gold transition-colors truncate">{p.name}</p>
-                            <p className="text-[10px] text-gray-400 mt-0.5 font-medium uppercase tracking-wider">{p.grade}</p>
-                            <div className="divider-gold my-3" />
-                            <div className="flex gap-4 text-[10px] text-gray-500">
-                              <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-gold/60" />N {p.nicotine}</span>
-                              <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-gold/60" />S {p.sugar}</span>
+                            <p className="text-[10px] text-gray-400 mt-0.5 font-medium uppercase tracking-widest">{p.grade}</p>
+                            <div className="mt-auto">
+                              <div className="divider-gold my-3" />
+                              <div className="flex gap-4 text-[10px] text-gray-500">
+                                <span className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-gold/70" />N {p.nicotine}</span>
+                                <span className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-gold/70" />S {p.sugar}</span>
+                              </div>
                             </div>
                           </div>
                         </Link>
