@@ -22,6 +22,7 @@ export default function Home() {
   const { content } = useSiteContent()
   const { products } = useProducts()
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set())
 
   const stats = (Array.isArray(content.home_stats) ? content.home_stats : [
     '39+|Premium Varieties',
@@ -235,11 +236,13 @@ export default function Home() {
                           className="group block bg-white border border-tobacco-100 rounded-xl overflow-hidden hover:border-gold/30 hover:shadow-md transition-all duration-300"
                         >
                           {p.imageUrl && (
-                            <div className="aspect-[4/3] overflow-hidden bg-cream">
+                            <div className="aspect-[4/3] overflow-hidden bg-[#e2e2dd] relative">
+                              <div className={`absolute inset-0 bg-gradient-to-r from-[#d4d4cf] via-[#eaeae5] to-[#d4d4cf] bg-[length:200%_100%] animate-shimmer ${loadedImages.has(p.productId) ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`} />
                               <img
                                 src={p.imageUrl}
                                 alt={p.name}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                onLoad={() => setLoadedImages(prev => new Set(prev).add(p.productId))}
+                                className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 relative z-10 ${loadedImages.has(p.productId) ? 'opacity-100' : 'opacity-0'}`}
                               />
                             </div>
                           )}
