@@ -9,16 +9,16 @@ export function Header() {
   const { content } = useSiteContent()
 
   const navLinks = [
-    { label: content.nav_home as string || 'Home', href: '/' },
-    { label: content.nav_offerings as string || 'Our Offerings', href: '/catalogue' },
-    { label: content.nav_contact as string || 'Contact', href: '/contact' },
-  ]
+    { label: content.nav_home as string, href: '/' },
+    { label: content.nav_offerings as string, href: '/catalogue' },
+    { label: content.nav_contact as string, href: '/contact' },
+  ].filter((l) => l.label)
 
   return (
     <>
       {(content.section_header_banner_visible as string) !== 'false' && content.header_health_warning && (
         <div className="health-warning">
-          {content.header_health_warning as string || 'Tobacco products are not a safe alternative to cigarettes. This site is for B2B trade professionals only.'}
+          {content.header_health_warning as string}
         </div>
       )}
       <motion.header
@@ -39,9 +39,11 @@ export function Header() {
                 <div className="relative w-9 h-9">
                   <Image src="/logo.png" alt={content.header_logo_alt as string || 'Alternate Enterprises'} fill className="object-contain" />
                 </div>
+                {!!(content.header_tagline as string) && (
                 <span className="hidden sm:block text-[9px] uppercase tracking-[0.35em] text-premium-gold/50 mt-1">
-                  {content.header_tagline as string || 'Strong Leaf, Strong Relationships'}
+                  {content.header_tagline as string}
                 </span>
+                )}
               </motion.div>
             </Link>
 
@@ -93,15 +95,22 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
           <div className="md:col-span-2">
+            {!!(content.footer_company_name as string) && (
             <h3 className="text-premium-gold font-bold tracking-[0.15em] mb-4 text-lg">
-              {content.footer_company_name as string || 'ALTERNATE ENTERPRISES'}
+              {content.footer_company_name as string}
             </h3>
+            )}
+            {!!(content.footer_description as string) && (
             <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
-              {content.footer_description as string || 'Premium luxury tobacco exports showcasing the finest selections from around the world.'}
+              {content.footer_description as string}
             </p>
+            )}
           </div>
           <div>
-            <h4 className="text-white/80 text-sm mb-4 font-semibold">{content.footer_products_heading as string || 'Products'}</h4>
+            {!!(content.footer_products_heading as string) && (
+            <h4 className="text-white/80 text-sm mb-4 font-semibold">{content.footer_products_heading as string}</h4>
+            )}
+            {productList.length > 0 && (
             <ul className="space-y-2.5 text-sm">
               {productList.map((item) => (
                 <li key={item}>
@@ -109,9 +118,13 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+            )}
           </div>
           <div>
-            <h4 className="text-white/80 text-sm mb-4 font-semibold">{content.footer_quick_links_heading as string || 'Quick Links'}</h4>
+            {!!(content.footer_quick_links_heading as string) && (
+            <h4 className="text-white/80 text-sm mb-4 font-semibold">{content.footer_quick_links_heading as string}</h4>
+            )}
+            {quickLinks.length > 0 && (
             <ul className="space-y-2.5 text-sm">
               {quickLinks.map((item) => (
                 <li key={item}>
@@ -121,12 +134,15 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+            )}
           </div>
           <div>
-            <h4 className="text-white/80 text-sm mb-4 font-semibold">{content.footer_contact_heading as string || 'Contact'}</h4>
+            {!!(content.footer_contact_heading as string) && (
+            <h4 className="text-white/80 text-sm mb-4 font-semibold">{content.footer_contact_heading as string}</h4>
+            )}
             <ul className="space-y-2.5 text-sm">
-              <li className="text-gray-500">{content.footer_email as string || 'info@alternateenterprises.com'}</li>
-              <li className="text-gray-500">{content.footer_phone as string || '+1 (555) 000-0000'}</li>
+              {!!(content.footer_email as string) && <li className="text-gray-500">{content.footer_email as string}</li>}
+              {!!(content.footer_phone as string) && <li className="text-gray-500">{content.footer_phone as string}</li>}
             </ul>
           </div>
         </div>
@@ -134,12 +150,16 @@ export function Footer() {
         <div className="divider-gold my-8" />
 
         <div className="space-y-4">
+          {!!(content.footer_health_warning as string) && (
           <p className="text-[10px] text-gray-600 leading-relaxed text-center max-w-3xl mx-auto">
-            {content.footer_health_warning as string || 'WARNING: These products are intended for use by adults 21 years or older. Tobacco products are not safe and are addictive. This website is intended for B2B trade professionals only. All products are for export purposes only.'}
+            {content.footer_health_warning as string}
           </p>
+          )}
+          {!!(content.footer_copyright as string) && (
           <p className="text-xs text-center text-gray-600/80">
-            &copy; {new Date().getFullYear()} {content.footer_copyright as string || 'Alternate Enterprises. All rights reserved.'}
+            &copy; {new Date().getFullYear()} {content.footer_copyright as string}
           </p>
+          )}
         </div>
       </div>
     </motion.footer>

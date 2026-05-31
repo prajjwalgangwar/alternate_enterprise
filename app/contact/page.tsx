@@ -28,7 +28,7 @@ export default function ContactPage() {
               className="inline-flex items-center gap-2 border border-premium-gold/20 rounded-full px-4 py-1.5 text-premium-gold text-[10px] uppercase tracking-[0.3em] font-semibold mb-6"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-premium-gold shadow-[0_0_6px_rgba(212,175,55,0.6)]" />
-              {content.contact_hero_badge as string || 'Connect With Us'}
+              {!!(content.contact_hero_badge as string) && (content.contact_hero_badge as string)}
             </motion.div>
 
             <motion.h1
@@ -37,8 +37,8 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
             >
-              <span className="text-white/90">{content.contact_hero_heading_1 as string || 'Get In'}</span>{' '}
-              <span className="text-gradient-gold">{content.contact_hero_heading_2 as string || 'Touch'}</span>
+              {!!(content.contact_hero_heading_1 as string) && <span className="text-white/90">{content.contact_hero_heading_1 as string}</span>}{' '}
+              {!!(content.contact_hero_heading_2 as string) && <span className="text-gradient-gold">{content.contact_hero_heading_2 as string}</span>}
             </motion.h1>
 
             <motion.p
@@ -47,7 +47,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.3 }}
             >
-              {content.contact_hero_description as string || 'Interested in bulk orders, partnerships, or distribution? Send us your inquiry and our team will respond within 24 hours.'}
+              {!!(content.contact_hero_description as string) && (content.contact_hero_description as string)}
             </motion.p>
           </div>
         </section>
@@ -62,12 +62,12 @@ export default function ContactPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <h2 className="text-2xl sm:text-3xl font-bold text-premium-dark mb-4">
-                  {content.contact_section_heading as string || 'Let\u2019s Start a Conversation'}
-                </h2>
-                <p className="text-sm text-gray-500 leading-relaxed mb-8">
-                  {content.contact_section_description as string || 'Whether you\u2019re looking to place a bulk order, explore partnership opportunities, or discuss distribution rights \u2014 we\u2019re here to help.'}
-                </p>
+                {!!(content.contact_section_heading as string) && <h2 className="text-2xl sm:text-3xl font-bold text-premium-dark mb-4">
+                  {content.contact_section_heading as string}
+                </h2>}
+                {!!(content.contact_section_description as string) && <p className="text-sm text-gray-500 leading-relaxed mb-8">
+                  {content.contact_section_description as string}
+                </p>}
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -77,8 +77,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-premium-dark">{content.contact_email_label as string || 'Email'}</h3>
-                      <p className="text-sm text-gray-500 mt-0.5">{content.contact_email_value as string || 'info@alternateenterprises.com'}</p>
+                      {!!(content.contact_email_label as string) && <h3 className="text-sm font-semibold text-premium-dark">{content.contact_email_label as string}</h3>}
+                      {!!(content.contact_email_value as string) && <p className="text-sm text-gray-500 mt-0.5">{content.contact_email_value as string}</p>}
                     </div>
                   </div>
 
@@ -89,8 +89,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-premium-dark">{content.contact_phone_label as string || 'Phone'}</h3>
-                      <p className="text-sm text-gray-500 mt-0.5">{content.contact_phone_value as string || '+1 (555) 000-0000'}</p>
+                      {!!(content.contact_phone_label as string) && <h3 className="text-sm font-semibold text-premium-dark">{content.contact_phone_label as string}</h3>}
+                      {!!(content.contact_phone_value as string) && <p className="text-sm text-gray-500 mt-0.5">{content.contact_phone_value as string}</p>}
                     </div>
                   </div>
 
@@ -102,19 +102,19 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-premium-dark">{content.contact_location_label as string || 'Location'}</h3>
-                      <p className="text-sm text-gray-500 mt-0.5">{content.contact_location_value as string || 'Global Operations \u2014 Serving International Markets'}</p>
+                      {!!(content.contact_location_label as string) && <h3 className="text-sm font-semibold text-premium-dark">{content.contact_location_label as string}</h3>}
+                      {!!(content.contact_location_value as string) && <p className="text-sm text-gray-500 mt-0.5">{content.contact_location_value as string}</p>}
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-10 p-5 bg-premium-dark/5 rounded-lg border border-premium-gold/10">
-                  <p className="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-semibold mb-2">
-                    {content.contact_info_box_label as string || 'B2B Trade Only'}
-                  </p>
-                  <p className="text-xs text-gray-500 leading-relaxed">
-                    {content.contact_info_box_text as string || 'All inquiries are handled by our trade team. We respond to bulk order and partnership requests within 24 hours.'}
-                  </p>
+                  {!!(content.contact_info_box_label as string) && <p className="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-semibold mb-2">
+                    {content.contact_info_box_label as string}
+                  </p>}
+                  {!!(content.contact_info_box_text as string) && <p className="text-xs text-gray-500 leading-relaxed">
+                    {content.contact_info_box_text as string}
+                  </p>}
                 </div>
               </motion.div>
 
@@ -134,7 +134,7 @@ export default function ContactPage() {
         <section className="bg-premium-dark border-t border-premium-gold/5">
           <div className="max-w-4xl mx-auto px-4 py-8 text-center">
             <p className="text-[9px] text-gray-600 leading-relaxed uppercase tracking-[0.2em]">
-              {content.contact_health_warning as string || 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.'}
+              {content.contact_health_warning as string}
             </p>
           </div>
         </section>

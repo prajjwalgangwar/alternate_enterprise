@@ -59,6 +59,7 @@ export default function Home() {
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-3xl">
+              {!!(content.home_hero_badge as string) && (
               <motion.div
                 className="inline-flex items-center gap-2 border border-premium-gold/20 rounded-full px-4 py-1.5 text-premium-gold text-[10px] uppercase tracking-[0.3em] font-semibold mb-6"
                 initial={{ opacity: 0, y: 10 }}
@@ -66,8 +67,9 @@ export default function Home() {
                 transition={{ duration: 0.4, delay: 0.1 }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-premium-gold shadow-[0_0_6px_rgba(212,175,55,0.6)]" />
-                {content.home_hero_badge as string || 'Established 2024'}
+                {content.home_hero_badge as string}
               </motion.div>
+              )}
 
               <motion.h1
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 leading-[1.1] tracking-tight"
@@ -75,21 +77,27 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 }}
               >
-                <span className="text-white/90">{content.home_hero_heading_1 as string || 'Premium'}</span>
-                <br />
-                <span className="text-gradient-gold">{content.home_hero_heading_2 as string || 'Tobacco'}</span>
-                <br />
-                <span className="text-white/90">{content.home_hero_heading_3 as string || 'Exports'}</span>
+                {!!(content.home_hero_heading_1 as string) && (
+                  <><span className="text-white/90">{content.home_hero_heading_1 as string}</span><br /></>
+                )}
+                {!!(content.home_hero_heading_2 as string) && (
+                  <><span className="text-gradient-gold">{content.home_hero_heading_2 as string}</span><br /></>
+                )}
+                {!!(content.home_hero_heading_3 as string) && (
+                  <span className="text-white/90">{content.home_hero_heading_3 as string}</span>
+                )}
               </motion.h1>
 
+              {!!(content.home_hero_description as string) && (
               <motion.p
                 className="text-sm sm:text-base text-gray-400/80 mb-8 max-w-xl leading-relaxed font-light tracking-wide"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3 }}
               >
-                {content.home_hero_description as string || 'Sourcing the world&apos;s finest tobacco leaves since 2024. Expertly curated selections for discerning international trade partners.'}
+                {content.home_hero_description as string}
               </motion.p>
+              )}
 
               <motion.div
                 className="flex items-center gap-4 flex-wrap"
@@ -97,21 +105,25 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.4 }}
               >
+                {!!(content.home_hero_cta_1 as string) && (
                 <Link
                   href="/catalogue"
                   className="relative inline-flex items-center gap-2 bg-gradient-to-r from-premium-gold to-amber-500 text-premium-dark font-bold text-sm px-7 py-3.5 rounded-full tracking-[0.15em] uppercase shadow-lg shadow-premium-gold/20 hover:shadow-premium-gold/40 hover:scale-[1.02] transition-all duration-300"
                 >
-                  {content.home_hero_cta_1 as string || 'Explore Collection'}
+                  {content.home_hero_cta_1 as string}
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
+                )}
+                {!!(content.home_hero_cta_2 as string) && (
                 <a
                   href="#contact"
                   className="inline-flex items-center gap-2 border border-premium-gold/30 text-premium-gold text-sm px-7 py-3.5 rounded-full tracking-[0.15em] uppercase font-semibold hover:bg-premium-gold/10 hover:border-premium-gold/60 transition-all duration-300"
                 >
-                  {content.home_hero_cta_2 as string || 'Request a Quote'}
+                  {content.home_hero_cta_2 as string}
                 </a>
+                )}
               </motion.div>
             </div>
           </div>
@@ -146,17 +158,23 @@ export default function Home() {
         {(content.section_categories_visible as string) !== 'false' && categories.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
           <div className="mb-12">
+            {!!(content.home_categories_section_label as string) && (
             <span className="text-premium-gold text-[10px] uppercase tracking-[0.3em] font-semibold">
-              {content.home_categories_section_label as string || 'Our Selection'}
+              {content.home_categories_section_label as string}
             </span>
+            )}
+            {!!(content.home_categories_heading as string) && (
             <h2 className="text-3xl sm:text-4xl font-bold text-premium-dark mt-3 mb-3">
-              {(content.home_categories_heading as string || 'Tobacco Categories').split(' ').map((word, i, arr) =>
+              {(content.home_categories_heading as string).split(' ').map((word, i, arr) =>
                 i === arr.length - 1 ? <span key={i} className="text-gradient-gold">{word} </span> : <span key={i} className="text-premium-dark">{word} </span>
               )}
             </h2>
+            )}
+            {!!(content.home_categories_description as string) && (
             <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
-              {content.home_categories_description as string || 'From bright Virginia to rich Burley, each variety is selected for its exceptional quality'}
+              {content.home_categories_description as string}
             </p>
+            )}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -193,17 +211,23 @@ export default function Home() {
               transition={{ duration: 0.4 }}
               viewport={{ once: true }}
             >
+              {!!(content.home_featured_section_label as string) && (
               <span className="text-premium-gold text-[10px] uppercase tracking-[0.3em] font-semibold">
-                {content.home_featured_section_label as string || 'Featured Selection'}
+                {content.home_featured_section_label as string}
               </span>
+              )}
+              {!!(content.home_featured_heading as string) && (
               <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-3">
-                {(content.home_featured_heading as string || 'Premium Collection').split(' ').map((word, i, arr) =>
+                {(content.home_featured_heading as string).split(' ').map((word, i, arr) =>
                   i === arr.length - 1 ? <span key={i} className="text-gradient-gold">{word} </span> : <span key={i} className="text-white">{word} </span>
                 )}
               </h2>
+              )}
+              {!!(content.home_featured_description as string) && (
               <p className="text-gray-400 text-sm leading-relaxed max-w-xl">
-                {content.home_featured_description as string || 'Our curated selection of the finest tobacco products available for export.'}
+                {content.home_featured_description as string}
               </p>
+              )}
             </motion.div>
             <FeaturedProducts />
           </div>
@@ -215,17 +239,23 @@ export default function Home() {
         <section id="contact" className="bg-gradient-to-b from-tobacco-50 to-cream py-20 sm:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-12 text-center">
+              {!!(content.home_contact_section_label as string) && (
               <span className="text-premium-gold text-[10px] uppercase tracking-[0.3em] font-semibold">
-                {content.home_contact_section_label as string || 'Connect'}
+                {content.home_contact_section_label as string}
               </span>
+              )}
+              {!!(content.home_contact_heading as string) && (
               <h2 className="text-3xl sm:text-4xl font-bold text-premium-dark mt-3 mb-3">
-                {(content.home_contact_heading as string || 'Get In Touch').split(' ').map((word, i, arr) =>
+                {(content.home_contact_heading as string).split(' ').map((word, i, arr) =>
                   i === arr.length - 1 ? <span key={i} className="text-gradient-gold">{word}</span> : <span key={i}>{word} </span>
                 )}
               </h2>
+              )}
+              {!!(content.home_contact_description as string) && (
               <p className="text-gray-500 text-sm leading-relaxed max-w-xl mx-auto">
-                {content.home_contact_description as string || 'Interested in bulk orders, partnerships, or distribution? Contact us with your inquiry.'}
+                {content.home_contact_description as string}
               </p>
+              )}
             </div>
             <ContactForm />
           </div>
@@ -237,7 +267,7 @@ export default function Home() {
         <section className="bg-premium-dark border-t border-premium-gold/5">
           <div className="max-w-4xl mx-auto px-4 py-8 text-center">
             <p className="text-[9px] text-gray-600 leading-relaxed uppercase tracking-[0.2em]">
-              {content.home_health_warning as string || 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.'}
+              {content.home_health_warning as string}
             </p>
           </div>
         </section>

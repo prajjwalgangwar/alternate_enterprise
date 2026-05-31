@@ -19,10 +19,10 @@ export default function CataloguePage() {
     ? content.catalogue_categories
     : ['All', 'FCV Tobacco', 'Burley Tobacco', 'Country Blend', 'Zimbabwe Cured']
 
-  const specNico = content.catalogue_spec_nico as string || 'Nico'
-  const specSugar = content.catalogue_spec_sugar as string || 'Sugar'
-  const specBody = content.catalogue_spec_body as string || 'Body'
-  const specColor = content.catalogue_spec_color as string || 'Color'
+  const specNico = content.catalogue_spec_nico as string
+  const specSugar = content.catalogue_spec_sugar as string
+  const specBody = content.catalogue_spec_body as string
+  const specColor = content.catalogue_spec_color as string
 
   const handleImageError = useCallback((productId: string) => {
     setFailedImages((prev) => new Set(prev).add(productId))
@@ -96,7 +96,7 @@ export default function CataloguePage() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={content.catalogue_search_placeholder as string || 'Search products...'}
+                  placeholder={content.catalogue_search_placeholder as string}
                   className="w-full pl-8 pr-3 py-1.5 text-xs bg-tobacco-50 border border-tobacco-100 rounded-full focus:outline-none focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold placeholder:text-gray-400"
                 />
               </div>
@@ -111,12 +111,12 @@ export default function CataloguePage() {
               <SkeletonLoader count={6} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" />
             ) : error ? (
               <div className="text-center py-16">
-                <p className="text-gray-500">{content.catalogue_error_message as string || 'Unable to load products at this time.'}</p>
+                {!!(content.catalogue_error_message as string) && <p className="text-gray-500">{content.catalogue_error_message as string}</p>}
                 <p className="text-xs text-gray-400 mt-1">{error}</p>
               </div>
             ) : filtered.length === 0 ? (
               <div className="text-center py-16">
-                <p className="text-gray-500">{content.catalogue_empty_message as string || 'No products found for this category.'}</p>
+                {!!(content.catalogue_empty_message as string) && <p className="text-gray-500">{content.catalogue_empty_message as string}</p>}
               </div>
             ) : (
               Object.entries(groupedCategories).map(([category, categoryProducts]) => (
@@ -149,7 +149,7 @@ export default function CataloguePage() {
                           <div className="relative w-full h-80 bg-gradient-to-br from-tobacco-950 to-premium-dark overflow-hidden">
                             {showPlaceholder ? (
                               <div className="flex items-center justify-center h-full p-8">
-                                <Image src="/logo.png" alt={content.header_logo_alt as string || 'Alternate Enterprises'} width={120} height={60} className="object-contain opacity-40" />
+                                <Image src="/logo.png" alt={content.header_logo_alt as string} width={120} height={60} className="object-contain opacity-40" />
                               </div>
                             ) : (
                               <Image
@@ -214,7 +214,7 @@ export default function CataloguePage() {
         <section className="bg-premium-dark border-t border-premium-gold/5">
           <div className="max-w-4xl mx-auto px-4 py-8 text-center">
             <p className="text-[9px] text-gray-600 leading-relaxed uppercase tracking-[0.2em]">
-              {content.catalogue_health_warning as string || 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.'}
+              {content.catalogue_health_warning as string}
             </p>
           </div>
         </section>
