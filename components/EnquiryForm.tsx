@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useContactForm } from '@/hooks/useContactForm'
 import { SuccessMessage, ErrorDisplay } from './common'
 import { motion } from 'framer-motion'
@@ -33,6 +33,11 @@ interface EnquiryFormProps {
 export function EnquiryForm({ initialProducts }: EnquiryFormProps) {
   const { loading, error, success, submitForm } = useContactForm()
   const [selectedProducts, setSelectedProducts] = useState<string[]>(initialProducts || [])
+
+  const allProducts = useMemo(() => {
+    const extras = (initialProducts || []).filter((p) => !PRODUCTS.includes(p))
+    return [...extras, ...PRODUCTS]
+  }, [initialProducts])
 
   const toggleProduct = (product: string) => {
     setSelectedProducts((prev) =>
@@ -115,7 +120,7 @@ export function EnquiryForm({ initialProducts }: EnquiryFormProps) {
       <div>
         <span className={labelClass}>Select Products{requiredMark}</span>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-1">
-          {PRODUCTS.map((product) => (
+          {allProducts.map((product) => (
             <button
               key={product}
               type="button"
