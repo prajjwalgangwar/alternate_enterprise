@@ -215,14 +215,14 @@ export default function Home() {
                   )
                 })}
               </div>
-              <div className="flex-1 min-w-0 overflow-hidden">
+              <div className="flex-1 min-w-0 overflow-hidden h-full">
                 {categoryProducts.length > 0 ? (
                   <motion.div
                     key={activeCategory}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.35 }}
-                    className="flex gap-3 overflow-x-auto pb-2 -mb-2 scrollbar-thin items-stretch"
+                    className="flex gap-3 overflow-x-auto pb-2 -mb-2 scrollbar-thin items-stretch h-full"
                   >
                     {categoryProducts.map((p, i) => (
                       <motion.div
@@ -230,7 +230,7 @@ export default function Home() {
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: i * 0.04 }}
-                        className="shrink-0"
+                        className="shrink-0 h-full"
                       >
                         <Link
                           href={`/catalogue/${p.productId}`}
