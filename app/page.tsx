@@ -244,7 +244,7 @@ export default function Home() {
                       >
                         <Link
                           href={`/catalogue/${p.productId}`}
-                          className="group flex flex-col bg-white border border-tobacco-100 rounded-xl overflow-hidden hover:border-gold/30 hover:shadow-lg transition-all duration-300 min-w-[220px]"
+                          className="group flex flex-col bg-white border border-tobacco-100 rounded-xl overflow-hidden hover:border-gold/30 hover:shadow-lg transition-all duration-300 min-w-[180px] max-w-[200px]"
                           style={{ height: sidebarHeight || 264 }}
                         >
                           {p.imageUrl && (
