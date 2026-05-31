@@ -65,7 +65,7 @@ export default function EditableText({
           onBlur={commit}
           onKeyDown={onKeyDown}
           rows={rows}
-          className={`w-full rounded border border-premium-gold bg-white px-2 py-1 text-sm outline-none ring-2 ring-premium-gold/30 resize-y ${className}`}
+          className={`w-full rounded border border-gold bg-white px-2 py-1 text-sm outline-none ring-2 ring-gold/30 resize-y ${className}`}
         />
       )
     }
@@ -76,7 +76,7 @@ export default function EditableText({
         onChange={(e) => setDraft(e.target.value)}
         onBlur={commit}
         onKeyDown={onKeyDown}
-        className={`w-full rounded border border-premium-gold bg-white px-2 py-1 text-sm outline-none ring-2 ring-premium-gold/30 ${className}`}
+        className={`w-full rounded border border-gold bg-white px-2 py-1 text-sm outline-none ring-2 ring-gold/30 ${className}`}
       />
     )
   }
@@ -84,7 +84,7 @@ export default function EditableText({
   return (
     <Tag
       onClick={() => setEditing(true)}
-      className={`cursor-pointer hover:ring-2 hover:ring-premium-gold/40 hover:ring-inset rounded px-0.5 transition-all ${!value ? 'text-gray-400 italic' : ''} ${className}`}
+      className={`cursor-pointer hover:ring-2 hover:ring-gold/40 hover:ring-inset rounded px-0.5 transition-all ${!value ? 'text-gray-400 italic' : ''} ${className}`}
       title="Click to edit"
     >
       {value || placeholder}

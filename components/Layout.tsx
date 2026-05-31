@@ -29,7 +29,7 @@ export function Header() {
         </div>
       )}
       <motion.header
-        className="bg-premium-dark/90 backdrop-blur-md text-white border-b border-premium-gold/10 sticky top-0 z-50"
+        className="bg-premium-dark/90 backdrop-blur-md text-white border-b border-gold/10 sticky top-0 z-50"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
@@ -47,7 +47,7 @@ export function Header() {
                   <Image src="/logo.png" alt={content.header_logo_alt as string || 'Alternate Enterprises'} width={36} height={36} className="object-contain" priority />
                 </div>
                 {!!(content.header_tagline as string) && (
-                <span className="hidden sm:block text-[9px] uppercase tracking-[0.35em] text-premium-gold/50 mt-1">
+                <span className="hidden sm:block text-[9px] uppercase tracking-[0.35em] text-gold/50 mt-1">
                   {content.header_tagline as string}
                 </span>
                 )}
@@ -65,7 +65,7 @@ export function Header() {
                   >
                     <a
                       href={link.href}
-                      className="text-sm text-gray-400 hover:text-premium-gold transition-colors tracking-wider uppercase font-medium"
+                      className="text-sm text-gray-400 hover:text-primary-light transition-colors tracking-wider uppercase font-medium"
                     >
                       {link.label}
                     </a>
@@ -76,13 +76,13 @@ export function Header() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 6 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute top-full left-0 mt-2 w-56 bg-premium-dark border border-premium-gold/10 rounded-xl shadow-2xl overflow-hidden"
+                          className="absolute top-full left-0 mt-2 w-56 bg-premium-dark border border-gold/10 rounded-xl shadow-2xl overflow-hidden"
                         >
                           {categories.map((cat) => (
                             <Link
                               key={cat}
                               href={`/catalogue?category=${encodeURIComponent(cat)}`}
-                              className="block px-5 py-3 text-xs uppercase tracking-[0.15em] text-gray-400 hover:text-premium-gold hover:bg-white/5 transition-all"
+                              className="block px-5 py-3 text-xs uppercase tracking-[0.15em] text-gray-400 hover:text-primary-light hover:bg-white/5 transition-all"
                             >
                               {cat}
                             </Link>
@@ -95,7 +95,7 @@ export function Header() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-premium-gold transition-colors tracking-wider uppercase font-medium"
+                    className="text-sm text-gray-400 hover:text-primary-light transition-colors tracking-wider uppercase font-medium"
                   >
                     {link.label}
                   </a>
@@ -131,7 +131,7 @@ export function Footer() {
     <>
       {(content.section_footer_visible as string) !== 'false' && (
         <motion.footer
-      className="bg-premium-dark text-gray-400 border-t border-premium-gold/5"
+      className="bg-premium-dark text-gray-400 border-t border-gold/5"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4, delay: 0.15 }}
@@ -140,7 +140,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
           <div className="md:col-span-2">
             {!!(content.footer_company_name as string) && (
-            <h3 className="text-premium-gold font-bold tracking-[0.15em] mb-4 text-lg">
+            <h3 className="text-gold font-bold tracking-[0.15em] mb-4 text-lg">
               {content.footer_company_name as string}
             </h3>
             )}

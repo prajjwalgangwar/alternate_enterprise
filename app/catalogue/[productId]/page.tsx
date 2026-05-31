@@ -59,7 +59,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h1 className="text-xl font-bold text-premium-dark mb-2">Product Not Found</h1>
+          <h1 className="text-xl font-bold text-charcoal mb-2">Product Not Found</h1>
           <p className="text-sm text-gray-500 mb-6">The product you&apos;re looking for doesn&apos;t exist or has been removed.</p>
           <Link href="/catalogue" className="btn-gold text-sm px-6 py-2.5 rounded-xl font-semibold">
             Browse Catalogue
@@ -81,10 +81,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
         <section className="bg-white border-b border-tobacco-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex items-center gap-2 text-xs text-gray-400">
-              <Link href="/catalogue" className="hover:text-premium-gold transition-colors">Catalogue</Link>
-              {product.category && <><span>/</span><span className="text-premium-dark font-medium">{product.category}</span></>}
+              <Link href="/catalogue" className="hover:text-primary-light transition-colors">Catalogue</Link>
+              {product.category && <><span>/</span><span className="text-charcoal font-medium">{product.category}</span></>}
               <span>/</span>
-              <span className="text-premium-dark">{product.name}</span>
+              <span className="text-charcoal">{product.name}</span>
             </div>
           </div>
         </section>
@@ -115,7 +115,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1.5 text-[10px] uppercase tracking-[0.15em] font-bold bg-premium-gold/20 text-premium-gold border border-premium-gold/30 backdrop-blur-sm rounded-lg">
+                  <span className="px-3 py-1.5 text-[10px] uppercase tracking-[0.15em] font-bold bg-gold/20 text-gold border border-gold/30 backdrop-blur-sm rounded-lg">
                     {product.grade}
                   </span>
                 </div>
@@ -128,10 +128,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
                 transition={{ duration: 0.4, delay: 0.1 }}
                 className="flex flex-col justify-start"
               >
-                <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-premium-gold mb-3">
+                <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-gold mb-3">
                   {product.category}
                 </span>
-                <h1 className="text-3xl sm:text-4xl font-bold text-premium-dark leading-tight mb-4">
+                <h1 className="text-3xl sm:text-4xl font-bold text-charcoal leading-tight mb-4">
                   {product.name}
                 </h1>
                 <p className="text-sm text-gray-500 leading-relaxed mb-8">
@@ -150,7 +150,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
                       <p className="text-[10px] uppercase tracking-[0.15em] font-semibold text-gray-400 mb-1">
                         {spec.label}
                       </p>
-                      <p className="text-sm font-bold text-premium-dark">
+                      <p className="text-sm font-bold text-charcoal">
                         {spec.value}
                       </p>
                     </div>
@@ -158,9 +158,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
                 </div>
 
                 {/* Grade */}
-                <div className="bg-premium-dark/5 border border-premium-gold/10 rounded-xl px-5 py-4 mb-8">
+                <div className="bg-premium-dark/5 border border-gold/10 rounded-xl px-5 py-4 mb-8">
                   <p className="text-[10px] uppercase tracking-[0.15em] font-semibold text-gray-500 mb-1">Grade</p>
-                  <p className="text-sm font-semibold text-premium-dark">{product.grade}</p>
+                  <p className="text-sm font-semibold text-charcoal">{product.grade}</p>
                 </div>
 
                 {/* Actions */}
@@ -176,7 +176,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
                   </Link>
                   <Link
                     href="/catalogue"
-                    className="flex-1 inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-600 text-sm py-3.5 rounded-xl font-semibold hover:border-premium-gold/30 hover:text-premium-dark transition-all"
+                    className="flex-1 inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-600 text-sm py-3.5 rounded-xl font-semibold hover:border-gold/30 hover:text-charcoal transition-all"
                   >
                     Back to Catalogue
                   </Link>
@@ -195,7 +195,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
                   {prev && (
                     <Link
                       href={`/catalogue/${prev.productId}`}
-                      className="flex items-center gap-2 text-sm text-gray-500 hover:text-premium-gold transition-colors"
+                      className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary-light transition-colors"
                     >
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -209,7 +209,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
                   {next && (
                     <Link
                       href={`/catalogue/${next.productId}`}
-                      className="flex items-center gap-2 text-sm text-gray-500 hover:text-premium-gold transition-colors"
+                      className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary-light transition-colors"
                     >
                       <span className="hidden sm:inline">{next.name}</span>
                       <span className="sm:hidden">Next</span>
@@ -225,7 +225,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
         )}
 
         {/* Health Warning */}
-        <section className="bg-premium-dark border-t border-premium-gold/5">
+        <section className="bg-premium-dark border-t border-gold/5">
           <div className="max-w-4xl mx-auto px-4 py-8 text-center">
             <p className="text-[9px] text-gray-600 leading-relaxed uppercase tracking-[0.2em]">
               SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.

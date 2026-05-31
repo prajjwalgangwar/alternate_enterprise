@@ -36,7 +36,7 @@ export function FeaturedProducts() {
         return (
           <Link key={product.productId} href={`/catalogue/${product.productId}`} className="block">
             <motion.div
-              className="bg-white/[0.04] backdrop-blur-sm border border-premium-gold/[0.08] rounded-xl overflow-hidden hover:border-premium-gold/25 transition-all duration-300 group cursor-pointer"
+              className="bg-white/[0.04] backdrop-blur-sm border border-gold/[0.08] rounded-xl overflow-hidden hover:border-gold/25 transition-all duration-300 group cursor-pointer"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.06 }}
@@ -63,7 +63,7 @@ export function FeaturedProducts() {
                   <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/70 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-full">
                     {product.category}
                   </span>
-                  <span className="tobacco-badge bg-premium-gold/20 text-premium-gold border border-premium-gold/30 backdrop-blur-sm">
+                  <span className="tobacco-badge bg-gold/20 text-gold border border-gold/30 backdrop-blur-sm">
                     {product.grade}
                   </span>
                 </div>
@@ -86,7 +86,7 @@ export function FeaturedProducts() {
                     <span>S: <strong className="text-gray-300">{product.sugar}</strong></span>
                     <span>B: <strong className="text-gray-300">{product.body}</strong></span>
                   </div>
-                  <span className="text-[10px] font-semibold text-premium-gold uppercase tracking-wider">
+                  <span className="text-[10px] font-semibold text-gold uppercase tracking-wider">
                     View Details
                   </span>
                 </div>

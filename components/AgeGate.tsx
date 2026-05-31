@@ -45,11 +45,11 @@ export default function AgeGate() {
             style={{
               backgroundImage: imageUrl
                 ? `url(${imageUrl})`
-                : 'linear-gradient(135deg, #0d0a04 0%, #1a1208 40%, #2a1f0e 100%)',
+                : 'linear-gradient(135deg, #0A3A22 0%, #0F4D2E 40%, #166534 100%)',
             }}
           >
             {!imageUrl && (
-              <div className="absolute inset-0 bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light" />
             )}
             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
           </div>
@@ -62,15 +62,15 @@ export default function AgeGate() {
             transition={{ duration: 0.4, ease: 'easeOut' }}
             className="relative z-10 w-full max-w-lg mx-4"
           >
-            <div className="relative overflow-hidden rounded-2xl border border-premium-gold/20 bg-gradient-to-b from-premium-dark/95 to-[#1a1208]/95 backdrop-blur-xl shadow-2xl">
+            <div className="relative overflow-hidden rounded-2xl border border-gold/20 bg-gradient-to-b from-primary-dark/95 to-primary/95 backdrop-blur-xl shadow-2xl">
               {/* Decorative top line */}
-              <div className="h-1 bg-gradient-to-r from-transparent via-premium-gold to-transparent" />
+              <div className="h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
 
               <div className="px-8 py-10 sm:px-12 sm:py-14 text-center">
                 {/* Logo */}
                 <div className="mb-6 flex justify-center">
-                  <div className="w-16 h-16 rounded-full bg-premium-gold/10 border border-premium-gold/20 flex items-center justify-center">
-                    <svg className="w-8 h-8 text-premium-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-16 h-16 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center">
+                    <svg className="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
                   </div>
@@ -92,7 +92,7 @@ export default function AgeGate() {
                     onClick={handleYes}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-8 py-3 bg-premium-gold text-premium-dark text-sm font-bold rounded-xl tracking-wider uppercase hover:bg-premium-gold/90 transition-all shadow-lg shadow-premium-gold/20"
+                    className="px-8 py-3 bg-primary text-white text-sm font-bold rounded-xl tracking-wider uppercase hover:bg-primary-dark transition-all shadow-lg shadow-primary/20"
                   >
                     {(content.age_gate_yes_button as string) || 'I Am 21 or Older'}
                   </motion.button>

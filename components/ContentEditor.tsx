@@ -31,7 +31,7 @@ function SectionToggle({ visible, onChange }: { visible: boolean; onChange: (v: 
     <button
       type="button"
       onClick={() => onChange(!visible)}
-      className={`relative w-8 h-4 rounded-full transition-colors ${visible ? 'bg-premium-gold' : 'bg-gray-300'}`}
+      className={`relative w-8 h-4 rounded-full transition-colors ${visible ? 'bg-gold' : 'bg-gray-300'}`}
     >
       <span
         className={`absolute top-0.5 left-0.5 w-3 h-3 rounded-full bg-white shadow transition-transform ${visible ? 'translate-x-4' : 'translate-x-0'}`}
@@ -121,7 +121,7 @@ export default function ContentEditor() {
   if (!ready) {
     return (
       <div className="flex items-center justify-center py-24 text-tobacco-500">
-        <div className="inline-block w-6 h-6 border-2 border-premium-gold/30 border-t-premium-gold rounded-full animate-spin mr-3" />
+        <div className="inline-block w-6 h-6 border-2 border-gold/30 border-t-gold rounded-full animate-spin mr-3" />
         <span className="text-sm">Loading content...</span>
       </div>
     )
@@ -146,8 +146,8 @@ export default function ContentEditor() {
             onClick={() => setActiveSection(s.id)}
             className={`text-[10px] uppercase tracking-[0.15em] font-semibold px-3.5 py-2 rounded-t-lg transition-all flex items-center gap-2 ${
               activeSection === s.id
-                ? 'bg-premium-dark text-premium-gold'
-                : 'text-gray-500 hover:text-premium-dark hover:bg-tobacco-50'
+                ? 'bg-premium-dark text-gold'
+                : 'text-gray-500 hover:text-charcoal hover:bg-tobacco-50'
             }`}
           >
             {s.label}
@@ -175,8 +175,8 @@ export default function ContentEditor() {
           <div className="relative">
             {!sectionVisible && <HiddenOverlay />}
             <div className="flex items-center justify-between px-6 pt-5 pb-2">
-              <h3 className="text-sm font-bold text-premium-dark flex items-center gap-2">
-                <span className="w-1 h-4 bg-premium-gold rounded-full" />
+              <h3 className="text-sm font-bold text-charcoal flex items-center gap-2">
+                <span className="w-1 h-4 bg-gold rounded-full" />
                 Age Gate
               </h3>
               <div className="flex items-center gap-2">
@@ -222,8 +222,8 @@ export default function ContentEditor() {
           <div className="relative">
             {!sectionVisible && <HiddenOverlay />}
             <div className="flex items-center justify-between px-6 pt-5 pb-2">
-              <h3 className="text-sm font-bold text-premium-dark flex items-center gap-2">
-                <span className="w-1 h-4 bg-premium-gold rounded-full" />
+              <h3 className="text-sm font-bold text-charcoal flex items-center gap-2">
+                <span className="w-1 h-4 bg-gold rounded-full" />
                 Navigation
               </h3>
               <div className="flex items-center gap-2">
@@ -239,7 +239,7 @@ export default function ContentEditor() {
               </div>
               <div className="border-t border-tobacco-100 pt-4 space-y-3">
                 <EditableText value={v('header_health_warning')} onChange={(val) => setValue('header_health_warning', val)} type="textarea" rows={2} className="text-xs uppercase tracking-wider text-gray-500 bg-gray-50 px-4 py-2 rounded" />
-                <EditableText value={v('header_tagline')} onChange={(val) => setValue('header_tagline', val)} className="text-[9px] uppercase tracking-widest text-premium-gold/60" />
+                <EditableText value={v('header_tagline')} onChange={(val) => setValue('header_tagline', val)} className="text-[9px] uppercase tracking-widest text-gold/60" />
               </div>
             </div>
           </div>
@@ -249,16 +249,16 @@ export default function ContentEditor() {
         {activeSection === 'hero' && (
           <div className="relative">
             {!sectionVisible && <HiddenOverlay />}
-            <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04]">
-              <h3 className="text-sm font-bold text-premium-gold/60 uppercase tracking-wider">Hero Section</h3>
+            <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-gradient-to-br from-primary-dark via-primary to-primary-light">
+              <h3 className="text-sm font-bold text-gold/60 uppercase tracking-wider">Hero Section</h3>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] text-gray-400 uppercase tracking-wider">Visible</span>
                 <SectionToggle visible={sectionVisible} onChange={() => toggleVisibility(section!.visibilityKey)} />
               </div>
             </div>
-            <div className="bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04] p-8 sm:p-12 pt-2">
+            <div className="bg-gradient-to-br from-primary-dark via-primary to-primary-light p-8 sm:p-12 pt-2">
               <div className="max-w-3xl space-y-5">
-                <EditableText value={v('home_hero_badge')} onChange={(val) => setValue('home_hero_badge', val)} className="inline-block text-[10px] uppercase tracking-widest text-premium-gold font-semibold border border-premium-gold/20 rounded-full px-4 py-1.5" />
+                <EditableText value={v('home_hero_badge')} onChange={(val) => setValue('home_hero_badge', val)} className="inline-block text-[10px] uppercase tracking-widest text-gold font-semibold border border-gold/20 rounded-full px-4 py-1.5" />
                 <div className="text-4xl sm:text-5xl font-bold leading-[1.1] space-y-1">
                   <EditableText value={v('home_hero_heading_1')} onChange={(val) => setValue('home_hero_heading_1', val)} as="div" className="text-white/90" />
                   <EditableText value={v('home_hero_heading_2')} onChange={(val) => setValue('home_hero_heading_2', val)} as="div" className="text-gradient-gold" />
@@ -266,10 +266,10 @@ export default function ContentEditor() {
                 </div>
                 <EditableText value={v('home_hero_description')} onChange={(val) => setValue('home_hero_description', val)} type="textarea" rows={2} as="p" className="text-sm sm:text-base text-gray-400/80 max-w-xl leading-relaxed" />
                 <div className="flex gap-3 pt-2">
-                  <span className="inline-block bg-gradient-to-r from-premium-gold to-amber-500 text-premium-dark text-xs font-bold px-5 py-2.5 rounded-full tracking-wider uppercase shadow-lg">
+                  <span className="inline-block bg-gradient-to-r from-gold to-amber-500 text-charcoal text-xs font-bold px-5 py-2.5 rounded-full tracking-wider uppercase shadow-lg">
                     {v('home_hero_cta_1') || 'Explore Collection'}
                   </span>
-                  <span className="inline-block border border-premium-gold/30 text-premium-gold text-xs px-5 py-2.5 rounded-full tracking-wider uppercase font-semibold">
+                  <span className="inline-block border border-gold/30 text-gold text-xs px-5 py-2.5 rounded-full tracking-wider uppercase font-semibold">
                     {v('home_hero_cta_2') || 'Request a Quote'}
                   </span>
                 </div>
@@ -283,20 +283,20 @@ export default function ContentEditor() {
           <div className="relative">
             {!sectionVisible && <HiddenOverlay />}
             <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-premium-dark">
-              <h3 className="text-sm font-bold text-premium-gold/60 uppercase tracking-wider">Stats</h3>
+              <h3 className="text-sm font-bold text-gold/60 uppercase tracking-wider">Stats</h3>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] text-gray-400 uppercase tracking-wider">Visible</span>
                 <SectionToggle visible={sectionVisible} onChange={() => toggleVisibility(section!.visibilityKey)} />
               </div>
             </div>
             <div className="bg-premium-dark px-6 pb-6 space-y-4">
-              <EditableText value={v('home_stats')} onChange={(val) => setValue('home_stats', val)} type="textarea" rows={4} className="text-sm font-mono text-premium-gold bg-premium-dark/50 border border-premium-gold/20 rounded-lg p-3" placeholder="value|label, one per line" />
+              <EditableText value={v('home_stats')} onChange={(val) => setValue('home_stats', val)} type="textarea" rows={4} className="text-sm font-mono text-gold bg-premium-dark/50 border border-gold/20 rounded-lg p-3" placeholder="value|label, one per line" />
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
                 {statsArr.map((line, i) => {
                   const [val, label] = line.split('|')
                   return (
                     <div key={i} className="text-center">
-                      <div className="text-2xl font-bold text-premium-gold">{val || '—'}</div>
+                      <div className="text-2xl font-bold text-gold">{val || '—'}</div>
                       <div className="text-[10px] uppercase tracking-wider text-gray-500 mt-1">{label || '—'}</div>
                     </div>
                   )
@@ -311,8 +311,8 @@ export default function ContentEditor() {
           <div className="relative">
             {!sectionVisible && <HiddenOverlay />}
             <div className="flex items-center justify-between px-6 pt-5 pb-2">
-              <h3 className="text-sm font-bold text-premium-dark flex items-center gap-2">
-                <span className="w-1 h-4 bg-premium-gold rounded-full" />
+              <h3 className="text-sm font-bold text-charcoal flex items-center gap-2">
+                <span className="w-1 h-4 bg-gold rounded-full" />
                 Categories
               </h3>
               <div className="flex items-center gap-2">
@@ -321,8 +321,8 @@ export default function ContentEditor() {
               </div>
             </div>
             <div className="px-6 pb-6 space-y-4">
-              <EditableText value={v('home_categories_section_label')} onChange={(val) => setValue('home_categories_section_label', val)} className="text-premium-gold text-[10px] uppercase tracking-wider font-semibold" />
-              <EditableText value={v('home_categories_heading')} onChange={(val) => setValue('home_categories_heading', val)} as="h2" className="text-3xl font-bold text-premium-dark" />
+              <EditableText value={v('home_categories_section_label')} onChange={(val) => setValue('home_categories_section_label', val)} className="text-gold text-[10px] uppercase tracking-wider font-semibold" />
+              <EditableText value={v('home_categories_heading')} onChange={(val) => setValue('home_categories_heading', val)} as="h2" className="text-3xl font-bold text-charcoal" />
               <EditableText value={v('home_categories_description')} onChange={(val) => setValue('home_categories_description', val)} as="p" className="text-sm text-gray-500 max-w-xl" />
               <div className="pt-2">
                 <EditableText value={v('home_categories_items')} onChange={(val) => setValue('home_categories_items', val)} type="textarea" rows={5} className="text-sm font-mono border border-tobacco-200 rounded-lg p-3" placeholder="title|description|specs, one per line" />
@@ -332,8 +332,8 @@ export default function ContentEditor() {
                   const parts = line.split('|')
                   return (
                     <div key={i} className="bg-white rounded-xl p-4 border border-tobacco-100 text-center">
-                      <div className="text-sm font-bold text-premium-dark">{parts[0] || '—'}</div>
-                      {parts[2] && <div className="text-[10px] text-premium-gold mt-2 tracking-wider">{parts[2]}</div>}
+                      <div className="text-sm font-bold text-charcoal">{parts[0] || '—'}</div>
+                      {parts[2] && <div className="text-[10px] text-gold mt-2 tracking-wider">{parts[2]}</div>}
                     </div>
                   )
                 })}
@@ -347,14 +347,14 @@ export default function ContentEditor() {
           <div className="relative">
             {!sectionVisible && <HiddenOverlay />}
             <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-premium-dark">
-              <h3 className="text-sm font-bold text-premium-gold/60 uppercase tracking-wider">Featured Section</h3>
+              <h3 className="text-sm font-bold text-gold/60 uppercase tracking-wider">Featured Section</h3>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] text-gray-400 uppercase tracking-wider">Visible</span>
                 <SectionToggle visible={sectionVisible} onChange={() => toggleVisibility(section!.visibilityKey)} />
               </div>
             </div>
             <div className="bg-premium-dark px-6 pb-6 space-y-4">
-              <EditableText value={v('home_featured_section_label')} onChange={(val) => setValue('home_featured_section_label', val)} className="text-premium-gold text-[10px] uppercase tracking-wider font-semibold" />
+              <EditableText value={v('home_featured_section_label')} onChange={(val) => setValue('home_featured_section_label', val)} className="text-gold text-[10px] uppercase tracking-wider font-semibold" />
               <EditableText value={v('home_featured_heading')} onChange={(val) => setValue('home_featured_heading', val)} as="h2" className="text-3xl font-bold text-white" />
               <EditableText value={v('home_featured_description')} onChange={(val) => setValue('home_featured_description', val)} type="textarea" rows={2} as="p" className="text-sm text-gray-400 max-w-xl" />
             </div>
@@ -366,8 +366,8 @@ export default function ContentEditor() {
           <div className="relative">
             {!sectionVisible && <HiddenOverlay />}
             <div className="flex items-center justify-between px-6 pt-5 pb-2">
-              <h3 className="text-sm font-bold text-premium-dark flex items-center gap-2">
-                <span className="w-1 h-4 bg-premium-gold rounded-full" />
+              <h3 className="text-sm font-bold text-charcoal flex items-center gap-2">
+                <span className="w-1 h-4 bg-gold rounded-full" />
                 Contact Section
               </h3>
               <div className="flex items-center gap-2">
@@ -376,8 +376,8 @@ export default function ContentEditor() {
               </div>
             </div>
             <div className="px-6 pb-6 space-y-4">
-              <EditableText value={v('home_contact_section_label')} onChange={(val) => setValue('home_contact_section_label', val)} className="text-premium-gold text-[10px] uppercase tracking-wider font-semibold" />
-              <EditableText value={v('home_contact_heading')} onChange={(val) => setValue('home_contact_heading', val)} as="h2" className="text-3xl font-bold text-premium-dark" />
+              <EditableText value={v('home_contact_section_label')} onChange={(val) => setValue('home_contact_section_label', val)} className="text-gold text-[10px] uppercase tracking-wider font-semibold" />
+              <EditableText value={v('home_contact_heading')} onChange={(val) => setValue('home_contact_heading', val)} as="h2" className="text-3xl font-bold text-charcoal" />
               <EditableText value={v('home_contact_description')} onChange={(val) => setValue('home_contact_description', val)} type="textarea" rows={2} as="p" className="text-sm text-gray-500 max-w-xl" />
               <EditableText value={v('home_health_warning')} onChange={(val) => setValue('home_health_warning', val)} type="textarea" rows={3} className="text-[10px] text-gray-600 uppercase tracking-wider leading-relaxed text-center" />
             </div>
@@ -389,7 +389,7 @@ export default function ContentEditor() {
           <div className="relative">
             {!sectionVisible && <HiddenOverlay />}
             <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-premium-dark">
-              <h3 className="text-sm font-bold text-premium-gold/60 uppercase tracking-wider">Footer</h3>
+              <h3 className="text-sm font-bold text-gold/60 uppercase tracking-wider">Footer</h3>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] text-gray-400 uppercase tracking-wider">Visible</span>
                 <SectionToggle visible={sectionVisible} onChange={() => toggleVisibility(section!.visibilityKey)} />
@@ -398,7 +398,7 @@ export default function ContentEditor() {
             <div className="bg-premium-dark px-6 pb-6 space-y-5">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
                 <div className="space-y-2">
-                  <EditableText value={v('footer_company_name')} onChange={(val) => setValue('footer_company_name', val)} as="h3" className="text-premium-gold font-bold tracking-wider text-lg" />
+                  <EditableText value={v('footer_company_name')} onChange={(val) => setValue('footer_company_name', val)} as="h3" className="text-gold font-bold tracking-wider text-lg" />
                   <EditableText value={v('footer_description')} onChange={(val) => setValue('footer_description', val)} type="textarea" rows={2} as="p" className="text-sm text-gray-500" />
                 </div>
                 <div className="space-y-2">
@@ -415,7 +415,7 @@ export default function ContentEditor() {
                   <EditableText value={v('footer_phone')} onChange={(val) => setValue('footer_phone', val)} className="text-sm text-gray-500" />
                 </div>
               </div>
-              <div className="border-t border-premium-gold/10 pt-4 space-y-2">
+              <div className="border-t border-gold/10 pt-4 space-y-2">
                 <EditableText value={v('footer_health_warning')} onChange={(val) => setValue('footer_health_warning', val)} type="textarea" rows={2} className="text-[10px] text-gray-600 leading-relaxed text-center" />
                 <EditableText value={v('footer_copyright')} onChange={(val) => setValue('footer_copyright', val)} className="text-xs text-center text-gray-600/80 block" />
               </div>
@@ -427,16 +427,16 @@ export default function ContentEditor() {
         {activeSection === 'privacy' && (
           <div className="relative">
             {!sectionVisible && <HiddenOverlay />}
-            <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04]">
-              <h3 className="text-sm font-bold text-premium-gold/60 uppercase tracking-wider">Privacy Page</h3>
+            <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-gradient-to-br from-primary-dark via-primary to-primary-light">
+              <h3 className="text-sm font-bold text-gold/60 uppercase tracking-wider">Privacy Page</h3>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] text-gray-400 uppercase tracking-wider">Visible</span>
                 <SectionToggle visible={sectionVisible} onChange={() => toggleVisibility(section!.visibilityKey)} />
               </div>
             </div>
-            <div className="bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04] p-8 sm:p-12 pt-2">
+            <div className="bg-gradient-to-br from-primary-dark via-primary to-primary-light p-8 sm:p-12 pt-2">
               <div className="max-w-3xl space-y-5">
-                <EditableText value={v('privacy_hero_badge')} onChange={(val) => setValue('privacy_hero_badge', val)} className="inline-block text-[10px] uppercase tracking-widest text-premium-gold font-semibold border border-premium-gold/20 rounded-full px-4 py-1.5" />
+                <EditableText value={v('privacy_hero_badge')} onChange={(val) => setValue('privacy_hero_badge', val)} className="inline-block text-[10px] uppercase tracking-widest text-gold font-semibold border border-gold/20 rounded-full px-4 py-1.5" />
                 <div className="text-4xl sm:text-5xl font-bold leading-[1.1] space-y-1">
                   <EditableText value={v('privacy_hero_heading_1')} onChange={(val) => setValue('privacy_hero_heading_1', val)} as="div" className="text-white/90" />
                   <EditableText value={v('privacy_hero_heading_2')} onChange={(val) => setValue('privacy_hero_heading_2', val)} as="div" className="text-gradient-gold" />
@@ -455,16 +455,16 @@ export default function ContentEditor() {
         {activeSection === 'terms' && (
           <div className="relative">
             {!sectionVisible && <HiddenOverlay />}
-            <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04]">
-              <h3 className="text-sm font-bold text-premium-gold/60 uppercase tracking-wider">Terms Page</h3>
+            <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-gradient-to-br from-primary-dark via-primary to-primary-light">
+              <h3 className="text-sm font-bold text-gold/60 uppercase tracking-wider">Terms Page</h3>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] text-gray-400 uppercase tracking-wider">Visible</span>
                 <SectionToggle visible={sectionVisible} onChange={() => toggleVisibility(section!.visibilityKey)} />
               </div>
             </div>
-            <div className="bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04] p-8 sm:p-12 pt-2">
+            <div className="bg-gradient-to-br from-primary-dark via-primary to-primary-light p-8 sm:p-12 pt-2">
               <div className="max-w-3xl space-y-5">
-                <EditableText value={v('terms_hero_badge')} onChange={(val) => setValue('terms_hero_badge', val)} className="inline-block text-[10px] uppercase tracking-widest text-premium-gold font-semibold border border-premium-gold/20 rounded-full px-4 py-1.5" />
+                <EditableText value={v('terms_hero_badge')} onChange={(val) => setValue('terms_hero_badge', val)} className="inline-block text-[10px] uppercase tracking-widest text-gold font-semibold border border-gold/20 rounded-full px-4 py-1.5" />
                 <div className="text-4xl sm:text-5xl font-bold leading-[1.1] space-y-1">
                   <EditableText value={v('terms_hero_heading_1')} onChange={(val) => setValue('terms_hero_heading_1', val)} as="div" className="text-white/90" />
                   <EditableText value={v('terms_hero_heading_2')} onChange={(val) => setValue('terms_hero_heading_2', val)} as="div" className="text-gradient-gold" />
@@ -483,16 +483,16 @@ export default function ContentEditor() {
         {activeSection === 'faq' && (
           <div className="relative">
             {!sectionVisible && <HiddenOverlay />}
-            <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04]">
-              <h3 className="text-sm font-bold text-premium-gold/60 uppercase tracking-wider">FAQ Page</h3>
+            <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-gradient-to-br from-primary-dark via-primary to-primary-light">
+              <h3 className="text-sm font-bold text-gold/60 uppercase tracking-wider">FAQ Page</h3>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] text-gray-400 uppercase tracking-wider">Visible</span>
                 <SectionToggle visible={sectionVisible} onChange={() => toggleVisibility(section!.visibilityKey)} />
               </div>
             </div>
-            <div className="bg-gradient-to-br from-premium-dark via-[#1a1208] to-[#0d0a04] p-8 sm:p-12 pt-2">
+            <div className="bg-gradient-to-br from-primary-dark via-primary to-primary-light p-8 sm:p-12 pt-2">
               <div className="max-w-3xl space-y-5">
-                <EditableText value={v('faq_hero_badge')} onChange={(val) => setValue('faq_hero_badge', val)} className="inline-block text-[10px] uppercase tracking-widest text-premium-gold font-semibold border border-premium-gold/20 rounded-full px-4 py-1.5" />
+                <EditableText value={v('faq_hero_badge')} onChange={(val) => setValue('faq_hero_badge', val)} className="inline-block text-[10px] uppercase tracking-widest text-gold font-semibold border border-gold/20 rounded-full px-4 py-1.5" />
                 <div className="text-4xl sm:text-5xl font-bold leading-[1.1] space-y-1">
                   <EditableText value={v('faq_hero_heading_1')} onChange={(val) => setValue('faq_hero_heading_1', val)} as="div" className="text-white/90" />
                   <EditableText value={v('faq_hero_heading_2')} onChange={(val) => setValue('faq_hero_heading_2', val)} as="div" className="text-gradient-gold" />

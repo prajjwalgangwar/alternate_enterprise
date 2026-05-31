@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  @apply bg-cream text-premium-dark font-sans antialiased;
+  @apply bg-cream text-charcoal font-sans antialiased;
 }
 
 ::-webkit-scrollbar {
@@ -27,15 +27,15 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-premium-gold/40 rounded-full;
+  @apply bg-gold/40 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-premium-gold/60;
+  @apply bg-gold/60;
 }
 
 ::selection {
-  @apply bg-premium-gold/25 text-premium-dark;
+  @apply bg-gold/25 text-charcoal;
 }
 
 @keyframes fadeIn {
@@ -62,7 +62,7 @@ body {
 }
 
 .glass-dark {
-  @apply backdrop-blur-md bg-black/40 border border-premium-gold/10 rounded-lg;
+  @apply backdrop-blur-md bg-black/40 border border-gold/10 rounded-lg;
 }
 
 .transition-smooth {
@@ -70,27 +70,27 @@ body {
 }
 
 .gradient-gold {
-  @apply bg-gradient-to-r from-premium-gold via-yellow-400 to-premium-gold;
+  @apply bg-gradient-to-r from-gold via-yellow-400 to-gold;
 }
 
 .gradient-warm {
-  @apply bg-gradient-to-br from-tobacco-800 via-tobacco-900 to-premium-dark;
+  @apply bg-gradient-to-br from-primary-dark via-primary to-primary-light;
 }
 
 .text-gradient-gold {
-  @apply bg-gradient-to-r from-premium-gold to-amber-300 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-gold to-amber-300 bg-clip-text text-transparent;
 }
 
 .health-warning {
-  @apply bg-premium-dark text-white/60 text-[10px] tracking-[0.15em] py-2 px-4 text-center font-medium uppercase;
+  @apply bg-primary-dark text-white/60 text-[10px] tracking-[0.15em] py-2 px-4 text-center font-medium uppercase;
 }
 
 .btn-gold {
-  @apply bg-premium-gold text-premium-dark font-semibold rounded-lg hover:bg-amber-400 transition-all duration-200;
+  @apply bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-all duration-200;
 }
 
 .btn-outline-gold {
-  @apply border border-premium-gold/40 text-premium-gold font-semibold rounded-lg hover:bg-premium-gold hover:text-premium-dark transition-all duration-200;
+  @apply border border-gold/40 text-gold font-semibold rounded-lg hover:bg-gold/10 hover:text-gold transition-all duration-200;
 }
 
 .tobacco-badge {
@@ -98,5 +98,5 @@ body {
 }
 
 .divider-gold {
-  @apply h-px bg-gradient-to-r from-transparent via-premium-gold/30 to-transparent;
+  @apply h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent;
 }

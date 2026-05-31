@@ -12,7 +12,7 @@ export function SkeletonLoader({ count = 3, className = '' }: SkeletonLoaderProp
       {Array.from({ length: count }).map((_, i) => (
         <motion.div
           key={i}
-          className="bg-white/5 backdrop-blur-sm border border-premium-gold/10 rounded-lg h-96 shimmer"
+          className="bg-white/5 backdrop-blur-sm border border-gold/10 rounded-lg h-96 shimmer"
           animate={{ opacity: [0.4, 0.7, 0.4] }}
           transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.15 }}
         />

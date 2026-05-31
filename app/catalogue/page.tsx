@@ -12,7 +12,7 @@ import { useSearchParams } from 'next/navigation'
 
 export default function CataloguePage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-cream"><div className="w-8 h-8 border-2 border-tobacco-300 border-t-premium-gold rounded-full animate-spin" /></div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-cream"><div className="w-8 h-8 border-2 border-tobacco-300 border-t-gold rounded-full animate-spin" /></div>}>
       <CatalogueContent />
     </Suspense>
   )
@@ -78,7 +78,7 @@ function CatalogueContent() {
       <main className="flex-1">
 
         {/* Category Navbar */}
-        <section className="bg-premium-dark border-b border-premium-gold/10 sticky top-[73px] z-20">
+        <section className="bg-premium-dark border-b border-gold/10 sticky top-[73px] z-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center gap-0 overflow-x-auto">
               {categories.map((cat) => (
@@ -87,7 +87,7 @@ function CatalogueContent() {
                   onClick={() => setActiveCategory(cat)}
                   className={`whitespace-nowrap text-[11px] uppercase tracking-[0.2em] font-semibold px-5 py-3.5 border-b-2 transition-all duration-200 ${
                     activeCategory === cat
-                      ? 'border-premium-gold text-premium-gold'
+                      ? 'border-gold text-gold'
                       : 'border-transparent text-gray-500 hover:text-gray-300 hover:border-gray-600'
                   }`}
                 >
@@ -111,7 +111,7 @@ function CatalogueContent() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder={content.catalogue_search_placeholder as string}
-                  className="w-full pl-7 pr-3 py-2 text-[11px] bg-premium-dark/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold text-gray-300 placeholder:text-gray-600"
+                  className="w-full pl-7 pr-3 py-2 text-[11px] bg-premium-dark/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold text-gray-300 placeholder:text-gray-600"
                 />
               </div>
             </nav>
@@ -142,7 +142,7 @@ function CatalogueContent() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h2 className="text-lg font-bold text-premium-dark">{category}</h2>
+                    <h2 className="text-lg font-bold text-charcoal">{category}</h2>
                     <div className="divider-gold mt-2" />
                   </motion.div>
 
@@ -153,7 +153,7 @@ function CatalogueContent() {
                       return (
                         <Link key={product.productId} href={`/catalogue/${product.productId}`}>
                           <motion.div
-                          className="bg-white rounded-xl border border-tobacco-100 hover:border-premium-gold/30 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md group cursor-pointer"
+                          className="bg-white rounded-xl border border-tobacco-100 hover:border-gold/30 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md group cursor-pointer"
                           initial={{ opacity: 0, y: 12 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
@@ -176,7 +176,7 @@ function CatalogueContent() {
                             )}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />
                             <div className="absolute top-3 right-3">
-                              <span className="tobacco-badge bg-premium-gold/20 text-premium-gold border border-premium-gold/30 backdrop-blur-sm">
+                              <span className="tobacco-badge bg-gold/20 text-gold border border-gold/30 backdrop-blur-sm">
                                 {product.grade}
                               </span>
                             </div>
@@ -196,19 +196,19 @@ function CatalogueContent() {
                               <div className="grid grid-cols-4 gap-3 text-[10px] w-full">
                                 <div className="text-center">
                                   <p className="text-gray-500 uppercase tracking-wider">{specNico}</p>
-                                  <p className="text-premium-dark font-semibold">{product.nicotine}</p>
+                                  <p className="text-charcoal font-semibold">{product.nicotine}</p>
                                 </div>
                                 <div className="text-center">
                                   <p className="text-gray-500 uppercase tracking-wider">{specSugar}</p>
-                                  <p className="text-premium-dark font-semibold">{product.sugar}</p>
+                                  <p className="text-charcoal font-semibold">{product.sugar}</p>
                                 </div>
                                 <div className="text-center">
                                   <p className="text-gray-500 uppercase tracking-wider">{specBody}</p>
-                                  <p className="text-premium-dark font-semibold">{product.body}</p>
+                                  <p className="text-charcoal font-semibold">{product.body}</p>
                                 </div>
                                 <div className="text-center">
                                   <p className="text-gray-500 uppercase tracking-wider">{specColor}</p>
-                                  <p className="text-premium-dark font-semibold">{product.color}</p>
+                                  <p className="text-charcoal font-semibold">{product.color}</p>
                                 </div>
                               </div>
                             </div>
@@ -226,7 +226,7 @@ function CatalogueContent() {
 
         {/* Health Warning */}
         {(content.section_health_warning_visible as string) !== 'false' && content.catalogue_health_warning && (
-        <section className="bg-premium-dark border-t border-premium-gold/5">
+        <section className="bg-premium-dark border-t border-gold/5">
           <div className="max-w-4xl mx-auto px-4 py-8 text-center">
             <p className="text-[9px] text-gray-600 leading-relaxed uppercase tracking-[0.2em]">
               {content.catalogue_health_warning as string}

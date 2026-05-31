@@ -282,12 +282,12 @@ export default function AdminPage() {
       {/* Header */}
       <div className="border-b border-tobacco-200 bg-white shadow-sm">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 sm:px-6 lg:px-8">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-premium-gold">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-gold">
             Alternate Enterprises — Admin Panel
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-premium-dark">Administration</h1>
+              <h1 className="text-3xl font-bold text-charcoal">Administration</h1>
               <p className="mt-1 text-sm text-tobacco-600">
                 Manage products, catalogue images, and inventory.
               </p>
@@ -302,7 +302,7 @@ export default function AdminPage() {
               onClick={() => setActiveTab('products')}
               className={`pb-3 text-sm font-semibold border-b-2 transition-colors ${
                 activeTab === 'products'
-                  ? 'border-premium-gold text-premium-dark'
+                  ? 'border-gold text-charcoal'
                   : 'border-transparent text-tobacco-500 hover:text-tobacco-700'
               }`}
             >
@@ -312,7 +312,7 @@ export default function AdminPage() {
               onClick={() => setActiveTab('media')}
               className={`pb-3 text-sm font-semibold border-b-2 transition-colors ${
                 activeTab === 'media'
-                  ? 'border-premium-gold text-premium-dark'
+                  ? 'border-gold text-charcoal'
                   : 'border-transparent text-tobacco-500 hover:text-tobacco-700'
               }`}
             >
@@ -322,7 +322,7 @@ export default function AdminPage() {
               onClick={() => setActiveTab('content')}
               className={`pb-3 text-sm font-semibold border-b-2 transition-colors ${
                 activeTab === 'content'
-                  ? 'border-premium-gold text-premium-dark'
+                  ? 'border-gold text-charcoal'
                   : 'border-transparent text-tobacco-500 hover:text-tobacco-700'
               }`}
             >
@@ -332,7 +332,7 @@ export default function AdminPage() {
               onClick={() => setActiveTab('enquiries')}
               className={`pb-3 text-sm font-semibold border-b-2 transition-colors ${
                 activeTab === 'enquiries'
-                  ? 'border-premium-gold text-premium-dark'
+                  ? 'border-gold text-charcoal'
                   : 'border-transparent text-tobacco-500 hover:text-tobacco-700'
               }`}
             >
@@ -366,8 +366,8 @@ export default function AdminPage() {
           <div className="grid gap-8 lg:grid-cols-[440px_1fr]">
             {/* Product Form */}
             <section className="rounded-xl border border-tobacco-200 bg-white p-6 shadow-sm">
-              <h2 className="text-xl font-bold text-premium-dark flex items-center gap-2">
-                <span className="w-1.5 h-5 bg-premium-gold rounded-full inline-block" />
+              <h2 className="text-xl font-bold text-charcoal flex items-center gap-2">
+                <span className="w-1.5 h-5 bg-gold rounded-full inline-block" />
                 {editingId ? 'Edit Product' : 'Create Product'}
               </h2>
 
@@ -377,7 +377,7 @@ export default function AdminPage() {
                   <input
                     value={form.name}
                     onChange={(event) => updateField('name', event.target.value)}
-                    className="mt-1 w-full rounded-lg border border-tobacco-200 px-3.5 py-2.5 text-sm outline-none focus:border-premium-gold focus:ring-2 focus:ring-premium-gold/20 transition-all"
+                    className="mt-1 w-full rounded-lg border border-tobacco-200 px-3.5 py-2.5 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                     required
                     placeholder="Product name"
                   />
@@ -388,7 +388,7 @@ export default function AdminPage() {
                   <select
                     value={form.category}
                     onChange={(event) => updateField('category', event.target.value)}
-                    className="mt-1 w-full rounded-lg border border-tobacco-200 px-3.5 py-2.5 text-sm outline-none focus:border-premium-gold focus:ring-2 focus:ring-premium-gold/20 transition-all"
+                    className="mt-1 w-full rounded-lg border border-tobacco-200 px-3.5 py-2.5 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                   >
                     <option value="">Select category</option>
                     <option value="FCV Tobacco">FCV Tobacco</option>
@@ -404,7 +404,7 @@ export default function AdminPage() {
                     value={form.description}
                     onChange={(event) => updateField('description', event.target.value)}
                     rows={4}
-                    className="mt-1 w-full resize-y rounded-lg border border-tobacco-200 px-3.5 py-2.5 text-sm outline-none focus:border-premium-gold focus:ring-2 focus:ring-premium-gold/20 transition-all"
+                    className="mt-1 w-full resize-y rounded-lg border border-tobacco-200 px-3.5 py-2.5 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                     placeholder="Product description"
                   />
                 </label>
@@ -416,7 +416,7 @@ export default function AdminPage() {
                       <input
                         value={form[field]}
                         onChange={(event) => updateField(field, event.target.value)}
-                        className="mt-1 w-full rounded-lg border border-tobacco-200 px-3.5 py-2.5 text-sm outline-none focus:border-premium-gold focus:ring-2 focus:ring-premium-gold/20 transition-all"
+                        className="mt-1 w-full rounded-lg border border-tobacco-200 px-3.5 py-2.5 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                         placeholder={`e.g. ${field === 'nicotine' ? '2.5%' : field === 'sugar' ? '15%' : field === 'color' ? 'Golden' : 'Medium'}`}
                       />
                     </label>
@@ -428,7 +428,7 @@ export default function AdminPage() {
                   <input
                     value={form.grade}
                     onChange={(event) => updateField('grade', event.target.value)}
-                    className="mt-1 w-full rounded-lg border border-tobacco-200 px-3.5 py-2.5 text-sm outline-none focus:border-premium-gold focus:ring-2 focus:ring-premium-gold/20 transition-all"
+                    className="mt-1 w-full rounded-lg border border-tobacco-200 px-3.5 py-2.5 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                     placeholder="e.g. Premium A1"
                   />
                 </label>
@@ -438,7 +438,7 @@ export default function AdminPage() {
                     type="checkbox"
                     checked={form.featured}
                     onChange={(event) => updateField('featured', event.target.checked)}
-                    className="h-4 w-4 accent-premium-gold"
+                    className="h-4 w-4 accent-gold"
                   />
                   <span>Featured product</span>
                 </label>
@@ -450,7 +450,7 @@ export default function AdminPage() {
                     <button
                       type="button"
                       onClick={() => setShowMediaPicker(true)}
-                      className="text-xs font-semibold text-premium-gold hover:text-yellow-600 transition-colors"
+                      className="text-xs font-semibold text-gold hover:text-yellow-600 transition-colors"
                     >
                       Browse Media Library
                     </button>
@@ -462,7 +462,7 @@ export default function AdminPage() {
                     multiple
                     accept="image/*"
                     onChange={onFilesChange}
-                    className="w-full rounded-lg border border-dashed border-tobacco-200 px-3.5 py-3 text-sm file:mr-3 file:rounded-lg file:border-0 file:bg-premium-dark file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:cursor-pointer cursor-pointer hover:border-premium-gold/40 transition-all"
+                    className="w-full rounded-lg border border-dashed border-tobacco-200 px-3.5 py-3 text-sm file:mr-3 file:rounded-lg file:border-0 file:bg-premium-dark file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:cursor-pointer cursor-pointer hover:border-gold/40 transition-all"
                   />
                   {selectedFiles.length > 0 && (
                     <p className="mt-2 text-xs text-tobacco-600">
@@ -518,8 +518,8 @@ export default function AdminPage() {
             {/* Product List */}
             <section className="min-w-0">
               <div className="mb-4 flex items-center justify-between">
-                <h2 className="text-xl font-bold text-premium-dark flex items-center gap-2">
-                  <span className="w-1.5 h-5 bg-premium-gold rounded-full inline-block" />
+                <h2 className="text-xl font-bold text-charcoal flex items-center gap-2">
+                  <span className="w-1.5 h-5 bg-gold rounded-full inline-block" />
                   Products
                 </h2>
                 <span className="rounded-full bg-white border border-tobacco-200 px-4 py-1.5 text-xs font-semibold text-tobacco-700 shadow-sm">
@@ -529,7 +529,7 @@ export default function AdminPage() {
 
               {loading ? (
                 <div className="text-center py-16 text-tobacco-500">
-                  <div className="inline-block w-6 h-6 border-2 border-premium-gold/30 border-t-premium-gold rounded-full animate-spin mb-3" />
+                  <div className="inline-block w-6 h-6 border-2 border-gold/30 border-t-gold rounded-full animate-spin mb-3" />
                   <p className="text-sm">Loading products...</p>
                 </div>
               ) : sortedProducts.length === 0 ? (
@@ -563,7 +563,7 @@ export default function AdminPage() {
                           )}
                           {product.featured && (
                             <div className="absolute top-2 left-2">
-                              <span className="tobacco-badge bg-premium-gold text-premium-dark text-[9px]">
+                              <span className="tobacco-badge bg-gold text-charcoal text-[9px]">
                                 Featured
                               </span>
                             </div>
@@ -574,7 +574,7 @@ export default function AdminPage() {
                           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                             <div className="min-w-0 flex-1">
                               <div className="flex items-center gap-2 mb-1">
-                                <p className="text-xs font-bold uppercase tracking-wider text-premium-gold">
+                                <p className="text-xs font-bold uppercase tracking-wider text-gold">
                                   {product.category || 'Uncategorized'}
                                 </p>
                                 <span className="tobacco-badge bg-tobacco-100 text-tobacco-700 border border-tobacco-200">
@@ -609,12 +609,12 @@ export default function AdminPage() {
                           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1.5 text-xs text-tobacco-600">
                             {(['nicotine', 'sugar', 'color', 'body'] as const).map((field) => (
                               <span key={field} className="flex items-center gap-1">
-                                <span className="w-1 h-1 rounded-full bg-premium-gold" />
+                                <span className="w-1 h-1 rounded-full bg-gold" />
                                 {field}: <span className="font-medium text-tobacco-800">{product[field] || '-'}</span>
                               </span>
                             ))}
                             <span className="flex items-center gap-1">
-                              <span className="w-1 h-1 rounded-full bg-premium-gold" />
+                              <span className="w-1 h-1 rounded-full bg-gold" />
                               Images: <span className="font-medium text-tobacco-800">{images.length}</span>
                             </span>
                           </div>
@@ -632,8 +632,8 @@ export default function AdminPage() {
         {activeTab === 'content' && (
           <div>
             <div className="mb-6">
-              <h2 className="text-xl font-bold text-premium-dark flex items-center gap-2">
-                <span className="w-1.5 h-5 bg-premium-gold rounded-full inline-block" />
+              <h2 className="text-xl font-bold text-charcoal flex items-center gap-2">
+                <span className="w-1.5 h-5 bg-gold rounded-full inline-block" />
                 Site Content
               </h2>
               <p className="text-sm text-tobacco-600 mt-1">
@@ -648,8 +648,8 @@ export default function AdminPage() {
         {activeTab === 'enquiries' && (
           <div>
             <div className="mb-6">
-              <h2 className="text-xl font-bold text-premium-dark flex items-center gap-2">
-                <span className="w-1.5 h-5 bg-premium-gold rounded-full inline-block" />
+              <h2 className="text-xl font-bold text-charcoal flex items-center gap-2">
+                <span className="w-1.5 h-5 bg-gold rounded-full inline-block" />
                 Enquiries
               </h2>
               <p className="text-sm text-tobacco-600 mt-1">
@@ -658,7 +658,7 @@ export default function AdminPage() {
             </div>
             {enquiriesLoading ? (
               <div className="flex items-center justify-center py-20">
-                <div className="w-8 h-8 border-2 border-tobacco-300 border-t-premium-gold rounded-full animate-spin" />
+                <div className="w-8 h-8 border-2 border-tobacco-300 border-t-gold rounded-full animate-spin" />
               </div>
             ) : enquiries.length === 0 ? (
               <div className="rounded-xl border border-tobacco-200 bg-white p-12 text-center">
@@ -674,7 +674,7 @@ export default function AdminPage() {
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3 mb-2">
-                          <h3 className="font-semibold text-premium-dark truncate">
+                          <h3 className="font-semibold text-charcoal truncate">
                             {enquiry.firstName} {enquiry.lastName}
                           </h3>
                           <span
@@ -730,7 +730,7 @@ export default function AdminPage() {
                             console.error('Failed to update status:', err)
                           }
                         }}
-                        className="shrink-0 rounded-lg border border-tobacco-200 px-3 py-1.5 text-xs font-medium outline-none focus:border-premium-gold focus:ring-2 focus:ring-premium-gold/20 transition-all"
+                        className="shrink-0 rounded-lg border border-tobacco-200 px-3 py-1.5 text-xs font-medium outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all"
                       >
                         <option value="new">New</option>
                         <option value="contacted">Contacted</option>
@@ -751,8 +751,8 @@ export default function AdminPage() {
           <div>
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-xl font-bold text-premium-dark flex items-center gap-2">
-                  <span className="w-1.5 h-5 bg-premium-gold rounded-full inline-block" />
+                <h2 className="text-xl font-bold text-charcoal flex items-center gap-2">
+                  <span className="w-1.5 h-5 bg-gold rounded-full inline-block" />
                   Media Library
                 </h2>
                 <p className="text-sm text-tobacco-600 mt-1">
@@ -780,7 +780,7 @@ export default function AdminPage() {
 
             {mediaLoading ? (
               <div className="text-center py-16 text-tobacco-500">
-                <div className="inline-block w-6 h-6 border-2 border-premium-gold/30 border-t-premium-gold rounded-full animate-spin mb-3" />
+                <div className="inline-block w-6 h-6 border-2 border-gold/30 border-t-gold rounded-full animate-spin mb-3" />
                 <p className="text-sm">Loading media library...</p>
               </div>
             ) : mediaImages.length === 0 ? (
@@ -840,7 +840,7 @@ export default function AdminPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
           <div className="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[80vh] flex flex-col">
             <div className="flex items-center justify-between px-6 py-4 border-b border-tobacco-200">
-              <h3 className="text-lg font-bold text-premium-dark">Select Images</h3>
+              <h3 className="text-lg font-bold text-charcoal">Select Images</h3>
               <button
                 type="button"
                 onClick={() => setShowMediaPicker(false)}
@@ -868,9 +868,9 @@ export default function AdminPage() {
                           addImageToForm(image.url)
                           setShowMediaPicker(false)
                         }}
-                        className={`relative aspect-square rounded-lg border-2 overflow-hidden transition-all hover:border-premium-gold ${
+                        className={`relative aspect-square rounded-lg border-2 overflow-hidden transition-all hover:border-gold ${
                           form.imageUrls.includes(image.url)
-                            ? 'border-premium-gold ring-2 ring-premium-gold/30'
+                            ? 'border-gold ring-2 ring-gold/30'
                             : 'border-tobacco-200'
                         }`}
                       >
@@ -882,8 +882,8 @@ export default function AdminPage() {
                           className="object-cover"
                         />
                         {form.imageUrls.includes(image.url) && (
-                          <div className="absolute top-1 right-1 w-5 h-5 bg-premium-gold rounded-full flex items-center justify-center">
-                            <svg className="w-3 h-3 text-premium-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <div className="absolute top-1 right-1 w-5 h-5 bg-gold rounded-full flex items-center justify-center">
+                            <svg className="w-3 h-3 text-charcoal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                             </svg>
                           </div>

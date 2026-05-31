@@ -57,9 +57,9 @@ export function EnquiryForm() {
     }
   }
 
-  const fieldClass = "w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold bg-white disabled:bg-gray-50 text-sm"
+  const fieldClass = "w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold bg-white disabled:bg-gray-50 text-sm"
   const labelClass = "block text-xs uppercase tracking-[0.15em] font-semibold text-gray-600 mb-1.5"
-  const requiredMark = <span className="text-premium-gold ml-0.5">*</span>
+  const requiredMark = <span className="text-gold ml-0.5">*</span>
 
   return (
     <motion.form
@@ -119,8 +119,8 @@ export function EnquiryForm() {
         disabled={loading || selectedProducts.length === 0}
               className={`text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-2.5 rounded-xl border transition-all ${
                 selectedProducts.includes(product)
-                  ? 'bg-premium-gold text-premium-dark border-premium-gold'
-                  : 'bg-white text-gray-500 border-gray-200 hover:border-premium-gold/30'
+                  ? 'bg-gold text-charcoal border-gold'
+                  : 'bg-white text-gray-500 border-gray-200 hover:border-gold/30'
               } disabled:opacity-50`}
             >
               {product}
