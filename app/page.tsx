@@ -244,11 +244,11 @@ export default function Home() {
                       >
                         <Link
                           href={`/catalogue/${p.productId}`}
-                          className="group flex flex-col items-center justify-center gap-2 p-4 bg-white border border-tobacco-100 rounded-xl hover:border-gold/30 hover:shadow-md transition-all duration-300 min-w-[200px]"
+                          className="group flex flex-col bg-white border border-tobacco-100 rounded-xl overflow-hidden hover:border-gold/30 hover:shadow-lg transition-all duration-300 min-w-[220px]"
                           style={{ height: sidebarHeight || 264 }}
                         >
                           {p.imageUrl && (
-                            <div className="w-12 h-12 rounded-lg overflow-hidden bg-[#e2e2dd] relative shrink-0">
+                            <div className="h-0 min-h-[45%] overflow-hidden bg-[#e2e2dd] relative">
                               <div className={`absolute inset-0 bg-gradient-to-r from-[#d4d4cf] via-[#eaeae5] to-[#d4d4cf] bg-[length:200%_100%] animate-shimmer ${loadedImages.has(p.productId) ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`} />
                               <img
                                 src={p.imageUrl}
@@ -258,12 +258,13 @@ export default function Home() {
                               />
                             </div>
                           )}
-                          <div className="text-center">
-                            <p className="text-xs font-bold text-charcoal group-hover:text-gold transition-colors truncate">{p.name}</p>
-                            <p className="text-[9px] text-gray-400 mt-0.5">{p.grade}</p>
-                            <div className="flex gap-2 justify-center mt-1.5 text-[8px] text-gray-400">
-                              <span>N {p.nicotine}</span>
-                              <span>S {p.sugar}</span>
+                          <div className="flex flex-col justify-center flex-1 px-5 py-4">
+                            <p className="text-sm font-bold text-charcoal group-hover:text-gold transition-colors truncate">{p.name}</p>
+                            <p className="text-[10px] text-gray-400 mt-0.5 font-medium uppercase tracking-wider">{p.grade}</p>
+                            <div className="divider-gold my-3" />
+                            <div className="flex gap-4 text-[10px] text-gray-500">
+                              <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-gold/60" />N {p.nicotine}</span>
+                              <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-gold/60" />S {p.sugar}</span>
                             </div>
                           </div>
                         </Link>
