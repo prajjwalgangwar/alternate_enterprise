@@ -92,6 +92,28 @@ const defaults: SiteContent = {
   contact_info_box_text: 'All inquiries are handled by our trade team. We respond to bulk order and partnership requests within 24 hours.',
   contact_health_warning: 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.',
 
+  about_hero_badge: 'About Us',
+  about_hero_heading_1: 'Our',
+  about_hero_heading_2: 'Story',
+  about_hero_description: 'From the finest tobacco-growing regions to the world\'s most discerning markets — Alternate Enterprises delivers excellence in every leaf.',
+  about_mission_heading: 'Our Mission',
+  about_mission_body: 'To bridge the gap between the world\'s premier tobacco growers and international markets through uncompromising quality, ethical sourcing, and deep industry expertise. We believe in building relationships that span generations.',
+  about_values_heading: 'Our Values',
+  about_values_items: [
+    'Quality First|Every leaf is hand-selected and rigorously tested to ensure it meets our exacting standards before it reaches our partners.',
+    'Integrity|We operate with complete transparency in every transaction, from sourcing to shipping, building trust that lasts.',
+    'Global Expertise|With deep knowledge of tobacco markets across five continents, we navigate international trade with precision and cultural understanding.',
+    'Sustainability|We work with growers who share our commitment to responsible farming practices and long-term environmental stewardship.',
+  ],
+  about_stats: [
+    '2024|Year Established',
+    '50+|Export Partners',
+    '12|Growing Regions',
+    '100%|Client Satisfaction',
+  ],
+  about_content: 'At Alternate Enterprises, we understand that premium tobacco is more than a product — it is a craft. Our journey began with a simple vision: to connect the world\'s finest tobacco producers with the international market\'s most discerning buyers.\n\nToday, we work with growers across twelve distinct growing regions, each selected for their unique terroir and commitment to quality. From the bright, golden leaves of Flue-Cured Virginia to the rich, complex profiles of Zimbabwe Cured, every product in our portfolio represents the pinnacle of tobacco craftsmanship.\n\nOur team brings together decades of combined experience in tobacco trading, logistics, and international commerce. We pride ourselves on our ability to navigate complex regulatory environments while maintaining the personal touch that defines true partnership.\n\nWhether you are a established manufacturer seeking consistent supply or an emerging market looking for premium import options, Alternate Enterprises is your trusted partner in tobacco excellence.',
+  about_health_warning: 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.',
+
   privacy_hero_badge: 'Privacy',
   privacy_hero_heading_1: 'Privacy',
   privacy_hero_heading_2: 'Policy',
@@ -121,6 +143,7 @@ const defaults: SiteContent = {
   faq_health_warning: 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.',
 
   section_age_gate_visible: 'true',
+  section_about_visible: 'true',
   section_privacy_visible: 'true',
   section_terms_visible: 'true',
   section_faq_visible: 'true',

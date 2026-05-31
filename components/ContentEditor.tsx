@@ -11,6 +11,7 @@ type ToastState = { message: string; type: 'success' | 'error' } | null
 const SECTIONS = [
   { id: 'age_gate', label: 'Age Gate', visibilityKey: 'section_age_gate_visible', primaryKey: 'age_gate_heading' },
   { id: 'header', label: 'Header', visibilityKey: 'section_header_banner_visible', primaryKey: 'header_health_warning' },
+  { id: 'about', label: 'About', visibilityKey: 'section_about_visible', primaryKey: 'about_hero_heading_1' },
   { id: 'hero', label: 'Hero', visibilityKey: 'section_hero_visible', primaryKey: 'home_hero_heading_1' },
   { id: 'stats', label: 'Stats', visibilityKey: 'section_stats_visible', primaryKey: 'home_stats' },
   { id: 'categories', label: 'Categories', visibilityKey: 'section_categories_visible', primaryKey: 'home_categories_items' },
@@ -241,6 +242,59 @@ export default function ContentEditor() {
                 <EditableText value={v('header_health_warning')} onChange={(val) => setValue('header_health_warning', val)} type="textarea" rows={2} className="text-xs uppercase tracking-wider text-gray-500 bg-gray-50 px-4 py-2 rounded" />
                 <EditableText value={v('header_tagline')} onChange={(val) => setValue('header_tagline', val)} className="text-[9px] uppercase tracking-widest text-gold/60" />
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* === ABOUT === */}
+        {activeSection === 'about' && (
+          <div className="relative">
+            {!sectionVisible && <HiddenOverlay />}
+            <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-gradient-to-br from-primary-dark via-primary to-primary-light">
+              <h3 className="text-sm font-bold text-gold/60 uppercase tracking-wider">About Us</h3>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] text-gray-400 uppercase tracking-wider">Visible</span>
+                <SectionToggle visible={sectionVisible} onChange={() => toggleVisibility(section!.visibilityKey)} />
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-primary-dark via-primary to-primary-light p-8 sm:p-12 pt-2">
+              <div className="max-w-3xl space-y-5">
+                <EditableText value={v('about_hero_badge')} onChange={(val) => setValue('about_hero_badge', val)} className="inline-block text-[10px] uppercase tracking-widest text-gold font-semibold border border-gold/20 rounded-full px-4 py-1.5" />
+                <div className="text-4xl sm:text-5xl font-bold leading-[1.1] space-y-1">
+                  <EditableText value={v('about_hero_heading_1')} onChange={(val) => setValue('about_hero_heading_1', val)} as="div" className="text-white/90" />
+                  <EditableText value={v('about_hero_heading_2')} onChange={(val) => setValue('about_hero_heading_2', val)} as="div" className="text-gradient-gold" />
+                </div>
+                <EditableText value={v('about_hero_description')} onChange={(val) => setValue('about_hero_description', val)} type="textarea" rows={2} as="p" className="text-sm sm:text-base text-gray-400/80 max-w-xl leading-relaxed" />
+              </div>
+            </div>
+            <div className="px-6 pb-6 space-y-4 pt-4">
+              <div className="grid grid-cols-2 gap-4">
+                <label className="block">
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Mission Heading</span>
+                  <EditableText value={v('about_mission_heading')} onChange={(val) => setValue('about_mission_heading', val)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                </label>
+                <label className="block">
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Values Heading</span>
+                  <EditableText value={v('about_values_heading')} onChange={(val) => setValue('about_values_heading', val)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                </label>
+              </div>
+              <label className="block">
+                <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Mission Body</span>
+                <EditableText value={v('about_mission_body')} onChange={(val) => setValue('about_mission_body', val)} type="textarea" rows={3} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+              </label>
+              <label className="block">
+                <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Values (title|desc per line)</span>
+                <EditableText value={v('about_values_items')} onChange={(val) => setValue('about_values_items', val)} type="textarea" rows={5} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2 font-mono" />
+              </label>
+              <label className="block">
+                <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Stats (value|label per line)</span>
+                <EditableText value={v('about_stats')} onChange={(val) => setValue('about_stats', val)} type="textarea" rows={4} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2 font-mono" />
+              </label>
+              <label className="block">
+                <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Content Body</span>
+                <EditableText value={v('about_content')} onChange={(val) => setValue('about_content', val)} type="textarea" rows={8} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+              </label>
+              <EditableText value={v('about_health_warning')} onChange={(val) => setValue('about_health_warning', val)} type="textarea" rows={3} className="text-[10px] text-gray-600 uppercase tracking-wider leading-relaxed text-center" />
             </div>
           </div>
         )}
