@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import ClientLayout from '@/components/ClientLayout'
+import AgeGate from '@/components/AgeGate'
 
 export const metadata: Metadata = {
   title: 'Alternate Enterprises — Premium Luxury Tobacco Exports',
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <ClientLayout>
           {children}
+          <AgeGate />
         </ClientLayout>
       </body>
     </html>

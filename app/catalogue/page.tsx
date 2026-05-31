@@ -1,19 +1,35 @@
 'use client'
 
-import { useState, useMemo, useCallback } from 'react'
+import { Suspense, useState, useMemo, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Header, Footer } from '@/components/Layout'
 import { useProducts } from '@/hooks/useProducts'
 import { SkeletonLoader } from '@/components/common'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useSiteContent } from '@/context/SiteContent'
+import { useSearchParams } from 'next/navigation'
 
 export default function CataloguePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-cream"><div className="w-8 h-8 border-2 border-tobacco-300 border-t-premium-gold rounded-full animate-spin" /></div>}>
+      <CatalogueContent />
+    </Suspense>
+  )
+}
+
+function CatalogueContent() {
   const { products, loading, error } = useProducts()
   const { content } = useSiteContent()
+  const searchParams = useSearchParams()
   const [activeCategory, setActiveCategory] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set())
+
+  useEffect(() => {
+    const cat = searchParams.get('category')
+    if (cat) setActiveCategory(cat)
+  }, [searchParams])
 
   const categories = Array.isArray(content.catalogue_categories)
     ? content.catalogue_categories
@@ -61,31 +77,29 @@ export default function CataloguePage() {
 
       <main className="flex-1">
 
-        {/* Filters */}
-        <section className="bg-white border-b border-tobacco-100 sticky top-[73px] z-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              {/* Category Tabs */}
-              <div className="flex items-center gap-1.5 flex-wrap">
-                {categories.map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    className={`text-[10px] uppercase tracking-[0.2em] font-semibold px-3.5 py-1.5 rounded-full transition-all duration-200 ${
-                      activeCategory === cat
-                        ? 'bg-premium-dark text-premium-gold'
-                        : 'bg-tobacco-50 text-gray-500 hover:bg-tobacco-100'
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-
+        {/* Category Navbar */}
+        <section className="bg-premium-dark border-b border-premium-gold/10 sticky top-[73px] z-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav className="flex items-center gap-0 overflow-x-auto">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`whitespace-nowrap text-[11px] uppercase tracking-[0.2em] font-semibold px-5 py-3.5 border-b-2 transition-all duration-200 ${
+                    activeCategory === cat
+                      ? 'border-premium-gold text-premium-gold'
+                      : 'border-transparent text-gray-500 hover:text-gray-300 hover:border-gray-600'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+              {/* Spacer */}
+              <div className="flex-1" />
               {/* Search */}
-              <div className="relative w-full sm:w-56">
+              <div className="relative hidden sm:block w-48">
                 <svg
-                  className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400"
+                  className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3 h-3 text-gray-500"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -97,10 +111,10 @@ export default function CataloguePage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder={content.catalogue_search_placeholder as string}
-                  className="w-full pl-8 pr-3 py-1.5 text-xs bg-tobacco-50 border border-tobacco-100 rounded-full focus:outline-none focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold placeholder:text-gray-400"
+                  className="w-full pl-7 pr-3 py-2 text-[11px] bg-premium-dark/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-premium-gold/30 focus:border-premium-gold text-gray-300 placeholder:text-gray-600"
                 />
               </div>
-            </div>
+            </nav>
           </div>
         </section>
 
@@ -137,9 +151,9 @@ export default function CataloguePage() {
                       const primaryImage = product.imageUrls?.[0] ?? product.imageUrl
                       const showPlaceholder = !primaryImage || failedImages.has(product.productId)
                       return (
-                        <motion.div
-                          key={product.productId}
-                          className="bg-white rounded-xl border border-tobacco-100 hover:border-premium-gold/30 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md group"
+                        <Link key={product.productId} href={`/catalogue/${product.productId}`}>
+                          <motion.div
+                          className="bg-white rounded-xl border border-tobacco-100 hover:border-premium-gold/30 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md group cursor-pointer"
                           initial={{ opacity: 0, y: 12 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
@@ -156,7 +170,7 @@ export default function CataloguePage() {
                                 src={primaryImage}
                                 alt={product.name}
                                 fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                className="object-cover"
                                 onError={() => handleImageError(product.productId)}
                               />
                             )}
@@ -199,7 +213,8 @@ export default function CataloguePage() {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                          </motion.div>
+                        </Link>
                       )
                     })}
                   </div>

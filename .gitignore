@@ -2,7 +2,7 @@
 node_modules
 *.tsbuildinfo
 .DS_Store
-CATALOGUE
+/CATALOGUE
 ALTERNATE CATALOGUE.pdf
 firebase-debug.log
 *.pdf

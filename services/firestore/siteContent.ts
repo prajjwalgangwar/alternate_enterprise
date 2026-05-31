@@ -120,9 +120,17 @@ const defaults: SiteContent = {
   ],
   faq_health_warning: 'SURGEON GENERAL WARNING: Tobacco products cause cancer, heart disease, emphysema, and complications during pregnancy. This site is for B2B trade professionals only. Must be 21+ to access.',
 
+  section_age_gate_visible: 'true',
   section_privacy_visible: 'true',
   section_terms_visible: 'true',
   section_faq_visible: 'true',
+
+  age_gate_heading: 'Age Verification',
+  age_gate_description: 'You must be 21 years or older to access this website. Please confirm your age to enter.',
+  age_gate_yes_button: 'I Am 21 or Older',
+  age_gate_no_button: 'I Am Under 21',
+  age_gate_redirect_url: 'https://google.com',
+  age_gate_image: '',
 
   section_header_banner_visible: 'true',
   section_hero_visible: 'true',

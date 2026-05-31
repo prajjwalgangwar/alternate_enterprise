@@ -9,6 +9,7 @@ import Toast from './Toast'
 type ToastState = { message: string; type: 'success' | 'error' } | null
 
 const SECTIONS = [
+  { id: 'age_gate', label: 'Age Gate', visibilityKey: 'section_age_gate_visible', primaryKey: 'age_gate_heading' },
   { id: 'header', label: 'Header', visibilityKey: 'section_header_banner_visible', primaryKey: 'header_health_warning' },
   { id: 'hero', label: 'Hero', visibilityKey: 'section_hero_visible', primaryKey: 'home_hero_heading_1' },
   { id: 'stats', label: 'Stats', visibilityKey: 'section_stats_visible', primaryKey: 'home_stats' },
@@ -168,6 +169,53 @@ export default function ContentEditor() {
 
       {/* Preview */}
       <div className="bg-cream border border-tobacco-100 rounded-xl overflow-hidden shadow-sm relative">
+
+        {/* === AGE GATE === */}
+        {activeSection === 'age_gate' && (
+          <div className="relative">
+            {!sectionVisible && <HiddenOverlay />}
+            <div className="flex items-center justify-between px-6 pt-5 pb-2">
+              <h3 className="text-sm font-bold text-premium-dark flex items-center gap-2">
+                <span className="w-1 h-4 bg-premium-gold rounded-full" />
+                Age Gate
+              </h3>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] text-gray-400 uppercase tracking-wider">Visible</span>
+                <SectionToggle visible={sectionVisible} onChange={() => toggleVisibility(section!.visibilityKey)} />
+              </div>
+            </div>
+            <div className="px-6 pb-4 space-y-4">
+              <div className="grid grid-cols-2 gap-3">
+                <label className="block">
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Heading</span>
+                  <EditableText value={getDisplayValue(local, 'age_gate_heading')} onChange={(v) => setValue('age_gate_heading', v)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                </label>
+                <label className="block">
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Background Image URL</span>
+                  <EditableText value={getDisplayValue(local, 'age_gate_image')} onChange={(v) => setValue('age_gate_image', v)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                </label>
+              </div>
+              <label className="block">
+                <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Description</span>
+                <EditableText value={getDisplayValue(local, 'age_gate_description')} onChange={(v) => setValue('age_gate_description', v)} type="textarea" rows={3} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                <label className="block">
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Yes Button Text</span>
+                  <EditableText value={getDisplayValue(local, 'age_gate_yes_button')} onChange={(v) => setValue('age_gate_yes_button', v)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                </label>
+                <label className="block">
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">No Button Text</span>
+                  <EditableText value={getDisplayValue(local, 'age_gate_no_button')} onChange={(v) => setValue('age_gate_no_button', v)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                </label>
+              </div>
+              <label className="block">
+                <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Redirect URL (underage)</span>
+                <EditableText value={getDisplayValue(local, 'age_gate_redirect_url')} onChange={(v) => setValue('age_gate_redirect_url', v)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+              </label>
+            </div>
+          </div>
+        )}
 
         {/* === HEADER === */}
         {activeSection === 'header' && (

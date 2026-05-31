@@ -1,12 +1,19 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import { useSiteContent } from '@/context/SiteContent'
 
 export function Header() {
   const { content } = useSiteContent()
+  const [offeringsOpen, setOfferingsOpen] = useState(false)
+
+  const categories = (Array.isArray(content.catalogue_categories)
+    ? content.catalogue_categories
+    : ['All', 'FCV Tobacco', 'Burley Tobacco', 'Country Blend', 'Zimbabwe Cured']
+  ).filter((c) => c !== 'All')
 
   const navLinks = [
     { label: content.nav_home as string, href: '/' },
@@ -37,7 +44,7 @@ export function Header() {
                 className="flex items-center gap-3"
               >
                 <div className="relative w-9 h-9">
-                  <Image src="/logo.png" alt={content.header_logo_alt as string || 'Alternate Enterprises'} fill className="object-contain" />
+                  <Image src="/logo.png" alt={content.header_logo_alt as string || 'Alternate Enterprises'} width={36} height={36} className="object-contain" priority />
                 </div>
                 {!!(content.header_tagline as string) && (
                 <span className="hidden sm:block text-[9px] uppercase tracking-[0.35em] text-premium-gold/50 mt-1">
@@ -48,15 +55,52 @@ export function Header() {
             </Link>
 
             <nav className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm text-gray-400 hover:text-premium-gold transition-colors tracking-wider uppercase font-medium"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.label === content.nav_offerings ? (
+                  <div
+                    key={link.label}
+                    className="relative"
+                    onMouseEnter={() => setOfferingsOpen(true)}
+                    onMouseLeave={() => setOfferingsOpen(false)}
+                  >
+                    <a
+                      href={link.href}
+                      className="text-sm text-gray-400 hover:text-premium-gold transition-colors tracking-wider uppercase font-medium"
+                    >
+                      {link.label}
+                    </a>
+                    <AnimatePresence>
+                      {offeringsOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 6 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute top-full left-0 mt-2 w-56 bg-premium-dark border border-premium-gold/10 rounded-xl shadow-2xl overflow-hidden"
+                        >
+                          {categories.map((cat) => (
+                            <Link
+                              key={cat}
+                              href={`/catalogue?category=${encodeURIComponent(cat)}`}
+                              className="block px-5 py-3 text-xs uppercase tracking-[0.15em] text-gray-400 hover:text-premium-gold hover:bg-white/5 transition-all"
+                            >
+                              {cat}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-sm text-gray-400 hover:text-premium-gold transition-colors tracking-wider uppercase font-medium"
+                  >
+                    {link.label}
+                  </a>
+                )
+              )}
             </nav>
           </div>
         </div>
