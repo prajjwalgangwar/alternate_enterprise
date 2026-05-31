@@ -26,9 +26,13 @@ const PRODUCTS = [
   'Virginia Tobacco', 'Oriental Tobacco', 'Dark Air-Cured', 'Sun-Cured',
 ]
 
-export function EnquiryForm() {
+interface EnquiryFormProps {
+  initialProducts?: string[]
+}
+
+export function EnquiryForm({ initialProducts }: EnquiryFormProps) {
   const { loading, error, success, submitForm } = useContactForm()
-  const [selectedProducts, setSelectedProducts] = useState<string[]>([])
+  const [selectedProducts, setSelectedProducts] = useState<string[]>(initialProducts || [])
 
   const toggleProduct = (product: string) => {
     setSelectedProducts((prev) =>
@@ -116,7 +120,7 @@ export function EnquiryForm() {
               key={product}
               type="button"
               onClick={() => toggleProduct(product)}
-        disabled={loading || selectedProducts.length === 0}
+              disabled={loading}
               className={`text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-2.5 rounded-xl border transition-all ${
                 selectedProducts.includes(product)
                   ? 'bg-gold text-charcoal border-gold'

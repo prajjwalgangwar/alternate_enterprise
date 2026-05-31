@@ -1,8 +1,9 @@
 'use client'
 
-import { useState, useEffect, use } from 'react'
+import { useState, useEffect, use, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Header, Footer } from '@/components/Layout'
+import { EnquiryForm } from '@/components/EnquiryForm'
 import { getProductById, getProducts, Product } from '@/services/firestore/products'
 import { SkeletonLoader } from '@/components/common'
 import Image from 'next/image'
@@ -14,6 +15,15 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
   const [allProducts, setAllProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [failedImage, setFailedImage] = useState(false)
+  const [showForm, setShowForm] = useState(false)
+  const formRef = useRef<HTMLDivElement>(null)
+
+  function handleEnquire() {
+    setShowForm(true)
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 100)
+  }
 
   useEffect(() => {
     let cancelled = false
@@ -165,21 +175,36 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
 
                 {/* Actions */}
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <Link
-                    href="/contact"
-                    className="flex-1 inline-flex items-center justify-center gap-2 btn-gold text-sm py-3.5 rounded-xl font-bold"
+                  <button
+                    onClick={handleEnquire}
+                    className="flex-1 inline-flex items-center justify-center gap-2 btn-gold text-sm py-3.5 rounded-xl font-bold cursor-pointer"
                   >
                     Enquire About This Product
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
-                  </Link>
+                  </button>
                   <Link
                     href="/catalogue"
                     className="flex-1 inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-600 text-sm py-3.5 rounded-xl font-semibold hover:border-gold/30 hover:text-charcoal transition-all"
                   >
                     Back to Catalogue
                   </Link>
+                </div>
+
+                {/* Inline Enquiry Form */}
+                <div ref={formRef}>
+                  {showForm && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      transition={{ duration: 0.3 }}
+                      className="mt-8 pt-8 border-t border-gray-200"
+                    >
+                      <h3 className="text-lg font-bold text-charcoal mb-6">Enquire About {product.name}</h3>
+                      <EnquiryForm initialProducts={[product.name]} />
+                    </motion.div>
+                  )}
                 </div>
               </motion.div>
             </div>
