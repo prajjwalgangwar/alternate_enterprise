@@ -1,11 +1,10 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Header, Footer } from '@/components/Layout'
 import { FeaturedProducts } from '@/components/FeaturedProducts'
 import { EnquiryForm } from '@/components/EnquiryForm'
-import { useProducts } from '@/hooks/useProducts'
 import Link from 'next/link'
 import { useSiteContent } from '@/context/SiteContent'
 
@@ -20,7 +19,6 @@ const fadeUp = {
 
 export default function Home() {
   const { content } = useSiteContent()
-  const { products } = useProducts()
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
 
   const stats = (Array.isArray(content.home_stats) ? content.home_stats : [
@@ -42,11 +40,6 @@ export default function Home() {
     const [title, desc, specs] = s.split('|')
     return { title, desc, specs }
   })
-
-  const categoryProducts = useMemo(() => {
-    if (!activeCategory) return []
-    return products.filter((p) => p.category === activeCategory)
-  }, [products, activeCategory])
 
   return (
     <div className="min-h-screen flex flex-col bg-cream">
@@ -187,105 +180,82 @@ export default function Home() {
             )}
           </div>
 
-          <div className="mb-12">
-            {!!(content.home_categories_section_label as string) && (
-            <span className="text-gold text-[10px] uppercase tracking-[0.3em] font-semibold">
-              {content.home_categories_section_label as string}
-            </span>
-            )}
-            {!!(content.home_categories_heading as string) && (
-            <h2 className="text-3xl sm:text-4xl font-bold text-charcoal mt-3 mb-3">
-              {(content.home_categories_heading as string).split(' ').map((word, i, arr) =>
-                i === arr.length - 1 ? <span key={i} className="text-gradient-gold">{word} </span> : <span key={i} className="text-charcoal">{word} </span>
-              )}
-            </h2>
-            )}
-            {!!(content.home_categories_description as string) && (
-            <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
-              {content.home_categories_description as string}
-            </p>
-            )}
-          </div>
-
-          <div className={`${activeCategory ? 'lg:grid-cols-[280px_1fr]' : 'lg:grid-cols-4'} grid grid-cols-1 sm:grid-cols-2 gap-4 transition-all duration-500`}>
-            {categories.map((cat, index) => {
-              const isActive = activeCategory === cat.title
-              return (
+          {activeCategory ? (
+            <div className="flex gap-6 items-start">
+              <div className="w-full max-w-[280px] shrink-0 space-y-3">
+                {categories.map((cat, index) => {
+                  const isActive = activeCategory === cat.title
+                  return (
+                    <motion.div
+                      key={cat.title}
+                      layout
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.04 }}
+                      onClick={() => setActiveCategory(isActive ? null : cat.title)}
+                      className={`h-[70px] flex items-center gap-3 px-4 rounded-xl cursor-pointer transition-all duration-300 border ${
+                        isActive
+                          ? 'bg-white border-gold/30 shadow-md shadow-gold/5'
+                          : 'bg-white/80 border-tobacco-100 hover:border-gold/20 hover:shadow-sm'
+                      }                    `}
+                    >
+                      <div className="min-w-0 flex-1">
+                        <p className={`text-xs font-bold truncate ${isActive ? 'text-gold' : 'text-charcoal'}`}>{cat.title}</p>
+                        <p className="text-[9px] text-gray-400 truncate">{cat.desc}</p>
+                      </div>
+                    </motion.div>
+                  )
+                })}
+              </div>
+              <div className="flex-1 min-w-0">
+                {categories.filter((c) => c.title === activeCategory).map((cat) => (
+                  <motion.div
+                    key={cat.title}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.35 }}
+                    className="bg-white border border-tobacco-100 rounded-xl p-8"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <h3 className="text-2xl font-bold text-charcoal">{cat.title}</h3>
+                        <p className="text-sm text-gray-500 mt-1">{cat.desc}</p>
+                      </div>
+                      <button
+                        onClick={() => setActiveCategory(null)}
+                        className="text-gray-400 hover:text-charcoal transition-colors p-1"
+                      >
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+                    <div className="divider-gold my-4" />
+                    <p className="text-[10px] text-gold font-medium tracking-wider uppercase">{cat.specs}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {categories.map((cat, index) => (
                 <motion.div
                   key={cat.title}
                   layout
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.35, delay: index * 0.04 }}
-                  onClick={() => setActiveCategory(isActive ? null : cat.title)}
-                  className={`group cursor-pointer rounded-xl overflow-hidden transition-all duration-300 ${
-                    isActive
-                      ? 'bg-white border border-gold/30 shadow-lg shadow-gold/5 lg:col-span-1'
-                      : activeCategory
-                        ? 'bg-white/60 border border-tobacco-100 hover:border-gold/20 shadow-sm'
-                        : 'bg-white border border-tobacco-100 hover:border-gold/30 shadow-sm hover:shadow-md'
-                  }`}
+                  onClick={() => setActiveCategory(cat.title)}
+                  className="group bg-white border border-tobacco-100 hover:border-gold/30 rounded-xl p-6 cursor-pointer shadow-sm hover:shadow-md transition-all duration-300"
                 >
-                  {isActive && activeCategory ? (
-                    <div className="p-4 sm:p-5">
-                      <div className="flex items-center justify-between mb-4">
-                        <div>
-                          <h3 className="text-base font-bold text-charcoal">{cat.title}</h3>
-                          <p className="text-xs text-gray-400 mt-0.5">{cat.desc}</p>
-                        </div>
-                        <button
-                          onClick={(e) => { e.stopPropagation(); setActiveCategory(null) }}
-                          className="text-gray-400 hover:text-charcoal transition-colors p-1"
-                        >
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                          </svg>
-                        </button>
-                      </div>
-                      {categoryProducts.length > 0 ? (
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                          {categoryProducts.map((p) => (
-                            <Link
-                              key={p.productId}
-                              href={`/catalogue/${p.productId}`}
-                              className="group/product block bg-cream rounded-lg border border-tobacco-100 p-3 hover:border-gold/30 hover:shadow-sm transition-all"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <p className="text-xs font-semibold text-charcoal group-hover/product:text-gold transition-colors truncate">
-                                {p.name}
-                              </p>
-                              <p className="text-[9px] text-gray-400 mt-0.5 truncate">{p.grade}</p>
-                              <div className="flex gap-2 mt-1.5 text-[8px] text-gray-400">
-                                <span>N {p.nicotine}</span>
-                                <span>S {p.sugar}</span>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="text-xs text-gray-400 py-4 text-center">No products in this category yet.</p>
-                      )}
-                    </div>
-                  ) : (
-                    <div className="p-6">
-                      <h3 className={`text-base font-bold mb-2 transition-colors ${isActive ? 'text-gold' : 'text-charcoal group-hover:text-gold'}`}>{cat.title}</h3>
-                      {!activeCategory && (
-                        <>
-                          <p className="text-sm text-gray-500 leading-relaxed mb-3">{cat.desc}</p>
-                          <div className="divider-gold my-2.5" />
-                          <p className="text-[10px] text-gold font-medium tracking-wider uppercase">{cat.specs}</p>
-                        </>
-                      )}
-                      {activeCategory && (
-                        <p className="text-[10px] text-gray-400 mt-1 truncate">{cat.desc}</p>
-                      )}
-                    </div>
-                  )}
+                  <h3 className="text-base font-bold text-charcoal group-hover:text-gold transition-colors mb-2">{cat.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-3">{cat.desc}</p>
+                  <div className="divider-gold my-2.5" />
+                  <p className="text-[10px] text-gold font-medium tracking-wider uppercase">{cat.specs}</p>
                 </motion.div>
-              )
-            })}
-          </div>
+              ))}
+            </div>
+          )}
         </section>
         )}
 
