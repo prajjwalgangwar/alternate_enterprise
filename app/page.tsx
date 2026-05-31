@@ -261,6 +261,7 @@ export default function Home() {
                           <div className="flex flex-col flex-1 px-5 py-4">
                             <p className="text-sm font-bold text-charcoal group-hover:text-gold transition-colors truncate">{p.name}</p>
                             <p className="text-[10px] text-gray-400 mt-0.5 font-medium uppercase tracking-widest">{p.grade}</p>
+                            {p.description && <p className="text-[10px] text-gray-500 leading-relaxed mt-1.5 line-clamp-2">{p.description}</p>}
                             <div className="mt-auto">
                               <div className="divider-gold my-3" />
                               <div className="flex gap-4 text-[10px] text-gray-500">
