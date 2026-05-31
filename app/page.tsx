@@ -201,14 +201,14 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.04 }}
                       onClick={() => setActiveCategory(isActive ? null : cat.title)}
-                      className={`p-5 rounded-xl cursor-pointer transition-all duration-300 border ${
+                      className={`p-3 rounded-xl cursor-pointer transition-all duration-300 border ${
                         isActive
                           ? 'bg-white border-gold/30 shadow-md shadow-gold/5'
                           : 'bg-white/80 border-tobacco-100 hover:border-gold/20 hover:shadow-sm'
                       }`}
                     >
-                      <h3 className={`text-sm font-bold mb-1.5 transition-colors ${isActive ? 'text-gold' : 'text-charcoal'}`}>{cat.title}</h3>
-                      <p className="text-xs text-gray-400 leading-relaxed mb-2">{cat.desc}</p>
+                      <p className={`text-xs font-bold truncate transition-colors ${isActive ? 'text-gold' : 'text-charcoal'}`}>{cat.title}</p>
+                      <p className="text-[10px] text-gray-400 truncate mt-0.5">{cat.desc}</p>
                       <div className="divider-gold my-2" />
                       <p className="text-[9px] text-gold font-medium tracking-wider uppercase">{cat.specs}</p>
                     </motion.div>
