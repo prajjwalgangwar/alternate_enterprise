@@ -189,7 +189,7 @@ export default function Home() {
           </div>
 
           {activeCategory ? (
-            <div className="flex gap-6 items-start">
+            <div className="flex gap-6 items-stretch">
               <div className="w-full max-w-[280px] shrink-0 space-y-3">
                 {categories.map((cat, index) => {
                   const isActive = activeCategory === cat.title
@@ -222,7 +222,7 @@ export default function Home() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.35 }}
-                    className="flex gap-3 overflow-x-auto pb-2 -mb-2 scrollbar-thin"
+                    className="flex gap-3 overflow-x-auto pb-2 -mb-2 scrollbar-thin items-stretch"
                   >
                     {categoryProducts.map((p, i) => (
                       <motion.div
@@ -234,10 +234,10 @@ export default function Home() {
                       >
                         <Link
                           href={`/catalogue/${p.productId}`}
-                          className="group flex items-center gap-3 p-5 bg-white border border-tobacco-100 rounded-xl hover:border-gold/30 hover:shadow-md transition-all duration-300 h-full min-w-[240px]"
+                          className="group flex flex-col items-center justify-center gap-2 p-4 bg-white border border-tobacco-100 rounded-xl hover:border-gold/30 hover:shadow-md transition-all duration-300 h-full min-w-[180px]"
                         >
                           {p.imageUrl && (
-                            <div className="w-[52px] h-[52px] rounded-lg overflow-hidden bg-[#e2e2dd] relative shrink-0">
+                            <div className="w-12 h-12 rounded-lg overflow-hidden bg-[#e2e2dd] relative shrink-0">
                               <div className={`absolute inset-0 bg-gradient-to-r from-[#d4d4cf] via-[#eaeae5] to-[#d4d4cf] bg-[length:200%_100%] animate-shimmer ${loadedImages.has(p.productId) ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`} />
                               <img
                                 src={p.imageUrl}
@@ -247,10 +247,10 @@ export default function Home() {
                               />
                             </div>
                           )}
-                          <div className="min-w-0 flex-1">
-                            <p className="text-sm font-bold text-charcoal group-hover:text-gold transition-colors truncate">{p.name}</p>
-                            <p className="text-[10px] text-gray-400 mt-0.5">{p.grade}</p>
-                            <div className="flex gap-3 mt-2 text-[9px] text-gray-400">
+                          <div className="text-center">
+                            <p className="text-xs font-bold text-charcoal group-hover:text-gold transition-colors truncate">{p.name}</p>
+                            <p className="text-[9px] text-gray-400 mt-0.5">{p.grade}</p>
+                            <div className="flex gap-2 justify-center mt-1.5 text-[8px] text-gray-400">
                               <span>N {p.nicotine}</span>
                               <span>S {p.sugar}</span>
                             </div>
