@@ -189,7 +189,7 @@ export default function Home() {
           </div>
 
           {activeCategory ? (
-            <div className="flex gap-6 items-stretch">
+            <div className="flex gap-6 items-start">
               <div className="w-full max-w-[280px] shrink-0 space-y-3">
                 {categories.map((cat, index) => {
                   const isActive = activeCategory === cat.title
@@ -215,14 +215,14 @@ export default function Home() {
                   )
                 })}
               </div>
-              <div className="flex-1 min-w-0 overflow-hidden h-full">
+              <div className="flex-1 min-w-0 overflow-hidden">
                 {categoryProducts.length > 0 ? (
                   <motion.div
                     key={activeCategory}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.35 }}
-                    className="flex gap-3 overflow-x-auto pb-2 -mb-2 scrollbar-thin items-stretch h-full"
+                    className="flex gap-3 overflow-x-auto pb-2 -mb-2 scrollbar-thin"
                   >
                     {categoryProducts.map((p, i) => (
                       <motion.div
@@ -230,11 +230,11 @@ export default function Home() {
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: i * 0.04 }}
-                        className="shrink-0 h-full"
+                        className="shrink-0"
                       >
                         <Link
                           href={`/catalogue/${p.productId}`}
-                          className="group flex flex-col items-center justify-center gap-2 p-4 bg-white border border-tobacco-100 rounded-xl hover:border-gold/30 hover:shadow-md transition-all duration-300 h-full min-w-[180px]"
+                          className="group flex flex-col items-center justify-center gap-2 p-4 bg-white border border-tobacco-100 rounded-xl hover:border-gold/30 hover:shadow-md transition-all duration-300 h-[264px] w-[200px]"
                         >
                           {p.imageUrl && (
                             <div className="w-12 h-12 rounded-lg overflow-hidden bg-[#e2e2dd] relative shrink-0">
