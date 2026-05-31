@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Header, Footer } from '@/components/Layout'
 import { FeaturedProducts } from '@/components/FeaturedProducts'
@@ -23,6 +23,16 @@ export default function Home() {
   const { products } = useProducts()
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set())
+  const sidebarRef = useRef<HTMLDivElement>(null)
+  const [sidebarHeight, setSidebarHeight] = useState(0)
+
+  useEffect(() => {
+    const el = sidebarRef.current
+    if (!el) return
+    const ro = new ResizeObserver(([entry]) => setSidebarHeight(entry.contentRect.height))
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [activeCategory])
 
   const stats = (Array.isArray(content.home_stats) ? content.home_stats : [
     '39+|Premium Varieties',
@@ -190,7 +200,7 @@ export default function Home() {
 
           {activeCategory ? (
             <div className="flex gap-6 items-start">
-              <div className="w-full max-w-[280px] shrink-0 space-y-3">
+              <div ref={sidebarRef} className="w-full max-w-[280px] shrink-0 space-y-3">
                 {categories.map((cat, index) => {
                   const isActive = activeCategory === cat.title
                   return (
@@ -234,7 +244,8 @@ export default function Home() {
                       >
                         <Link
                           href={`/catalogue/${p.productId}`}
-                          className="group flex flex-col items-center justify-center gap-2 p-4 bg-white border border-tobacco-100 rounded-xl hover:border-gold/30 hover:shadow-md transition-all duration-300 h-[264px] w-[200px]"
+                          className="group flex flex-col items-center justify-center gap-2 p-4 bg-white border border-tobacco-100 rounded-xl hover:border-gold/30 hover:shadow-md transition-all duration-300 min-w-[200px]"
+                          style={{ height: sidebarHeight || 264 }}
                         >
                           {p.imageUrl && (
                             <div className="w-12 h-12 rounded-lg overflow-hidden bg-[#e2e2dd] relative shrink-0">
