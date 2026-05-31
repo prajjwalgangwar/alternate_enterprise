@@ -215,14 +215,14 @@ export default function Home() {
                   )
                 })}
               </div>
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 overflow-hidden">
                 {categoryProducts.length > 0 ? (
                   <motion.div
                     key={activeCategory}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.35 }}
-                    className="grid grid-cols-2 sm:grid-cols-3 gap-4"
+                    className="flex gap-3 overflow-x-auto pb-2 -mb-2 scrollbar-thin"
                   >
                     {categoryProducts.map((p, i) => (
                       <motion.div
@@ -230,13 +230,14 @@ export default function Home() {
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: i * 0.04 }}
+                        className="shrink-0"
                       >
                         <Link
                           href={`/catalogue/${p.productId}`}
-                          className="group block bg-white border border-tobacco-100 rounded-xl overflow-hidden hover:border-gold/30 hover:shadow-md transition-all duration-300"
+                          className="group flex items-center gap-3 p-5 bg-white border border-tobacco-100 rounded-xl hover:border-gold/30 hover:shadow-md transition-all duration-300 h-full min-w-[240px]"
                         >
                           {p.imageUrl && (
-                            <div className="aspect-[4/3] overflow-hidden bg-[#e2e2dd] relative">
+                            <div className="w-[52px] h-[52px] rounded-lg overflow-hidden bg-[#e2e2dd] relative shrink-0">
                               <div className={`absolute inset-0 bg-gradient-to-r from-[#d4d4cf] via-[#eaeae5] to-[#d4d4cf] bg-[length:200%_100%] animate-shimmer ${loadedImages.has(p.productId) ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`} />
                               <img
                                 src={p.imageUrl}
@@ -246,7 +247,7 @@ export default function Home() {
                               />
                             </div>
                           )}
-                          <div className="p-4">
+                          <div className="min-w-0 flex-1">
                             <p className="text-sm font-bold text-charcoal group-hover:text-gold transition-colors truncate">{p.name}</p>
                             <p className="text-[10px] text-gray-400 mt-0.5">{p.grade}</p>
                             <div className="flex gap-3 mt-2 text-[9px] text-gray-400">
