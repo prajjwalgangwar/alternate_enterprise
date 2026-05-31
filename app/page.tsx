@@ -211,16 +211,17 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.04 }}
                       onClick={() => setActiveCategory(isActive ? null : cat.title)}
-                      className={`p-3 rounded-xl cursor-pointer transition-all duration-300 border ${
+                      className={`p-3 rounded-xl cursor-pointer transition-all duration-300 border relative overflow-hidden ${
                         isActive
-                          ? 'bg-white border-gold/30 shadow-md shadow-gold/5'
+                          ? 'bg-gradient-to-r from-gold/5 to-white border-gold/30 shadow-md shadow-gold/5'
                           : 'bg-white/80 border-tobacco-100 hover:border-gold/20 hover:shadow-sm'
                       }`}
                     >
+                      {isActive && <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-gold to-gold/60 rounded-r" />}
                       <p className={`text-xs font-bold truncate transition-colors ${isActive ? 'text-gold' : 'text-charcoal'}`}>{cat.title}</p>
                       <p className="text-[10px] text-gray-400 truncate mt-0.5">{cat.desc}</p>
                       <div className="divider-gold my-2" />
-                      <p className="text-[9px] text-gold font-medium tracking-wider uppercase">{cat.specs}</p>
+                      <p className={`text-[9px] font-medium tracking-wider uppercase ${isActive ? 'text-gold' : 'text-gold'}`}>{cat.specs}</p>
                     </motion.div>
                   )
                 })}
@@ -232,7 +233,7 @@ export default function Home() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.35 }}
-                    className="flex gap-3 overflow-x-auto pb-2 -mb-2 scrollbar-thin"
+                    className="flex gap-3 overflow-x-auto pb-2 -mb-2 scrollbar-none"
                   >
                     {categoryProducts.map((p, i) => (
                       <motion.div
@@ -248,7 +249,7 @@ export default function Home() {
                           style={{ height: sidebarHeight || 264 }}
                         >
                           {p.imageUrl && (
-                            <div className="h-0 min-h-[45%] overflow-hidden bg-[#e2e2dd] relative">
+                            <div className="h-0 min-h-[60%] overflow-hidden bg-[#e2e2dd] relative">
                               <div className={`absolute inset-0 bg-gradient-to-r from-[#d4d4cf] via-[#eaeae5] to-[#d4d4cf] bg-[length:200%_100%] animate-shimmer ${loadedImages.has(p.productId) ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`} />
                               <img
                                 src={p.imageUrl}
