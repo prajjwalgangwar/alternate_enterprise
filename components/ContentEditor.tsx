@@ -419,21 +419,84 @@ export default function ContentEditor() {
         {activeSection === 'contact' && (
           <div className="relative">
             {!sectionVisible && <HiddenOverlay />}
-            <div className="flex items-center justify-between px-6 pt-5 pb-2">
-              <h3 className="text-sm font-bold text-charcoal flex items-center gap-2">
-                <span className="w-1 h-4 bg-gold rounded-full" />
-                Contact Section
-              </h3>
+            <div className="flex items-center justify-between px-6 pt-5 pb-2 bg-gradient-to-br from-primary-dark via-primary to-primary-light">
+              <h3 className="text-sm font-bold text-gold/60 uppercase tracking-wider">Contact Page</h3>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] text-gray-400 uppercase tracking-wider">Visible</span>
                 <SectionToggle visible={sectionVisible} onChange={() => toggleVisibility(section!.visibilityKey)} />
               </div>
             </div>
-            <div className="px-6 pb-6 space-y-4">
-              <EditableText value={v('home_contact_section_label')} onChange={(val) => setValue('home_contact_section_label', val)} className="text-gold text-[10px] uppercase tracking-wider font-semibold" />
+            <div className="bg-gradient-to-br from-primary-dark via-primary to-primary-light p-8 sm:p-12 pt-2">
+              <div className="max-w-3xl space-y-5">
+                <EditableText value={v('contact_hero_badge')} onChange={(val) => setValue('contact_hero_badge', val)} className="inline-block text-[10px] uppercase tracking-widest text-gold font-semibold border border-gold/20 rounded-full px-4 py-1.5" />
+                <div className="text-4xl sm:text-5xl font-bold leading-[1.1] space-y-1">
+                  <EditableText value={v('contact_hero_heading_1')} onChange={(val) => setValue('contact_hero_heading_1', val)} as="div" className="text-white/90" />
+                  <EditableText value={v('contact_hero_heading_2')} onChange={(val) => setValue('contact_hero_heading_2', val)} as="div" className="text-gradient-gold" />
+                </div>
+                <EditableText value={v('contact_hero_description')} onChange={(val) => setValue('contact_hero_description', val)} type="textarea" rows={2} as="p" className="text-sm sm:text-base text-gray-400/80 max-w-xl leading-relaxed" />
+              </div>
+            </div>
+            <div className="px-6 pb-6 space-y-4 pt-4">
+              <div className="grid grid-cols-2 gap-4">
+                <label className="block">
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Section Heading</span>
+                  <EditableText value={v('contact_section_heading')} onChange={(val) => setValue('contact_section_heading', val)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                </label>
+                <label className="block">
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Homepage Section Label</span>
+                  <EditableText value={v('home_contact_section_label')} onChange={(val) => setValue('home_contact_section_label', val)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                </label>
+              </div>
+              <label className="block">
+                <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-1 block">Section Description</span>
+                <EditableText value={v('contact_section_description')} onChange={(val) => setValue('contact_section_description', val)} type="textarea" rows={2} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+              </label>
+              <div className="border-t border-gray-200 pt-4">
+                <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-3">Contact Details</p>
+                <div className="grid grid-cols-2 gap-3">
+                  <label className="block">
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 mb-1 block">Email Label</span>
+                    <EditableText value={v('contact_email_label')} onChange={(val) => setValue('contact_email_label', val)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                  </label>
+                  <label className="block">
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 mb-1 block">Email Value</span>
+                    <EditableText value={v('contact_email_value')} onChange={(val) => setValue('contact_email_value', val)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                  </label>
+                  <label className="block">
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 mb-1 block">Phone Label</span>
+                    <EditableText value={v('contact_phone_label')} onChange={(val) => setValue('contact_phone_label', val)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                  </label>
+                  <label className="block">
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 mb-1 block">Phone Value</span>
+                    <EditableText value={v('contact_phone_value')} onChange={(val) => setValue('contact_phone_value', val)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                  </label>
+                  <label className="block">
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 mb-1 block">Location Label</span>
+                    <EditableText value={v('contact_location_label')} onChange={(val) => setValue('contact_location_label', val)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                  </label>
+                  <label className="block">
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 mb-1 block">Location Value</span>
+                    <EditableText value={v('contact_location_value')} onChange={(val) => setValue('contact_location_value', val)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                  </label>
+                </div>
+              </div>
+              <div className="border-t border-gray-200 pt-4">
+                <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-500 mb-3">Info Box</p>
+                <div className="grid grid-cols-2 gap-3">
+                  <label className="block">
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 mb-1 block">Label</span>
+                    <EditableText value={v('contact_info_box_label')} onChange={(val) => setValue('contact_info_box_label', val)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                  </label>
+                  <label className="block">
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 mb-1 block">Text</span>
+                    <EditableText value={v('contact_info_box_text')} onChange={(val) => setValue('contact_info_box_text', val)} className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2" />
+                  </label>
+                </div>
+              </div>
               <EditableText value={v('home_contact_heading')} onChange={(val) => setValue('home_contact_heading', val)} as="h2" className="text-3xl font-bold text-charcoal" />
               <EditableText value={v('home_contact_description')} onChange={(val) => setValue('home_contact_description', val)} type="textarea" rows={2} as="p" className="text-sm text-gray-500 max-w-xl" />
               <EditableText value={v('home_health_warning')} onChange={(val) => setValue('home_health_warning', val)} type="textarea" rows={3} className="text-[10px] text-gray-600 uppercase tracking-wider leading-relaxed text-center" />
+              <EditableText value={v('contact_health_warning')} onChange={(val) => setValue('contact_health_warning', val)} type="textarea" rows={3} className="text-[10px] text-gray-600 uppercase tracking-wider leading-relaxed text-center" />
             </div>
           </div>
         )}
