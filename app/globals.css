@@ -113,3 +113,21 @@ body {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
   animation: shimmer 1.5s infinite;
 }
+
+.scrollbar-premium::-webkit-scrollbar {
+  height: 4px;
+}
+
+.scrollbar-premium::-webkit-scrollbar-track {
+  background: #e2e2dd;
+  border-radius: 2px;
+}
+
+.scrollbar-premium::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #C79A3B, #a8812e);
+  border-radius: 2px;
+}
+
+.scrollbar-premium::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #d4a84a, #b89232);
+}
