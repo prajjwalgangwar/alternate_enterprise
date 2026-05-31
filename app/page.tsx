@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Header, Footer } from '@/components/Layout'
 import { FeaturedProducts } from '@/components/FeaturedProducts'
 import { EnquiryForm } from '@/components/EnquiryForm'
+import { useProducts } from '@/hooks/useProducts'
 import Link from 'next/link'
 import { useSiteContent } from '@/context/SiteContent'
 
@@ -19,6 +20,7 @@ const fadeUp = {
 
 export default function Home() {
   const { content } = useSiteContent()
+  const { products } = useProducts()
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
 
   const stats = (Array.isArray(content.home_stats) ? content.home_stats : [
@@ -40,6 +42,11 @@ export default function Home() {
     const [title, desc, specs] = s.split('|')
     return { title, desc, specs }
   })
+
+  const categoryProducts = useMemo(() => {
+    if (!activeCategory) return []
+    return products.filter((p) => p.category === activeCategory)
+  }, [products, activeCategory])
 
   return (
     <div className="min-h-screen flex flex-col bg-cream">
@@ -208,32 +215,56 @@ export default function Home() {
                 })}
               </div>
               <div className="flex-1 min-w-0">
-                {categories.filter((c) => c.title === activeCategory).map((cat) => (
+                {categoryProducts.length > 0 ? (
                   <motion.div
-                    key={cat.title}
+                    key={activeCategory}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.35 }}
-                    className="bg-white border border-tobacco-100 rounded-xl p-8"
+                    className="grid grid-cols-2 sm:grid-cols-3 gap-4"
                   >
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <h3 className="text-2xl font-bold text-charcoal">{cat.title}</h3>
-                        <p className="text-sm text-gray-500 mt-1">{cat.desc}</p>
-                      </div>
-                      <button
-                        onClick={() => setActiveCategory(null)}
-                        className="text-gray-400 hover:text-charcoal transition-colors p-1"
+                    {categoryProducts.map((p, i) => (
+                      <motion.div
+                        key={p.productId}
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: i * 0.04 }}
                       >
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                      </button>
-                    </div>
-                    <div className="divider-gold my-4" />
-                    <p className="text-[10px] text-gold font-medium tracking-wider uppercase">{cat.specs}</p>
+                        <Link
+                          href={`/catalogue/${p.productId}`}
+                          className="group block bg-white border border-tobacco-100 rounded-xl overflow-hidden hover:border-gold/30 hover:shadow-md transition-all duration-300"
+                        >
+                          {p.imageUrl && (
+                            <div className="aspect-[4/3] overflow-hidden bg-cream">
+                              <img
+                                src={p.imageUrl}
+                                alt={p.name}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              />
+                            </div>
+                          )}
+                          <div className="p-4">
+                            <p className="text-sm font-bold text-charcoal group-hover:text-gold transition-colors truncate">{p.name}</p>
+                            <p className="text-[10px] text-gray-400 mt-0.5">{p.grade}</p>
+                            <div className="flex gap-3 mt-2 text-[9px] text-gray-400">
+                              <span>N {p.nicotine}</span>
+                              <span>S {p.sugar}</span>
+                            </div>
+                          </div>
+                        </Link>
+                      </motion.div>
+                    ))}
                   </motion.div>
-                ))}
+                ) : (
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.35 }}
+                    className="bg-white border border-tobacco-100 rounded-xl p-8 text-center"
+                  >
+                    <p className="text-sm text-gray-400">No products in <span className="font-semibold text-charcoal">{activeCategory}</span> yet.</p>
+                  </motion.div>
+                )}
               </div>
             </div>
           ) : (
