@@ -92,7 +92,7 @@ export default function AgeGate() {
                     onClick={handleYes}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-8 py-3 bg-primary text-white text-sm font-bold rounded-xl tracking-wider uppercase hover:bg-primary-dark transition-all shadow-lg shadow-primary/20"
+                    className="px-8 py-3.5 bg-primary text-white text-sm font-bold rounded-xl tracking-wider uppercase hover:bg-primary-dark transition-all shadow-lg shadow-primary/20"
                   >
                     {(content.age_gate_yes_button as string) || 'I Am 21 or Older'}
                   </motion.button>
@@ -100,7 +100,7 @@ export default function AgeGate() {
                     onClick={handleNo}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-8 py-3 border border-gray-700 text-gray-400 text-sm font-semibold rounded-xl tracking-wider uppercase hover:border-red-500/50 hover:text-red-400 transition-all"
+                    className="px-8 py-3.5 border border-gray-700 text-gray-400 text-sm font-semibold rounded-xl tracking-wider uppercase hover:border-red-500/50 hover:text-red-400 transition-all"
                   >
                     {(content.age_gate_no_button as string) || 'I Am Under 21'}
                   </motion.button>

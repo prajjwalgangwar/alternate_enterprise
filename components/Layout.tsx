@@ -9,6 +9,7 @@ import { useSiteContent } from '@/context/SiteContent'
 export function Header() {
   const { content } = useSiteContent()
   const [offeringsOpen, setOfferingsOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const categories = (Array.isArray(content.catalogue_categories)
     ? content.catalogue_categories
@@ -18,7 +19,9 @@ export function Header() {
   const navLinks = [
     { label: content.nav_home as string, href: '/' },
     { label: content.nav_offerings as string, href: '/catalogue' },
+    { label: content.nav_about as string, href: '/about' },
     { label: content.nav_contact as string, href: '/contact' },
+    { label: content.nav_faq as string, href: '/faq' },
   ].filter((l) => l.label)
 
   return (
@@ -102,9 +105,85 @@ export function Header() {
                 )
               )}
             </nav>
+
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="md:hidden relative w-10 h-10 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
+              aria-label="Open menu"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
         </div>
       </motion.header>
+
+      {/* Mobile drawer */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            <motion.div
+              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            <motion.div
+              className="fixed top-0 right-0 z-50 h-full w-72 bg-premium-dark border-l border-gold/10 md:hidden shadow-2xl"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 250 }}
+            >
+              <div className="flex items-center justify-between px-5 py-4 border-b border-gold/10">
+                <span className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">Menu</span>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+                  aria-label="Close menu"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <nav className="flex flex-col py-4">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-6 py-3.5 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors tracking-wider uppercase font-medium"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                {categories.length > 0 && (
+                  <>
+                    <div className="mx-6 my-2 h-px bg-gold/10" />
+                    <p className="px-6 pt-2 pb-1 text-[10px] uppercase tracking-[0.2em] text-gold/60 font-semibold">
+                      Categories
+                    </p>
+                    {categories.map((cat) => (
+                      <Link
+                        key={cat}
+                        href={`/catalogue?category=${encodeURIComponent(cat)}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="px-6 py-2.5 text-xs text-gray-400 hover:text-white hover:bg-white/5 transition-colors tracking-wider uppercase"
+                      >
+                        {cat}
+                      </Link>
+                    ))}
+                  </>
+                )}
+              </nav>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   )
 }

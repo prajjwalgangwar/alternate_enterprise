@@ -62,7 +62,7 @@ export default function PrivacyClient() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="prose prose-sm max-w-none text-gray-600 leading-relaxed whitespace-pre-line"
+              className="prose prose-sm max-w-none text-gray-600 leading-relaxed whitespace-pre-line break-words"
             >
               {content.privacy_content}
             </motion.div>

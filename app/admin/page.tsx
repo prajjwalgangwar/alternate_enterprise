@@ -297,7 +297,7 @@ export default function AdminPage() {
 
         {/* Tabs */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <nav className="-mb-px flex gap-6">
+          <nav className="-mb-px flex gap-6 overflow-x-auto">
             <button
               onClick={() => setActiveTab('products')}
               className={`pb-3 text-sm font-semibold border-b-2 transition-colors ${
@@ -484,7 +484,7 @@ export default function AdminPage() {
                           <button
                             type="button"
                             onClick={() => removeImage(url)}
-                            className="absolute right-1.5 top-1.5 rounded bg-black/70 px-2 py-1 text-xs font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="absolute right-1.5 top-1.5 rounded bg-black/70 px-2 py-1 text-xs font-bold text-white opacity-60 hover:opacity-100 transition-opacity"
                           >
                             Remove
                           </button>
@@ -592,14 +592,14 @@ export default function AdminPage() {
                               <button
                                 type="button"
                                 onClick={() => editProduct(product)}
-                                className="rounded-lg border border-tobacco-200 px-3.5 py-2 text-sm font-semibold text-tobacco-800 hover:bg-tobacco-50 transition-all"
+                                className="rounded-lg border border-tobacco-200 px-3.5 py-2.5 text-sm font-semibold text-tobacco-800 hover:bg-tobacco-50 transition-all"
                               >
                                 Edit
                               </button>
                               <button
                                 type="button"
                                 onClick={() => removeProduct(product)}
-                                className="rounded-lg border border-red-200 px-3.5 py-2 text-sm font-semibold text-red-700 hover:bg-red-50 transition-all"
+                                className="rounded-lg border border-red-200 px-3.5 py-2.5 text-sm font-semibold text-red-700 hover:bg-red-50 transition-all"
                               >
                                 Delete
                               </button>
@@ -823,7 +823,7 @@ export default function AdminPage() {
                     <button
                       type="button"
                       onClick={() => handleDeleteMediaImage(image)}
-                      className="absolute top-2 right-2 rounded bg-black/70 px-2 py-1 text-[10px] font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute top-2 right-2 rounded bg-black/70 px-2 py-1 text-[10px] font-bold text-white opacity-60 hover:opacity-100 transition-opacity"
                     >
                       Delete
                     </button>

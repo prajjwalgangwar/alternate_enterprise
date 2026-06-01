@@ -84,7 +84,7 @@ function CatalogueContent() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`whitespace-nowrap text-[11px] uppercase tracking-[0.2em] font-semibold px-5 py-3.5 border-b-2 transition-all duration-200 ${
+                  className={`whitespace-nowrap text-[11px] uppercase tracking-[0.2em] font-semibold px-5 py-4 border-b-2 transition-all duration-200 ${
                     activeCategory === cat
                       ? 'border-gold text-gold'
                       : 'border-transparent text-gray-500 hover:text-gray-300 hover:border-gray-600'
@@ -96,7 +96,7 @@ function CatalogueContent() {
               {/* Spacer */}
               <div className="flex-1" />
               {/* Search */}
-              <div className="relative hidden sm:block w-48">
+              <div className="relative w-full max-w-48 sm:max-w-none">
                 <svg
                   className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3 h-3 text-gray-500"
                   fill="none"
@@ -201,7 +201,7 @@ function CatalogueContent() {
                             <div className="divider-gold my-2" />
 
                             <div className="flex items-center justify-between mb-2">
-                              <div className="grid grid-cols-4 gap-3 text-[10px] w-full">
+                              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-[10px] w-full">
                                 <div className="text-center">
                                   <p className="text-gray-500 uppercase tracking-wider">{specNico}</p>
                                   <p className="text-charcoal font-semibold">{product.nicotine}</p>

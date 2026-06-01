@@ -199,8 +199,8 @@ export default function HomeClient() {
           </div>
 
           {activeCategory ? (
-            <div className="flex gap-6 items-start">
-              <div ref={sidebarRef} className="w-full max-w-[280px] shrink-0 space-y-3">
+            <div className="flex flex-col md:flex-row gap-6 items-start">
+              <div ref={sidebarRef} className="w-full md:max-w-[280px] shrink-0 space-y-3">
                 {categories.map((cat, index) => {
                   const isActive = activeCategory === cat.title
                   return (

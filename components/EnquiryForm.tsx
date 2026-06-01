@@ -126,7 +126,7 @@ export function EnquiryForm({ initialProducts }: EnquiryFormProps) {
               type="button"
               onClick={() => toggleProduct(product)}
               disabled={loading}
-              className={`text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-2.5 rounded-xl border transition-all ${
+               className={`text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-3 rounded-xl border transition-all ${
                 selectedProducts.includes(product)
                   ? 'bg-gold text-charcoal border-gold'
                   : 'bg-white text-gray-500 border-gray-200 hover:border-gold/30'

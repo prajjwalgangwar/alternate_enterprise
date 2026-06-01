@@ -162,7 +162,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
                           initial={{ y: 12, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.25, duration: 0.3 }}
-                          className="grid grid-cols-4 gap-2"
+                          className="grid grid-cols-2 sm:grid-cols-4 gap-2"
                         >
                           {([
                             { label: 'Nico', value: product.nicotine },
