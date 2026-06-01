@@ -19,9 +19,7 @@ export function Header() {
   const navLinks = [
     { label: content.nav_home as string, href: '/' },
     { label: content.nav_offerings as string, href: '/catalogue' },
-    { label: content.nav_about as string, href: '/about' },
     { label: content.nav_contact as string, href: '/contact' },
-    { label: content.nav_faq as string, href: '/faq' },
   ].filter((l) => l.label)
 
   return (
