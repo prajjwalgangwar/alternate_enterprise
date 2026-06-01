@@ -66,7 +66,7 @@ export function Header() {
                   >
                     <a
                       href={link.href}
-                      className="text-sm text-gray-300 hover:text-primary-light transition-colors tracking-wider uppercase font-medium px-3 py-1.5 hover:bg-white/5 rounded-lg"
+                      className="text-sm text-gray-300 hover:text-primary-light transition-colors tracking-wider uppercase font-medium px-4 py-2.5 hover:bg-white/5 rounded-lg"
                     >
                       {link.label}
                     </a>
@@ -96,7 +96,7 @@ export function Header() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="text-sm text-gray-300 hover:text-primary-light transition-colors tracking-wider uppercase font-medium px-3 py-1.5 hover:bg-white/5 rounded-lg"
+                    className="text-sm text-gray-300 hover:text-primary-light transition-colors tracking-wider uppercase font-medium px-4 py-2.5 hover:bg-white/5 rounded-lg"
                   >
                     {link.label}
                   </a>
