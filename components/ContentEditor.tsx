@@ -320,12 +320,8 @@ export default function ContentEditor() {
                 </div>
                 <EditableText value={v('home_hero_description')} onChange={(val) => setValue('home_hero_description', val)} type="textarea" rows={2} as="p" className="text-sm sm:text-base text-gray-400/80 max-w-xl leading-relaxed" />
                 <div className="flex gap-3 pt-2">
-                  <span className="inline-block bg-gradient-to-r from-gold to-amber-500 text-charcoal text-xs font-bold px-5 py-2.5 rounded-full tracking-wider uppercase shadow-lg">
-                    {v('home_hero_cta_1') || 'Explore Collection'}
-                  </span>
-                  <span className="inline-block border border-gold/30 text-gold text-xs px-5 py-2.5 rounded-full tracking-wider uppercase font-semibold">
-                    {v('home_hero_cta_2') || 'Request a Quote'}
-                  </span>
+                  <EditableText value={v('home_hero_cta_1') || 'Explore Collection'} onChange={(val) => setValue('home_hero_cta_1', val)} className="inline-block bg-gradient-to-r from-gold to-amber-500 text-charcoal text-xs font-bold px-5 py-2.5 rounded-full tracking-wider uppercase shadow-lg" />
+                  <EditableText value={v('home_hero_cta_2') || 'Request a Quote'} onChange={(val) => setValue('home_hero_cta_2', val)} className="inline-block border border-gold/30 text-gold text-xs px-5 py-2.5 rounded-full tracking-wider uppercase font-semibold" />
                 </div>
               </div>
             </div>

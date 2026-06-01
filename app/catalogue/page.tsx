@@ -31,9 +31,16 @@ function CatalogueContent() {
     if (cat) setActiveCategory(cat)
   }, [searchParams])
 
-  const categories = Array.isArray(content.catalogue_categories)
-    ? content.catalogue_categories
-    : ['All', 'FCV Tobacco', 'Burley Tobacco', 'Country Blend', 'Zimbabwe Cured']
+  const categories = useMemo(() => {
+    const raw = Array.isArray(content.catalogue_categories)
+      ? content.catalogue_categories
+      : ['All', 'FCV Tobacco', 'Burley Tobacco', 'Country Blend', 'Zimbabwe Cured']
+    return [...raw].sort((a, b) => {
+      if (/^others?$/i.test(a)) return 1
+      if (/^others?$/i.test(b)) return -1
+      return 0
+    })
+  }, [content.catalogue_categories])
 
   const specNico = content.catalogue_spec_nico as string
   const specSugar = content.catalogue_spec_sugar as string
@@ -133,7 +140,16 @@ function CatalogueContent() {
                 {!!(content.catalogue_empty_message as string) && <p className="text-gray-500">{content.catalogue_empty_message as string}</p>}
               </div>
             ) : (
-              Object.entries(groupedCategories).map(([category, categoryProducts]) => (
+              Object.entries(groupedCategories).sort(([a], [b]) => {
+                const idxA = categories.indexOf(a)
+                const idxB = categories.indexOf(b)
+                if (idxA !== -1 && idxB !== -1) return idxA - idxB
+                if (idxA !== -1) return -1
+                if (idxB !== -1) return 1
+                if (/^others?$/i.test(a)) return 1
+                if (/^others?$/i.test(b)) return -1
+                return 0
+              }).map(([category, categoryProducts]) => (
                 <div key={category} className="mb-12 last:mb-0">
                   <motion.div
                     className="mb-6"

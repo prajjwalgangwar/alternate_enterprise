@@ -65,7 +65,7 @@ export function Header() {
                   >
                     <a
                       href={link.href}
-                      className="text-sm text-gray-400 hover:text-primary-light transition-colors tracking-wider uppercase font-medium"
+                      className="text-sm text-gray-300 hover:text-primary-light transition-colors tracking-wider uppercase font-medium px-3 py-1.5 hover:bg-white/5 rounded-lg"
                     >
                       {link.label}
                     </a>
@@ -82,7 +82,7 @@ export function Header() {
                             <Link
                               key={cat}
                               href={`/catalogue?category=${encodeURIComponent(cat)}`}
-                              className="block px-5 py-3 text-xs uppercase tracking-[0.15em] text-gray-400 hover:text-primary-light hover:bg-white/5 transition-all"
+                              className="block px-5 py-3 text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-primary-light hover:bg-white/5 transition-all"
                             >
                               {cat}
                             </Link>
@@ -95,7 +95,7 @@ export function Header() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-primary-light transition-colors tracking-wider uppercase font-medium"
+                    className="text-sm text-gray-300 hover:text-primary-light transition-colors tracking-wider uppercase font-medium px-3 py-1.5 hover:bg-white/5 rounded-lg"
                   >
                     {link.label}
                   </a>
