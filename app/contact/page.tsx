@@ -1,147 +1,20 @@
-'use client'
+import type { Metadata } from 'next'
+import ContactClient from './ContactClient'
 
-import { motion } from 'framer-motion'
-import { Header, Footer } from '@/components/Layout'
-import { EnquiryForm } from '@/components/EnquiryForm'
-import { useSiteContent } from '@/context/SiteContent'
+export const metadata: Metadata = {
+  title: 'Contact — Alternate Enterprises',
+  description:
+    'Contact Alternate Enterprises for bulk tobacco orders, B2B partnerships, and distribution inquiries. Reach our global trade team within 24 hours.',
+  openGraph: {
+    title: 'Contact — Alternate Enterprises',
+    description:
+      'Get in touch with Alternate Enterprises for premium tobacco export inquiries. B2B trade only.',
+    url: 'https://alternateenterprises.com/contact',
+    siteName: 'Alternate Enterprises',
+    type: 'website',
+  },
+}
 
 export default function ContactPage() {
-  const { content } = useSiteContent()
-
-  return (
-    <div className="min-h-screen flex flex-col bg-cream">
-      <Header />
-
-      <main className="flex-1">
-        {/* Hero */}
-        {(content.section_hero_visible as string) !== 'false' && (content.contact_hero_heading_1 as string) && (
-        <section className="relative py-20 sm:py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light" />
-          <div className="absolute inset-0 bg-tobacco-pattern opacity-[0.07]" />
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="inline-flex items-center gap-2 border border-gold/20 rounded-full px-4 py-1.5 text-gold text-[10px] uppercase tracking-[0.3em] font-semibold mb-6"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_6px_rgba(199,154,59,0.6)]" />
-              {!!(content.contact_hero_badge as string) && (content.contact_hero_badge as string)}
-            </motion.div>
-
-            <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-[1.1] tracking-tight"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-            >
-              {!!(content.contact_hero_heading_1 as string) && <span className="text-white/90">{content.contact_hero_heading_1 as string}</span>}{' '}
-              {!!(content.contact_hero_heading_2 as string) && <span className="text-gradient-gold">{content.contact_hero_heading_2 as string}</span>}
-            </motion.h1>
-
-            <motion.p
-              className="text-sm sm:text-base text-gray-400/80 max-w-xl mx-auto leading-relaxed font-light"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-            >
-              {!!(content.contact_hero_description as string) && (content.contact_hero_description as string)}
-            </motion.p>
-          </div>
-        </section>
-        )}
-
-        {/* Contact Form */}
-        <section className="py-16 sm:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                {!!(content.contact_section_heading as string) && <h2 className="text-2xl sm:text-3xl font-bold text-charcoal mb-4">
-                  {content.contact_section_heading as string}
-                </h2>}
-                {!!(content.contact_section_description as string) && <p className="text-sm text-gray-500 leading-relaxed mb-8">
-                  {content.contact_section_description as string}
-                </p>}
-
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
-                      <svg className="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <div>
-                      {!!(content.contact_email_label as string) && <h3 className="text-sm font-semibold text-charcoal">{content.contact_email_label as string}</h3>}
-                      {!!(content.contact_email_value as string) && <p className="text-sm text-gray-500 mt-0.5">{content.contact_email_value as string}</p>}
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
-                      <svg className="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                    </div>
-                    <div>
-                      {!!(content.contact_phone_label as string) && <h3 className="text-sm font-semibold text-charcoal">{content.contact_phone_label as string}</h3>}
-                      {!!(content.contact_phone_value as string) && <p className="text-sm text-gray-500 mt-0.5">{content.contact_phone_value as string}</p>}
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
-                      <svg className="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      {!!(content.contact_location_label as string) && <h3 className="text-sm font-semibold text-charcoal">{content.contact_location_label as string}</h3>}
-                      {!!(content.contact_location_value as string) && <p className="text-sm text-gray-500 mt-0.5">{content.contact_location_value as string}</p>}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-10 p-5 bg-premium-dark/5 rounded-lg border border-gold/10">
-                  {!!(content.contact_info_box_label as string) && <p className="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-semibold mb-2">
-                    {content.contact_info_box_label as string}
-                  </p>}
-                  {!!(content.contact_info_box_text as string) && <p className="text-xs text-gray-500 leading-relaxed">
-                    {content.contact_info_box_text as string}
-                  </p>}
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <EnquiryForm />
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Health Warning */}
-        {(content.section_health_warning_visible as string) !== 'false' && content.contact_health_warning && (
-        <section className="bg-premium-dark border-t border-gold/5">
-          <div className="max-w-4xl mx-auto px-4 py-8 text-center">
-            <p className="text-[9px] text-gray-600 leading-relaxed uppercase tracking-[0.2em]">
-              {content.contact_health_warning as string}
-            </p>
-          </div>
-        </section>
-        )}
-      </main>
-
-      <Footer />
-    </div>
-  )
+  return <ContactClient />
 }
