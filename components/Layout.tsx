@@ -38,8 +38,8 @@ export function Header() {
         transition={{ duration: 0.4 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between py-3.5">
-            <Link href="/">
+          <div className="flex items-center justify-between py-2.5 sm:py-3.5">
+            <Link href="/" className="py-1">
               <motion.div
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -108,82 +108,67 @@ export function Header() {
 
             {/* Mobile hamburger */}
             <button
-              onClick={() => setMobileMenuOpen(true)}
+              onClick={() => setMobileMenuOpen((p) => !p)}
               className="md:hidden relative w-10 h-10 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
-              aria-label="Open menu"
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              {mobileMenuOpen ? (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
       </motion.header>
 
-      {/* Mobile drawer */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <>
-            <motion.div
-              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm md:hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            <motion.div
-              className="fixed top-0 right-0 z-50 h-full w-72 bg-premium-dark border-l border-gold/10 md:hidden shadow-2xl"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-            >
-              <div className="flex items-center justify-between px-5 py-4 border-b border-gold/10">
-                <span className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">Menu</span>
-                <button
+      {/* Mobile popup menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed inset-x-0 top-14 bottom-0 z-40">
+          <div className="absolute inset-0 bg-black/40" onClick={() => setMobileMenuOpen(false)} />
+          <motion.div
+            className="relative mx-4 mt-1 bg-premium-dark border border-gold/10 rounded-xl shadow-2xl overflow-hidden"
+            initial={{ y: -8, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.15 }}
+          >
+            <nav className="flex flex-col py-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
-                  aria-label="Close menu"
+                  className="px-5 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors tracking-wider uppercase font-medium"
                 >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              <nav className="flex flex-col py-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="px-6 py-3.5 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors tracking-wider uppercase font-medium"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                {categories.length > 0 && (
-                  <>
-                    <div className="mx-6 my-2 h-px bg-gold/10" />
-                    <p className="px-6 pt-2 pb-1 text-[10px] uppercase tracking-[0.2em] text-gold/60 font-semibold">
-                      Categories
-                    </p>
-                    {categories.map((cat) => (
-                      <Link
-                        key={cat}
-                        href={`/catalogue?category=${encodeURIComponent(cat)}`}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="px-6 py-2.5 text-xs text-gray-400 hover:text-white hover:bg-white/5 transition-colors tracking-wider uppercase"
-                      >
-                        {cat}
-                      </Link>
-                    ))}
-                  </>
-                )}
-              </nav>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+                  {link.label}
+                </Link>
+              ))}
+              {categories.length > 0 && (
+                <>
+                  <div className="mx-5 my-1 h-px bg-gold/10" />
+                  <p className="px-5 pt-2 pb-1 text-[10px] uppercase tracking-[0.2em] text-gold/60 font-semibold">
+                    Categories
+                  </p>
+                  {categories.map((cat) => (
+                    <Link
+                      key={cat}
+                      href={`/catalogue?category=${encodeURIComponent(cat)}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-5 py-2.5 text-xs text-gray-400 hover:text-white hover:bg-white/5 transition-colors tracking-wider uppercase"
+                    >
+                      {cat}
+                    </Link>
+                  ))}
+                </>
+              )}
+            </nav>
+          </motion.div>
+        </div>
+      )}
     </>
   )
 }
